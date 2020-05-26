@@ -8,7 +8,7 @@ class OffersController < ApplicationController
         lat: offer.user.latitude,
         lng: offer.user.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { offer: offer }),
-        image_url: helpers.asset_url('../assets/images/logo.png')
+        image_url: helpers.asset_url('thread.png')
       }
     end
   end
