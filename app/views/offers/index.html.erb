@@ -6,14 +6,16 @@
             <%= text_field_tag :address,
               params[:address],
               placeholder: "Adresse",
-              class: "form-control"
+              class: "form-control",
+              id: "search"
             %>
             <%= number_field_tag :radius,
               params[:radius],
-              placeholder: "Rayon de recherche",
+              placeholder: "Rayon de recherche (km)",
               min: 1,
               max: 20,
-              class: "form-control"
+              class: "form-control",
+              id: "radius-form"
             %>
 
             <%= select_tag "product",
@@ -28,7 +30,8 @@
               placeholder: "Quantité",
               min: 1,
               max: 200,
-              class: "form-control"
+              class: "form-control",
+              id: "quantity-form"
             %>
 
           <div class="input-group-append">
@@ -39,18 +42,15 @@
   </div>
 
   <div class= "stock-text">
-
-
-    <% if @stock >= params[:quantity].to_i &&  @stock== 1 %>
-      <p>Il y a <%= @stock%> <%= @product.product_type %> disponible autour de vous</p>
-      <p>Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponibles autour de vous!</p>
-    <% elsif @stock >= params[:quantity].to_i && @stock > 1 %>
-      <p>Il y a <%= @stock%> <%= @product.product_type %>s disponible autour de vous</p>
-      <p>Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponibles autour de vous!</p>
-    <% else %>
-      <p>Il y a <%= @stock%> <%= @product.product_type %>s disponible autour de vous</p>
-      <p>Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour faire un appel à l'aide</p>
-    <% end %>
+    <% if @product.present? %>
+      <% if @stock >= params[:quantity].to_i &&  @stock== 1 %>
+        <p> <strong> <%= @stock%> </strong> <%= @product.product_type %> disponible. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
+      <% elsif @stock >= params[:quantity].to_i && @stock > 1 %>
+       <p> <strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
+      <% else %>
+        <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
+      <% end %>
+     <% end %>
   </div>
 
 
