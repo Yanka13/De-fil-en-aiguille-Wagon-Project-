@@ -1,12 +1,33 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $azure;
+
+  .btn-ghost .nav-link {
+    color: $primary;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  color: $prussian-blue;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 45px;
 }
+
+.dropdown {
+  padding-left: 10px;
+}
+
+.btn-ghost {
+  color: $primary;
+  border: 0.1px solid $primary;
+  padding: 0px 0px;
+  border-radius: 40px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+
