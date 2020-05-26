@@ -8,7 +8,7 @@
   }
 }
 // VARIABLES
-.my-container {
+.my-home-container {
  min-height: 10em;
  display: table-cell;
  vertical-align: middle;
@@ -17,21 +17,14 @@
  margin-bottom : 20px;
 }
 
-$color-header: #192F4E;
-$color-text: #467B9F;
+$color-header: $fire-opal;
+$color-text: $prussian-blue;
 
 $transition: .2s;
 
-.titre {
- margin-top: 30px;
- margin-bottom: 10px;
- color:#192F4E;
-}
-
-// MAIN CONTENT
-.grid {
+.grid-home {
   display: grid;
-  width: 100%;
+  width: auto;
   grid-gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: start;
@@ -40,7 +33,7 @@ $transition: .2s;
       grid-gap: 3rem;
    }
 
-  &__item {
+  &home-item {
     background-color: #fff;
     border-radius: .4rem;
     overflow: hidden;
@@ -55,26 +48,32 @@ $transition: .2s;
   }
 }
 
+h1 {
+  font-size: 25px;
+}
+
+p {
+  font-size: 14px;
+}
 .card {
-  &__img {
-    display: block;
+  &card-home-img {
+    display: inline-block;
     width: 100%;
-    height: 18rem;
-    object-fit: cover;
+    height: 10rem;
    }
 
-  &__content {
+  &card-home-content {
     padding: 3rem 3rem;
   }
 
-  &__header {
+  &card-home-header {
     font-size: 1.6rem;
     font-weight: 550;
     color: $color-header;
     margin-bottom: 1.2rem;
   }
 
-  &__text {
+  &card-home-text {
     font-size: 0.83rem;
     letter-spacing: .1rem;
     line-height: 1.6;

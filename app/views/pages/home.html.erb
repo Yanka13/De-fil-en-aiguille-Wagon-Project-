@@ -1,37 +1,38 @@
 <div class="container text-center">
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
-<<<<<<< HEAD
 
 <center>
   <div class="row">
-    <div class="my-container container">
-      <div class="grid">
+    <div class="my-home-container">
+      <div class="grid-home">
 
-            <div class="grid__item">
+            <div class="home-item">
               <div class="card">
-                <img class="card__img" src="search.svg">
-                <div class="card__content">
-                  <h1 class="card__header">Recherchez</h1>
-                  <p class="card__text">Discover a <strong>unique experience</strong> and start to become the best version of yourself.</p>
+                <%= image_tag "search.svg", class: "card-home-img" %>
+                <div class="card-home-content">
+                  <h1 class="card-home-header">Recherchez</h1>
+                  <p class="card-home-text">Effectuez une recherche <strong>simple et rapide</strong> et découvrez les vendeurs et acheteurs près de chez vous</p>
                 </div>
               </div>
             </div>
 
-            <div class="grid__item">
-              <div class="card"><img class="card__img" src="think.svg">
-                <div class="card__content">
-                  <h1 class="card__header">Rencontrez</h1>
-                  <p class="card__text">Capture the stunning <strong>essence</strong> of the early morning sunrise in the Californian wilderness.</p>
+            <div class="home-item">
+              <div class="card">
+                <%= image_tag "think.svg", class: "card-home-img" %>
+                <div class="card-home-content">
+                  <h1 class="card-home-header">Échangez</h1>
+                  <p class="card-home-text">Sur notre chat en ligne, et organisez une rencontre <strong>en toute sécurité</strong></p>
                 </div>
               </div>
             </div>
 
-            <div class="grid__item">
-              <div class="card"><img class="card__img" src="friend.svg">
-                <div class="card__content">
-                  <h1 class="card__header">Validez</h1>
-                  <p class="card__text">Unique moments to do, created by users from all over the world <strong>stunning</strong>incredible.</p>
+            <div class="home-item">
+              <div class="card">
+                <%= image_tag "friend.svg", class: "card-home-img" %>
+                <div class="card-home-content">
+                  <h1 class="card-home-header">Rencontrez</h1>
+                  <p class="card-home-text">Vos vendeurs et acheteurs, <strong>finalisez</strong> votre transaction, et donnez votre avis sur notre site</p>
                 </div>
               </div>
             </div>
@@ -41,9 +42,7 @@
   </div>
 </center>
 
+
+
 </div>
 
-=======
-<%= link_to "Sign now", new_user_session_path, class: "btn btn-lg btn-primary" %>
-</div>
->>>>>>> 30ac4666517e35a8fb1d37a50c0878c8ed8257c4
