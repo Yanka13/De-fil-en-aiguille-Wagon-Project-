@@ -1,1 +1,85 @@
 // Specific CSS for your home-page
+// MEDIA QUERY
+@mixin media($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 60em) {
+      @content;
+    }
+  }
+}
+// VARIABLES
+.my-container {
+ min-height: 10em;
+ display: table-cell;
+ vertical-align: middle;
+ margin-top:30px;
+ position :relative;
+ margin-bottom : 20px;
+}
+
+$color-header: #192F4E;
+$color-text: #467B9F;
+
+$transition: .2s;
+
+.titre {
+ margin-top: 30px;
+ margin-bottom: 10px;
+ color:#192F4E;
+}
+
+// MAIN CONTENT
+.grid {
+  display: grid;
+  width: 100%;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+
+  @include media(small) {
+      grid-gap: 3rem;
+   }
+
+  &__item {
+    background-color: #fff;
+    border-radius: .4rem;
+    overflow: hidden;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, .1);
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      transform: translateY(-.5%);
+      box-shadow: 0 4rem 8rem rgba(0, 0, 0, .2);
+    }
+  }
+}
+
+.card {
+  &__img {
+    display: block;
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+   }
+
+  &__content {
+    padding: 3rem 3rem;
+  }
+
+  &__header {
+    font-size: 1.6rem;
+    font-weight: 550;
+    color: $color-header;
+    margin-bottom: 1.2rem;
+  }
+
+  &__text {
+    font-size: 0.83rem;
+    letter-spacing: .1rem;
+    line-height: 1.6;
+    color: darken($color-text, 1%);
+    margin-bottom: 2.5rem;
+  }
+
+}
