@@ -1,7 +1,26 @@
 class OffersController < ApplicationController
   def index
+    @products = Product.all
+
+    if params[:address].present? && params[:radius].present? && params[:product] == ""
+    @users = User.near(params[:address], params[:radius].to_i)
+    @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id)) # returns offers with coordinates
+
+    elsif params[:address].present? && params[:radius].present? && params[:product].present?
+      @users = User.near(params[:address], params[:radius].to_i)
+      @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id)).where(product: params[:product]) # returns offers with coordinates
+
+    else
     @users = User.all
-    @offersgeoco = Offer.where(user: @users.geocoded ) # returns offers with coordinates
+    @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id))# returns offers with coordinates
+
+    end
+
+    @stock =  0
+    @offersgeoco.each do |offer|
+      @stock += offer.quantity
+    end
+     @product = Product.find(params[:product])
 
     @markers = @offersgeoco.map do |offer|
       {
