@@ -1,0 +1,7 @@
+<%= simple_form_for [@project] do |f| %>
+  <%= f.input :quantity %>
+  <%= f.input :deadline %>
+  <%= f.association :product, collection: Product.all.map {|product| product.product_type.capitalize}%>
+  <%= f.submit class: 'btn btn-primary'%>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn btn-outline-primary" %>
+<% end %>
