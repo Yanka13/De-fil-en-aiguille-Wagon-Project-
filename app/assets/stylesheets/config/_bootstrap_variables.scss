@@ -6,16 +6,16 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 $azure;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+$body-color: $prussian-blue;
+$primary:    $fire-opal;
+$success:    $light-green;
+$info:       $steel-blue;
+$danger:     $fire-opal;
+$warning:    $beau-blue;
 
 // Buttons & inputs' radius
 $border-radius:    2px;
@@ -23,3 +23,10 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$prussian-blue: #192F4E;
+$steel-blue: #467B9F;
+$fire-opal: #EC635E;
+$uranian-blue: #EC635E;
+$beau-blue: #D8EDFF;
+$light-green: #A0FCB4;
+$azure: #F1FFFF;
