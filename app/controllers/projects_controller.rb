@@ -1,9 +1,8 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :destroy]
+  before_action :set_project, only: [:show]
 
   def new
     @user = current_user
-    @product = Product.find_by(params[:product])
     @project = Project.new
     authorize @project
   end
@@ -19,11 +18,6 @@ class ProjectsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def destroy
-    @project.destroy
-    redirect_to projects_path # modifier vers le dashboard une fois créé
   end
 
   private
