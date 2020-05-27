@@ -1,1 +1,88 @@
-// Specific CSS for your home-page
+// MEDIAS
+@mixin media($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 60em) {
+      @content;
+    }
+  }
+}
+
+// VARIABLES
+.my-home-container {
+ min-height: 10em;
+ display: table-cell;
+ vertical-align: middle;
+ margin-top:30px;
+ position :relative;
+ margin-bottom : 20px;
+}
+
+$color-header: $fire-opal;
+$color-text: $prussian-blue;
+
+$transition: .2s;
+
+.grid-home {
+  display: grid;
+  width: auto;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+
+  @include media(small) {
+      grid-gap: 3rem;
+   }
+
+  &home-item {
+    background-color: #fff;
+    border-radius: .4rem;
+    overflow: hidden;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, .1);
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      transform: translateY(-.5%);
+      box-shadow: 0 4rem 8rem rgba(0, 0, 0, .2);
+    }
+  }
+}
+
+h1 {
+  font-size: 25px;
+}
+
+p {
+  font-size: 14px;
+}
+
+.card-home {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+
+  .card-home-img {
+    display: inline-block;
+    width: 150px;
+    padding-top: 20px;
+  }
+
+  .card-home-content {
+    padding: 3rem 3rem;
+    }
+
+  .card-home-header {
+    font-size: 1.6rem;
+    font-weight: 550;
+    color: $color-header;
+    margin-bottom: 1.2rem;
+  }
+
+  .card-home-text {
+    font-size: 0.83rem;
+    letter-spacing: .1rem;
+    line-height: 1.6;
+    color: darken($color-text, 1%);
+    margin-bottom: 0.1rem;
+  }
+
+}

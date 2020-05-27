@@ -30,6 +30,11 @@ class ProjectsController < ApplicationController
       render :edit
     end
   end
+  
+  def destroy
+    @project.destroy
+    redirect_to projects_path # modifier vers le dashboard une fois créé
+  end
 
   private
 
