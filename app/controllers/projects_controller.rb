@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show]
+  before_action :set_project, only: [:show, :destroy]
 
   def new
     @user = current_user
@@ -21,6 +21,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
+  end
+    
+  def destroy
+    @project.destroy
+    redirect_to projects_path # modifier vers le dashboard une fois créé
   end
 
   private
