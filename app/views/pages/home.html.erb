@@ -3,7 +3,35 @@
     <center>
     <h1>Rencontrez des vendeurs et acheteurs <strong>près de chez vous</strong> en <strong>toute sécurité</strong></h1>
     <p>Fil en Aiguille est une plateforme de mise en relation </p>
-    <a class="btn btn-primary" href="#">Recherchez des masques</a>
+
+<div class="search-bar">
+    <%= form_tag offers_path, method: :get do |f| %>
+      <div class="input-group ">
+            <%= text_field_tag :address,
+              params[:address],
+              placeholder: "Adresse",
+              class: "form-control",
+              id: "search"
+            %>
+            <%= hidden_field_tag :radius,
+              params[:radius],
+              value: 20
+            %>
+
+            <%= hidden_field_tag :product,
+              params[:product],
+              value: 1
+          %>
+
+          <div class="input-group-append">
+            <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
   </center>
   </div>
 </div>
@@ -20,7 +48,7 @@
                 <%= image_tag "search.svg", class: "card-home-img" %>
                 <div class="card-home-content">
                   <h1 class="card-home-header">Recherchez</h1>
-                  <p class="card-home-text">Effectuez une recherche <strong>simple et rapide</strong> et découvrez les vendeurs et acheteurs près de chez vous</p>
+                  <p class="card-home-text">Effectuez une recherche <strong>simple et rapide</strong> et découvrez les près de chez vous</p>
                 </div>
               </div>
             </div>
