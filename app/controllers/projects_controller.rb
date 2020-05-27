@@ -24,8 +24,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @brain.update(brain_params)
-      redirect_to brain_path(@brain)
+    if @project.update(project_params)
+      redirect_to project_path(@project)
     else
       render :edit
     end
