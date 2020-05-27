@@ -18,6 +18,8 @@
       <%= yield %>
     </div>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/footer' %>
+    <% unless params[:controller] == "offers" && params[:action] == "index" %>
+      <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>

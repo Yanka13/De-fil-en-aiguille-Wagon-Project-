@@ -36,6 +36,14 @@ class OffersController < ApplicationController
       @stock += offer.quantity
     end
 
+    if params[:address].present?
+      @center = Geocoder.search(params[:address]).first.coordinates
+      @marker_center = {
+        lat: @center[0],
+        lng: @center[1],
+        image_url: helpers.asset_url('location.png')
+      }
+    end
 
     @markers = @offersgeoco.map do |offer|
       {
