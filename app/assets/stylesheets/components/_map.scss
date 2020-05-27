@@ -1,8 +1,97 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: 240px;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
 }
 
+#search:hover {
+  border: 2px solid #DDDDDD;
+}
+
+#radius-form:hover {
+  border: 2px solid #DDDDDD;
+}
+
+#quantity-form:hover  {
+  border: 2px solid #DDDDDD;
+}
+
+.inputgroupperso:hover {
+  border: 2px solid #DDDDDD;
+}
+
+#price-form:hover {
+  border: 2px solid #DDDDDD;
+}
+
+#search {
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+#radius-form {
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+#quantity-form {
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+.inputgroupperso {
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+#price-form {
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+
 .mapboxgl-popup-content {
+  padding: 7px;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+  }
+
+  h2 {
+  font-size: 20px;
+  margin: 0;
+  }
+
+  p {
+  font-size: 10px;
+  margin-bottom: 0;
+  }
 }
+
+.blouse {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+
+.masque {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 5px;
+  top: 1px;
+}
+

@@ -1,5 +1,71 @@
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="container text-align-center">
+
+  <div class="search-bar">
+    <%= form_tag offers_path, method: :get do |f| %>
+      <div class="input-group mb-5 mt-5 d-flex justify-content-around ">
+            <%= text_field_tag :address,
+              params[:address],
+              placeholder: "Adresse",
+              class: "form-control",
+              id: "search"
+            %>
+            <%= number_field_tag :radius,
+              params[:radius],
+              placeholder: "Rayon de recherche (km)",
+              min: 1,
+              max: 20,
+              class: "form-control",
+              id: "radius-form"
+            %>
+
+            <%= select_tag "product",
+            options_from_collection_for_select(@products, "id", "product_type", params[:product]),
+            prompt: "Choisissez votre produit",
+            class: "custom-select",
+            id: "inputGroupSelect04"
+          %>
+
+            <%= number_field_tag :quantity,
+              params[:quantity],
+              placeholder: "Quantité",
+              min: 1,
+              max: 200,
+              class: "form-control",
+              id: "quantity-form"
+            %>
+
+            <%= number_field_tag :price,
+              params[:price],
+              placeholder: "Prix max par produit",
+              min: 1,
+              max: 20,
+              class: "form-control",
+              id: "price-form"
+            %>
+          <div class="input-group-append">
+            <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class= "stock-text">
+    <% if @product.present? %>
+      <% if @stock >= params[:quantity].to_i &&  @stock== 1 %>
+        <p> <strong> <%= @stock%> </strong> <%= @product.product_type %> disponible. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
+      <% elsif @stock >= params[:quantity].to_i && @stock > 1 %>
+       <p> <strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
+      <% else %>
+        <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
+      <% end %>
+     <% end %>
+  </div>
+
+
+  <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
+

@@ -1,2 +1,51 @@
-<h2><%= offer.user.first_name %> <%= offer.user.last_name %></h2>
-<p><%= offer.user.address %></p>
+
+<%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
+
+<div class="content-card-pop-up">
+  <div class="name-text">
+    <h2><%= offer.user.first_name.capitalize %> <%= offer.user.last_name.first.capitalize %>. </h2>
+  </div>
+  <span class="badge badge-pill badge-info">SuperMaskMaker</span>
+
+
+  <div class="description-text">
+    <% if offer.quantity.to_i > 0 %>
+      <p>Description - <%= offer.description %></p>
+    <% else %>
+      <p> Pas de stock disponible. </p>
+    <% end %>
+  </div>
+
+  <div class="stock-text">
+    <% if offer.product.product_type == "masque" && offer.quantity.to_i > 1 %>
+        <p> Stock - <strong> <%= offer.quantity %> </strong> <%= offer.product.product_type  %>s </p>
+        <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", class: "masque", alt: "masque" %>
+    <% elsif offer.product.product_type == "masque" && offer.quantity.to_i <= 1%>
+        <p> Stock - <strong> <%= offer.quantity %> </strong><%= offer.product.product_type  %> </p>
+        <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", class: "masque", alt: "masque" %>
+    <% elsif offer.product.product_type == "blouse" && offer.quantity.to_i > 1 %>
+        <p> Stock - <strong> <%= offer.quantity %> </strong> <%= offer.product.product_type  %>s </p>
+        <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", class: "blouse", alt: "blouse" %>
+    <% elsif offer.product.product_type == "blouse" && offer.quantity.to_i <= 1  %>
+        <p> Stock - <strong> <%= offer.quantity %> </strong><%= offer.product.product_type  %>  </p>
+        <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", class: "blouse", alt: "blouse" %>
+    <% elsif offer.product.product_type == "calot" && offer.quantity.to_i > 1  %>
+        <p> Stock - <strong> <%= offer.quantity %> </strong> <%= offer.product.product_type  %>s </p>
+    <% else %>
+        <p> Stock - <strong> <%= offer.quantity %> </strong> <%= offer.product.product_type  %>  </p>
+    <% end %>
+  </div>
+
+
+  <div class="price-text">
+    <% if offer.price.to_i > 0 %>
+      <p>Prix - <strong> <%= offer.price %> €</strong> par unité </p>
+    <% else %>
+      <p> Gratuit </p>
+    <% end %>
+  </div>
+
+  <div class="contact-button">
+  <%= link_to "Contact", offers_path %>
+  </div>
+</div>
