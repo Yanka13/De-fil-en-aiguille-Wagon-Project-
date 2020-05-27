@@ -1,0 +1,25 @@
+.banner-home-page {
+  background-size: cover;
+  background-position: center;
+  padding: 170px 0;
+}
+
+.banner-home-page h1 {
+  margin: 0;
+  color: $azure;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.banner-home-page p {
+  font-size: 20px;
+  color: $azure;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.container-banner {
+  padding: 20px;
+}
