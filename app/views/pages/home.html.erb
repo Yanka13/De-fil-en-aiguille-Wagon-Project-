@@ -1,5 +1,46 @@
 <div class="container text-center">
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "Sign now", new_user_session_path, class: "btn btn-lg btn-primary" %>
+
+<center>
+  <div class="row">
+    <div class="my-home-container">
+      <div class="grid-home">
+
+            <div class="home-item">
+              <div class="card-home">
+                <%= image_tag "search.svg", class: "card-home-img" %>
+                <div class="card-home-content">
+                  <h1 class="card-home-header">Recherchez</h1>
+                  <p class="card-home-text">Effectuez une recherche <strong>simple et rapide</strong> et découvrez les vendeurs et acheteurs près de chez vous</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="home-item">
+              <div class="card-home">
+                <%= image_tag "think.svg", class: "card-home-img" %>
+                <div class="card-home-content">
+                  <h1 class="card-home-header">Échangez</h1>
+                  <p class="card-home-text">Sur notre chat en ligne, et organisez une rencontre <strong>en toute sécurité</strong></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="home-item">
+              <div class="card-home">
+                <%= image_tag "friend.svg", class: "card-home-img" %>
+                <div class="card-home-content">
+                  <h1 class="card-home-header">Rencontrez</h1>
+                  <p class="card-home-text">Les vendeurs et acheteurs près de chez vous,et <strong>finalisez</strong> votre transaction</p>
+                </div>
+              </div>
+            </div>
+
+      </div>
+    </div>
+  </div>
+</center>
+
 </div>
+
