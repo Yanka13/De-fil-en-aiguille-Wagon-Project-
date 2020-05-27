@@ -2,7 +2,7 @@
 
   <div class="search-bar">
     <%= form_tag offers_path, method: :get do |f| %>
-      <div class="input-group mb-4 mt-4 d-flex justify-content-around ">
+      <div class="input-group mb-5 mt-5 d-flex justify-content-around ">
             <%= text_field_tag :address,
               params[:address],
               placeholder: "Adresse",
@@ -34,6 +34,14 @@
               id: "quantity-form"
             %>
 
+            <%= number_field_tag :price,
+              params[:price],
+              placeholder: "Prix maximum par produit",
+              min: 1,
+              max: 20,
+              class: "form-control",
+              id: "price-form"
+            %>
           <div class="input-group-append">
             <%= submit_tag "Search", class: "btn btn-outline-primary" %>
           </div>

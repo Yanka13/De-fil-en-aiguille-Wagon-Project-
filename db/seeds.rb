@@ -95,7 +95,8 @@ offer1 = Offer.new(
   user: elise,
   product: masque,
   quantity: 2,
-  description: "pour ces masques j'ai suivi les recommandations de l'AFNOR, tissu léger pour laisser respirer"
+  description: "pour ces masques j'ai suivi les recommandations de l'AFNOR, tissu léger pour laisser respirer",
+  price: 0
 )
 offer1.save
 
@@ -112,7 +113,9 @@ offer3 = Offer.new(
   user: mike,
   product: masque,
   quantity: 5,
-  description: "masque aux normes AFNOR"
+  description: "masque aux normes AFNOR",
+  price: 0
+
 )
 offer3.save
 

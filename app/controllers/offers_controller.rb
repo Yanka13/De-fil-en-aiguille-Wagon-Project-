@@ -1,26 +1,41 @@
 class OffersController < ApplicationController
   def index
+
     @products = Product.all
+    @stock =  0
 
-    if params[:address].present? && params[:radius].present? && params[:product] == ""
-    @users = User.near(params[:address], params[:radius].to_i)
-    @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id)) # returns offers with coordinates
-
-    elsif params[:address].present? && params[:radius].present? && params[:product].present?
+    if params[:address].present? && params[:radius].present? && params[:product].present? && params[:price].present?
       @product = Product.find(params[:product])
       @users = User.near(params[:address], params[:radius].to_i)
-      @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id)).where(product: params[:product]) # returns offers with coordinates
+      @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id)).where(product: params[:product]).where("price <= ?", params[:price])
+
+    elsif params[:address].present? && params[:radius].present? && params[:product].present? && params[:price] == ""
+      @product = Product.find(params[:product])
+      @users = User.near(params[:address], params[:radius].to_i)
+      @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id)).where(product: params[:product])
+
+    elsif params[:address].present? && params[:radius].present? && params[:product]== "" && params[:price].present?
+      @product = Product.find(params[:product])
+      @users = User.near(params[:address], params[:radius].to_i)
+      @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id)).where("price <= ?", params[:price])
+
+    elsif params[:address].present? && params[:radius].present? && params[:product] == "" && params[:price] == ""
+      @users = User.near(params[:address], params[:radius].to_i)
+      @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id))
+
+    elsif params[:address].present? && params[:radius] == "" && params[:product] == "" && params[:price] == ""
+      @users = User.near(params[:address], 4)
+      @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id))
 
     else
-    @users = User.all
-    @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id))# returns offers with coordinates
-
+      @users = User.all
+      @offersgeoco = policy_scope(Offer).where(user_id: @users.map(&:id))
     end
 
-    @stock =  0
-    @offersgeoco.each do |offer|
+    @offersgeoco.each do |offer| # pour bien avoir le total des produits disponible selon la recherche effectuée
       @stock += offer.quantity
     end
+
 
     @markers = @offersgeoco.map do |offer|
       {
@@ -30,5 +45,6 @@ class OffersController < ApplicationController
         image_url: helpers.asset_url('sewing-machine.png')
       }
     end
+
   end
 end
