@@ -3,8 +3,9 @@ class ProjectsController < ApplicationController
 
   def new
     @user = current_user
-    @project = Project.new
+    @project = Project.new(project_params)
     authorize @project
+    @product = Product.find(project_params[:product_id])
   end
 
   def create
@@ -30,7 +31,7 @@ class ProjectsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @project.destroy
     redirect_to projects_path # modifier vers le dashboard une fois créé
