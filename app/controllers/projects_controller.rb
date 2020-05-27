@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
   def new
     @user = current_user
+    @product = Product.find_by(params[:product])
     @project = Project.new
     authorize @project
   end

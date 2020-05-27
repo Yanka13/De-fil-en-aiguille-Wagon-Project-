@@ -1,2 +1,55 @@
-<h1>Créer un projet</h1>
-<%= render "form" %>
+<div class="container">
+  <div class="row m-3 justify-content-center">
+    <h1>Mon projet</h1>
+  </div>
+
+    <hr>
+
+  <div class="row pt-3">
+    <div class="recap_project col-6">
+      <h5>Récapitulatif du besoin</h5>
+      <div class="test">
+        <%= @product.product_type %>
+        <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %><%= " x 5" %>
+      </div>
+      <p>Mon budget : <br><%= "10 €" %><%= "#{params[:price]}€" %></p>
+      <p>Mon adresse : <br><%= "10 rue du square, 75015 Paris" %></p>
+      <%= link_to "J'ai une deadline", "#"%>
+      <input type="date">
+      <div class= "edit-project-buttons pt-3">
+        <%= link_to "Modifier", "#", class: "btn btn-outline-primary"%>
+      </div>
+    </div>
+
+    <!-- display le recap seulement si des personnes sont dispos -->
+    <div class="recap_collab col-6">
+      <h5>En créant votre projet, vous sollicitez leur aide</h5>
+      <div class="list-group">
+        <li href="#" class="list-group-item flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> Name</h5>
+            <small>Prix unité</small>
+          </div>
+          <p class="mb-1"><%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %><%= " qté" %></p>
+          <p class="mb-1">Adresse : 3 rue du tertre, 75003 Paris</p>
+          <small>Details.</small>
+        </li>
+        <li href="#" class="list-group-item flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> Name</h5>
+            <small>Prix unité</small>
+          </div>
+          <p class="mb-1"><%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %><%= " qté" %></p>
+          <p class="mb-1">Adresse : 3 rue du tertre, 75003 Paris</p>
+          <small>Details.</small>
+        </li>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-3 justify-content-center">
+    <div class="col-3 pt-3 justify-content-between">
+      <%= link_to "Créer le projet", "#", class: "btn btn-primary" %>
+      <%= link_to "Annuler", "#", class: "btn btn-outline-primary" %>
+    </div>
+  </div>
+</div>
