@@ -56,14 +56,9 @@ p {
   font-size: 14px;
 }
 
-.card-home:hover {
-  background-color: $beau-blue;
-}
-
 .card-home {
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 2px;
-  box-shadow: 0.5px 0.5px 5px $steel-blue;
+  border-radius: 4px;
 
   .card-home-img {
     display: inline-block;
