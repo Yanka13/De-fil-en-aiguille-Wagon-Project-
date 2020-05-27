@@ -1,5 +1,4 @@
-// Specific CSS for your home-page
-// MEDIA QUERY
+// MEDIAS
 @mixin media($breakpoint) {
   @if $breakpoint == small {
     @media (max-width: 60em) {
@@ -7,6 +6,7 @@
     }
   }
 }
+
 // VARIABLES
 .my-home-container {
  min-height: 10em;
@@ -55,30 +55,39 @@ h1 {
 p {
   font-size: 14px;
 }
-.card-home {
-  &card-home-img {
-    display: inline-block;
-    width: 100%;
-    height: 10rem;
-   }
 
-  &card-home-content {
-    padding: 3rem 3rem;
+.card-home:hover {
+  background-color: $beau-blue;
+}
+
+.card-home {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 2px;
+  box-shadow: 0.5px 0.5px 5px $steel-blue;
+
+  .card-home-img {
+    display: inline-block;
+    width: 150px;
+    padding-top: 20px;
   }
 
-  &card-home-header {
+  .card-home-content {
+    padding: 3rem 3rem;
+    }
+
+  .card-home-header {
     font-size: 1.6rem;
     font-weight: 550;
     color: $color-header;
     margin-bottom: 1.2rem;
   }
 
-  &card-home-text {
+  .card-home-text {
     font-size: 0.83rem;
     letter-spacing: .1rem;
     line-height: 1.6;
     color: darken($color-text, 1%);
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.1rem;
   }
 
 }
