@@ -1,6 +1,5 @@
 class OffersController < ApplicationController
   def index
-    raise
     @products = Product.all
     @stock =  0
 
