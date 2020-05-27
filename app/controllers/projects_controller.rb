@@ -20,6 +20,17 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @brain.update(brain_params)
+      redirect_to brain_path(@brain)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def project_params
