@@ -1,8 +1,8 @@
-<div class="container text-align-center">
+
 
   <div class="search-bar">
     <%= form_tag offers_path, method: :get do |f| %>
-      <div class="input-group mb-5 mt-5 d-flex justify-content-around ">
+      <div class="input-group ">
             <%= text_field_tag :address,
               params[:address],
               placeholder: "Adresse",
@@ -21,7 +21,7 @@
             <%= select_tag "product",
             options_from_collection_for_select(@products, "id", "product_type", params[:product]),
             prompt: "Choisissez votre produit",
-            class: "custom-select",
+            class: "custom-select inputgroupperso",
             id: "inputGroupSelect04"
           %>
 
@@ -49,23 +49,28 @@
     <% end %>
   </div>
 
-  <div class= "stock-text">
-    <% if @product.present? %>
-      <% if @stock >= params[:quantity].to_i &&  @stock== 1 %>
-        <p> <strong> <%= @stock%> </strong> <%= @product.product_type %> disponible. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
-      <% elsif @stock >= params[:quantity].to_i && @stock > 1 %>
-       <p> <strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
-      <% else %>
-        <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
-      <% end %>
-     <% end %>
-  </div>
 
 
   <div id="map"
        style="width: 100%; height: 600px;"
        data-markers="<%= @markers.to_json %>"
+       data-center="<%= @marker_center.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
+
+<% if @product.present? %>
+  <div class="call-to-action text-align-center">
+
+        <% if @stock >= params[:quantity].to_i &&  @stock== 1 %>
+          <p> <strong> <%= @stock%> </strong> <%= @product.product_type %> disponible. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
+          <%= link_to "Commander", new_project_path, class: "btn btn-primary" %>
+        <% elsif @stock >= params[:quantity].to_i && @stock > 1 %>
+         <p> <strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
+        <%= link_to "Commander", new_project_path, class: "btn btn-primary btn-call" %>
+        <% else %>
+          <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
+          <%= link_to "Créer un projet", new_project_path, class: "btn btn-primary btn-call" %>
+        <% end %>
+  </div>
+ <% end %>
 
