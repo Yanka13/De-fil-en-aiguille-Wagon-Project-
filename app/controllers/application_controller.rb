@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
+  def show
+  end
+
   private
 
   def skip_pundit?
