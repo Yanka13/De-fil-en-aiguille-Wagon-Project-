@@ -20,6 +20,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @brain.destroy
+    redirect_to brains_path # modifier vers le dashboard une fois créé
+  end
+
   private
 
   def project_params
