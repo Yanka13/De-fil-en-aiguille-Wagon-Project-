@@ -1,2 +1,84 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.form-control {
+    display: inline-block;
+    height: calc(1.5em + 0.8rem + 2.5px);
+    padding: 0.375rem 0.75rem;
+    color: $fire-opal;
+    background-color: #fff;
+    border: 1px double $steel-blue;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+ .input-group {
+    position: relative;
+    display: inline-flex;
+    border-radius: 6px;
+//     box-shadow: 0 0 5px $prussian-blue;
+//     background-color: white;
+}
+
+input, button, select, optgroup, textarea {
+    margin: 10px;
+}
+
+#quantity-form {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#address-search-bar {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#radius-search-bar {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#product-search-bar {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#quantity-search-bar {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#price-search-bar {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+  border-radius: 50px;
+}
+
+
+
+//SELECT
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    margin: 0px;
+    border: 1px solid $steel-blue;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: $steel-blue;
+    color: white;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: $steel-blue;
+}
+
+
+
+
+
+
+
+

@@ -1,13 +1,12 @@
-
-
   <div class="search-bar">
     <%= form_tag offers_path, method: :get do |f| %>
-      <div class="input-group ">
+        <div class="input-group">
+
             <%= text_field_tag :address,
               params[:address],
               placeholder: "Adresse",
               class: "form-control",
-              id: "search"
+              id: "address-search-bar"
             %>
             <%= number_field_tag :radius,
               params[:radius],
@@ -15,14 +14,14 @@
               min: 1,
               max: 20,
               class: "form-control",
-              id: "radius-form"
+              id: "radius-search-bar"
             %>
 
             <%= select_tag "product",
             options_from_collection_for_select(@products, "id", "product_type", params[:product]),
             prompt: "Choisissez votre produit",
-            class: "custom-select inputgroupperso",
-            id: "inputGroupSelect04"
+            class: "select2",
+            id: "product-search-bar"
           %>
 
             <%= number_field_tag :quantity,
@@ -31,24 +30,25 @@
               min: 1,
               max: 200,
               class: "form-control",
-              id: "quantity-form"
+              id: "quantity-search-bar"
             %>
 
             <%= number_field_tag :price,
               params[:price],
-              placeholder: "Prix max par produit",
+              placeholder: "Budget Maximum",
               min: 1,
               max: 20,
               class: "form-control",
-              id: "price-form"
+              id: "price-search-bar"
             %>
-          <div class="input-group-append">
-            <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+
+            <div class="input-group-append">
+            <%= submit_tag "Search", class: " btn btn-primary" %>
           </div>
+
       </div>
     <% end %>
   </div>
-
 
 
   <div id="map"

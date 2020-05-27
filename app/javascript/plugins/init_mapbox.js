@@ -59,10 +59,13 @@ const fitMapToMarkers = (map, markers) => {
 const initMapbox = () => {
   if (mapElement) {
     const center = JSON.parse(mapElement.dataset.center);
-    const map = buildMap(center);
-    const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers, center);
-    fitMapToMarkers(map, markers);
+    if (center) {
+      const map = buildMap(center);
+      const markers = JSON.parse(mapElement.dataset.markers);
+      addMarkersToMap(map, markers, center);
+      fitMapToMarkers(map, markers);
+    }
+
   }
 };
 
