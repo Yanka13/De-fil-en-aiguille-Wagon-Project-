@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:quantity, :status, :deadline, :product_id)
+    params.require(:project).permit(:quantity, :status, :deadline, :product_id, :budget)
   end
 
   def set_project
