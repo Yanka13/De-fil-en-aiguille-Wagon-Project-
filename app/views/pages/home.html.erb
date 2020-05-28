@@ -20,7 +20,7 @@
 
             <%= hidden_field_tag :product,
               params[:product],
-              value: 1
+              value: Product.find_by(product_type: "masque").id
           %>
 
           <div class="input-group-append">
