@@ -63,19 +63,18 @@
 
         <% if @stock >= params[:quantity].to_i &&  @stock== 1 %>
           <p> <strong> <%= @stock%> </strong> <%= @product.product_type %> disponible. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
-          <%= link_to "Commander", new_project_path, class: "btn btn-primary" %>
         <% elsif @stock >= params[:quantity].to_i && @stock > 1 %>
          <p> <strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
-        <%= link_to "Commander", new_project_path, class: "btn btn-primary btn-call" %>
         <% else %>
           <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
-          <%= link_to "Créer un projet",
+        <% end %>
+        <%= link_to "Créer un projet",
           new_project_path(project:
             { product_id: params[:product],
-            quantity: params[:quantity] }
+            quantity: params[:quantity],
+            budget: params[:price] }
             ),
           class: "btn btn-primary btn-call" %>
-        <% end %>
   </div>
  <% end %>
 
