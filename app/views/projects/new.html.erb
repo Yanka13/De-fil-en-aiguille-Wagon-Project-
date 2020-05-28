@@ -11,7 +11,7 @@
       <%= simple_form_for @project do |f| %>
         <%= f.association :product,
           collection: Product.all.map {|product| product.product_type.capitalize},
-          input_html: {value: f.object.product.product_type.capitalize || @project.product.product_type.capitalize } %>
+          selected: f.object.product.product_type.capitalize || @project.product.product_type.capitalize %>
         <%= f.input :quantity, input_html: {value: f.object.quantity || @project.quantity } %>
         <%= f.input :budget, input_html: {value: f.object.budget || @project.budget } %>
         <%= f.label "j'ai une deadline", class: "btn-outline-primary", id: "btn-project-datepicker" %>

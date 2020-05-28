@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @project.budget =  params[:project][:quantity].to_i * params[:price].to_f
     authorize @project
     @product = Product.find(project_params[:product_id])
-    @offers = Offer.find(params[:offers_id])
+    @offers = Offer.find(params[:offers_id]) if params[:offers_id]
   end
 
   def create
@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     @product = Product.find_by(params[:product_type])
     @project.product_id = @product.id
     if @project.save!
-      redirect_to new_project_path # modifier vers le project_show une fois créé
+      redirect_to project_path(@project) # modifier vers le project_show une fois créé
     else
       render :new
     end
