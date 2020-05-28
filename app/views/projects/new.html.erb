@@ -19,6 +19,11 @@
           <%= f.input :deadline, as: :string, required: false, input_html: {class: "datepicker"} %>
         </div>
         <!-- add notion of stocks -->
+          <%= simple_fields_for :matches do |p| %>
+            <%= p.input :offer_ids, as: :check_boxes,
+            collection: @offers.map { |offer| offer.id },
+            input_html: {  } %>
+          <% end %>
         <p>blablabla sur les stocks</p>
         <p>
           <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
@@ -26,7 +31,7 @@
         </p>
         <%= current_user.address %>
         <div class="submit-project mt-3 mb-1">
-          <%= f.submit class: 'btn btn-primary'%>
+          <%= f.submit class: 'btn btn-primary' %>
           <%= f.button :button, "Cancel", type: "reset", class: "btn btn-outline-primary" %>
         </div>
       <% end %>
@@ -34,17 +39,17 @@
 
     <!-- display le recap si et seulement si des personnes sont dispos -->
     <% if @offers.present? %>
-    <!-- recheck si la boucle fonctionne bien - recherche montigny par ex -->
       <div class="recap_collab col-6">
         <h5>En créant votre projet, vous sollicitez leur aide</h5>
         <div class="list-group">
           <% @offers.each do |offer| %>
-            <li class="list-group-item flex-column align-items-start">
+            <li class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
                 <small><%= "#{offer.price} €/unité" %></small>
               </div>
               <p class="mb-1">
+                <strong><%= "propose #{offer.quantity}" %>
                 <% if offer.product.product_type == "masque" %>
                   <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
                 <% elsif offer.product.product_type == "blouse" %>
@@ -52,7 +57,7 @@
                 <% else %>
                   <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
                 <% end %>
-                <strong><%= " x #{offer.quantity}" %></strong>
+                <%= " à #{offer.price} €/unité" %></strong>
               </p>
               <p class="mb-1"><%= offer.description.capitalize %></p>
               <small><%= offer.user.address %></small>

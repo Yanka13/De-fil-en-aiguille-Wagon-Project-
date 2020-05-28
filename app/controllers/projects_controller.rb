@@ -17,7 +17,10 @@ class ProjectsController < ApplicationController
     @product = Product.find_by(params[:product_type])
     @project.product_id = @product.id
     if @project.save!
-      redirect_to project_path(@project) # modifier vers le project_show une fois créé
+      params[:matches][:offer_ids].each do |offer_id|
+        Match.create(project: @project, offer_id: offer_id.to_i)
+      end
+      redirect_to project_path(@project)
     else
       render :new
     end
@@ -43,6 +46,10 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:quantity, :status, :deadline, :product_id, :budget)
+  end
+
+  def match_params
+    params.require(:matches).permit(:offer_ids)
   end
 
   def set_project

@@ -32,6 +32,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initSelect2 } from '../components/init_select2';
 import "../plugins/flatpickr"
 import { initCalendarDisplay } from '../plugins/init_calendar_display';
+import { initListGroupItemsAction } from '../plugins/init_list_group_items_action';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -39,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initCalendarDisplay();
-
+  initListGroupItemsAction();
 })
 
 
