@@ -23,6 +23,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show
+    @matches = @project.matches
+  end
+
   def edit
   end
 
