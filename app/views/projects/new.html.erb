@@ -28,28 +28,34 @@
     </div>
 
     <!-- display le recap si et seulement si des personnes sont dispos -->
-    <div class="recap_collab col-6">
-      <h5>En créant votre projet, vous sollicitez leur aide</h5>
-      <div class="list-group">
-        <li href="#" class="list-group-item flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> Name</h5>
-            <small>Prix unité</small>
-          </div>
-          <p class="mb-1"><%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %><%= " qté" %></p>
-          <p class="mb-1">Adresse : 3 rue du tertre, 75003 Paris</p>
-          <small>Details.</small>
-        </li>
-        <li href="#" class="list-group-item flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> Name</h5>
-            <small>Prix unité</small>
-          </div>
-          <p class="mb-1"><%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %><%= " qté" %></p>
-          <p class="mb-1">Adresse : 3 rue du tertre, 75003 Paris</p>
-          <small>Details.</small>
-        </li>
+    <% if @offers.present? %>
+    <!-- recheck si la boucle fonctionne bien - recherche montigny par ex -->
+      <div class="recap_collab col-6">
+        <h5>En créant votre projet, vous sollicitez leur aide</h5>
+        <div class="list-group">
+          <% @offers.each do |offer| %>
+            <li class="list-group-item flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
+                <small><%= "#{offer.price} €/unité" %></small>
+              </div>
+              <p class="mb-1">
+                <% if offer.product.product_type == "masque" %>
+                  <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
+                <% elsif offer.product.product_type == "blouse" %>
+                  <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %>
+                <% else %>
+                  <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
+                <% end %>
+                <strong><%= " x #{offer.quantity}" %></strong>
+              </p>
+              <p class="mb-1"><%= offer.description.capitalize %></p>
+              <small><%= offer.user.address %></small>
+            </li>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
+
   </div>
 </div>

@@ -68,13 +68,16 @@
         <% else %>
           <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
         <% end %>
+
         <%= link_to "Créer un projet",
           new_project_path(project:
             { product_id: params[:product],
             quantity: params[:quantity],
-            budget: params[:price] }
+            budget: params[:price].to_f*params[:quantity].to_f }, # user can indicate price per item, we can search thanks to it, and add total budget to project creation
+            offer_ids: @offersgeoco.pluck(:id)
             ),
           class: "btn btn-primary btn-call" %>
+
   </div>
  <% end %>
 

@@ -6,6 +6,10 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     authorize @project
     @product = Product.find(project_params[:product_id])
+    # @offers = params[:offer_ids].each do |offer_id|
+    #   Offer.find(offer_id.to_i)
+    # end
+    @offers = Offer.find(params[:offer_ids])
   end
 
   def create
