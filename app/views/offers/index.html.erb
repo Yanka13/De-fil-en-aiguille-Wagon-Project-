@@ -59,15 +59,16 @@
 
 
   <div class="call-to-action text-align-center">
-    
+
     <% if @product.present? && params[:quantity] == "" &&  @stock == 1 %>
       <p> <strong> <%= @stock%> </strong> <%= @product.product_type %> disponible. </p>
-     <%= link_to "Créer un projet",
+    <%= link_to "Créer un projet",
     new_project_path(project:
       { product_id: params[:product],
-      quantity: params[:quantity],
-      price: params[:price],
-      offers_id: @offersgeoco.pluck(:id) }
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
       ),
       class: "btn btn-primary btn-call" %>
 
@@ -76,9 +77,10 @@
     <%= link_to "Créer un projet",
     new_project_path(project:
       { product_id: params[:product],
-      quantity: params[:quantity],
-      price: params[:price],
-      offers_id: @offersgeoco.pluck(:id) }
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
       ),
     class: "btn btn-primary btn-call" %>
 
@@ -87,31 +89,34 @@
     <%= link_to "Créer un projet",
     new_project_path(project:
       { product_id: params[:product],
-      quantity: params[:quantity],
-      price: params[:price],
-      offers_id: @offersgeoco.pluck(:id) }
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
       ),
     class: "btn btn-primary btn-call" %>
 
     <% elsif @product.present? && params[:quantity].present? && @stock < params[:quantity].to_i %>
     <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponible... Cliquez ici pour demander de l'aide autour de vous!</p>
-     <%= link_to "Créer un projet",
+   <%= link_to "Créer un projet",
     new_project_path(project:
       { product_id: params[:product],
-      quantity: params[:quantity],
-      price: params[:price],
-      offers_id: @offersgeoco.pluck(:id) }
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
       ),
     class: "btn btn-primary btn-call" %>
 
     <% elsif @product.present? && params[:quantity].present? && @stock >= params[:quantity].to_i %>
       <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponible! Bonne nouvelle, il y a assez de <%= @product.product_type %>s autour de vous!</p>
-    <%= link_to "Créer un projet",
+   <%= link_to "Créer un projet",
     new_project_path(project:
       { product_id: params[:product],
-      quantity: params[:quantity],
-      price: params[:price],
-      offers_id: @offersgeoco.pluck(:id) }
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
       ),
      class: "btn btn-primary btn-call" %>
 
@@ -120,9 +125,10 @@
     <%= link_to "Créer un projet",
     new_project_path(project:
       { product_id: params[:product],
-      quantity: params[:quantity],
-      price: params[:price],
-      offers_id: @offersgeoco.pluck(:id) }
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
       ),
     class: "btn btn-primary btn-call" %>
 
