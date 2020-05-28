@@ -61,79 +61,79 @@
 
   <div class="call-to-action text-align-center">
 
-    <% if @product.present? && params[:quantity] == "" &&  @stock == 1 %>
-      <p> <strong> <%= @stock%> </strong> <%= @product.product_type %> disponible. </p>
-    <%= link_to "Créer un projet",
-    new_project_path(project:
-      { product_id: params[:product],
-      quantity: params[:quantity]
-      },
-      offers_id: @offersgeoco.pluck(:id),
-      price: params[:price]
-      ),
-      class: "btn btn-primary btn-call" %>
+    <% if @product.present? && params[:quantity] == "" && @stock == 1 %>
+      <p><strong><%= @stock%></strong><%= @product.product_type %> disponible.</p>
+      <%= link_to "Créer un projet",
+        new_project_path(project:
+          { product_id: params[:product],
+          quantity: params[:quantity]
+          },
+          offers_id: @offersgeoco.pluck(:id),
+          price: params[:price]
+          ),
+        class: "btn btn-primary btn-call" %>
 
     <% elsif @product.present? && params[:quantity] == "" && @stock > 1 %>
-   <p> <strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. </p>
-    <%= link_to "Créer un projet",
-    new_project_path(project:
-      { product_id: params[:product],
-      quantity: params[:quantity]
-      },
-      offers_id: @offersgeoco.pluck(:id),
-      price: params[:price]
-      ),
-    class: "btn btn-primary btn-call" %>
+      <p><strong><%= @stock%></strong><%= @product.product_type %>s disponibles.</p>
+      <%= link_to "Créer un projet",
+        new_project_path(project:
+          { product_id: params[:product],
+          quantity: params[:quantity]
+          },
+          offers_id: @offersgeoco.pluck(:id),
+          price: params[:price]
+          ),
+        class: "btn btn-primary btn-call" %>
 
-    <% elsif @product.present? && params[:quantity] == "" && @stock == 0  %>
-    <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponible. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
-    <%= link_to "Créer un projet",
-    new_project_path(project:
-      { product_id: params[:product],
-      quantity: params[:quantity]
-      },
-      offers_id: @offersgeoco.pluck(:id),
-      price: params[:price]
-      ),
-    class: "btn btn-primary btn-call" %>
+    <% elsif @product.present? && params[:quantity] == "" && @stock == 0 %>
+      <p><strong><%= @stock%></strong><%= @product.product_type %>s disponibles. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
+      <%= link_to "Créer un projet",
+        new_project_path(project:
+          { product_id: params[:product],
+          quantity: params[:quantity]
+          },
+          offers_id: @offersgeoco.pluck(:id),
+          price: params[:price]
+          ),
+        class: "btn btn-primary btn-call" %>
 
     <% elsif @product.present? && params[:quantity].present? && @stock < params[:quantity].to_i %>
-    <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponible... Cliquez ici pour demander de l'aide autour de vous!</p>
-   <%= link_to "Créer un projet",
-    new_project_path(project:
-      { product_id: params[:product],
-      quantity: params[:quantity]
-      },
-      offers_id: @offersgeoco.pluck(:id),
-      price: params[:price]
-      ),
-    class: "btn btn-primary btn-call" %>
+      <p><strong><%= @stock%></strong><%= @product.product_type %>s disponibles... Cliquez ici pour demander de l'aide autour de vous!</p>
+      <%= link_to "Créer un projet",
+        new_project_path(project:
+          { product_id: params[:product],
+          quantity: params[:quantity]
+          },
+          offers_id: @offersgeoco.pluck(:id),
+          price: params[:price]
+          ),
+        class: "btn btn-primary btn-call" %>
 
     <% elsif @product.present? && params[:quantity].present? && @stock >= params[:quantity].to_i %>
-      <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponible! Bonne nouvelle, il y a assez de <%= @product.product_type %>s autour de vous!</p>
-   <%= link_to "Créer un projet",
-    new_project_path(project:
-      { product_id: params[:product],
-      quantity: params[:quantity]
-      },
-      offers_id: @offersgeoco.pluck(:id),
-      price: params[:price]
-      ),
-     class: "btn btn-primary btn-call" %>
+      <p><strong><%= @stock%></strong><%= @product.product_type %>s disponibles! Bonne nouvelle, il y a assez de <%= @product.product_type %>s autour de vous!</p>
+      <%= link_to "Créer un projet",
+        new_project_path(project:
+          { product_id: params[:product],
+          quantity: params[:quantity]
+          },
+          offers_id: @offersgeoco.pluck(:id),
+          price: params[:price]
+          ),
+      class: "btn btn-primary btn-call" %>
 
-    <% elsif @product.present? && params[:quantity].present? && @stock == 0  %>
-    <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponible. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
-    <%= link_to "Créer un projet",
-    new_project_path(project:
-      { product_id: params[:product],
-      quantity: params[:quantity]
-      },
-      offers_id: @offersgeoco.pluck(:id),
-      price: params[:price]
-      ),
-    class: "btn btn-primary btn-call" %>
+    <% elsif @product.present? && params[:quantity].present? && @stock == 0 %>
+      <p><strong><%= @stock%></strong><%= @product.product_type %>s disponibles. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
+      <%= link_to "Créer un projet",
+        new_project_path(project:
+          { product_id: params[:product],
+          quantity: params[:quantity]
+          },
+          offers_id: @offersgeoco.pluck(:id),
+          price: params[:price]
+          ),
+        class: "btn btn-primary btn-call" %>
 
     <% else %>
-    <p> Veuillez nous en dire plus sur votre recherche s'il vous plaît 🧐</p>
-  <% end %>
+      <p>Veuillez nous en dire plus sur votre recherche s'il vous plaît 🧐</p>
+    <% end %>
  </div>

@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
     @project.budget =  params[:project][:quantity].to_i * params[:price].to_f
     authorize @project
     @product = Product.find(project_params[:product_id])
+    @offers = Offer.find(params[:offers_id])
   end
 
   def create
