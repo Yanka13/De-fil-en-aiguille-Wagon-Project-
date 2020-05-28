@@ -1,1 +1,49 @@
-<h1>Mon projet</h1>
+<div class="container-show-project">
+  <div class="card-show-project">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Récapitulatif</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Collaborateurs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Messages</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active align-content-tab" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <h5>Récapitulatif du besoin</h5>
+        <div class="test">
+          <%#= @product.product_type %>
+          <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %> x <%= @project.quantity %>
+        </div>
+        <p>Mon budget : <br><%= "10" %><%= "€" %></p>
+        <p>Mon adresse : <br><%= @project.user.address %></p>
+        <% if @project.deadline.present? %>
+          <p>Dedadline : <%= @project.deadline %></p>
+        <% else %>
+          <p>Deadline : --</p>
+        <% end %>
+        <div class= "edit-project-buttons pt-3">
+          <% if policy(@project).update? %>
+            <%= link_to 'Editer', edit_project_path(@project), class: "btn btn-outline-primary" %>
+          <% end %>
+          <% if policy(@project).destroy? %>
+            <%= link_to "Supprimer",
+                project_path(@project),
+                method: :delete,
+                data: { confirm: 'Voulez-vous supprimer le projet ?' },
+                class: "btn btn-outline-primary" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade align-content-tab" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        b
+      </div>
+      <div class="tab-pane fade align-content-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <p>< INSERTION DU CHAT ICI ></p>
+      </div>
+    </div>
+  </div>
+</div>

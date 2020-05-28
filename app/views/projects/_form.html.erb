@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-6 title">
       <%= simple_form_for @project do |f| %>
-        <%= f.association :product, collection: Product.all.map {|product| product.product_type.capitalize}%>
+        <%= f.association :product, label_method: lambda { |product| product.product_type.capitalize } %>
         <%= f.input :quantity %>
         <%= f.input :deadline %>
         <%= f.submit class: 'btn btn-primary'%>

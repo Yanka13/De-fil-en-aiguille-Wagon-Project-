@@ -59,7 +59,7 @@
 
 
   <div class="call-to-action text-align-center">
-
+    
     <% if @product.present? && params[:quantity] == "" &&  @stock == 1 %>
       <p> <strong> <%= @stock%> </strong> <%= @product.product_type %> disponible. </p>
      <%= link_to "Créer un projet",

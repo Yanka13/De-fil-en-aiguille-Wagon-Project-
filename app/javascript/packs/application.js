@@ -29,8 +29,13 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import "../plugins/flatpickr"
+import { initCalendarDisplay } from '../plugins/init_calendar_display';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
+  initCalendarDisplay();
 })
+
+
