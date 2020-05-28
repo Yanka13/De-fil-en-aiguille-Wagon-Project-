@@ -1,8 +1,8 @@
 <div class="banner-home-page" style="background-image: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.05)), url(<%= image_path "banner.jpg" %>)">
   <div class="container-banner">
-    <center>
-    <h1>Rencontrez des vendeurs et acheteurs <strong>près de chez vous</strong> en <strong>toute sécurité</strong></h1>
-    <p>Fil en Aiguille est une plateforme de mise en relation </p>
+
+    <h1>Fil en Aiguille</h1>
+    <p>Devenez un acteur éco-responsable </p>
 
   <div class="search-bar">
       <%= form_tag offers_path, method: :get do |f| %>
@@ -17,7 +17,7 @@
                 params[:radius],
                 value: 20
               %>
-          
+
             <%= hidden_field_tag :product,
               params[:product],
               value: Product.find_by(product_type: "masque").id
@@ -30,7 +30,7 @@
         </div>
       <% end %>
       </div>
-     </center>
+
     </div>
   </div>
 
