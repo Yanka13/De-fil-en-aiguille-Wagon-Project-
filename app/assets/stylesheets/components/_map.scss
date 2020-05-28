@@ -1,3 +1,32 @@
+.call-to-action {
+  background: #FFD842;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  bottom:0;
+  width:100%;
+  padding-top:50px;
+  padding-bottom: 50px;
+  color: $body-color;
+
+  p {
+    margin: 0;
+  }
+
+  .btn-call {
+    height: 40px;
+    margin-left: 55px;
+    position: relative;
+    top: -11px;
+  }
+ }
+
+
+
 .mapboxgl-popup {
   max-width: 240px;
   border-radius: 4px;
@@ -10,6 +39,21 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 
+
+
+
+.blouse {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+
+.card-grey {
+  opacity: 0.6;
+}
 
 .avatar {
   width: 40px;
@@ -27,15 +71,6 @@
   }
 }
 
-.blouse {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  left: 5px;
-  top: 5px;
-}
-
-
 .masque {
   width: 40px;
   height: 40px;
@@ -43,32 +78,4 @@
   left: 5px;
   top: 1px;
 }
-
-.call-to-action {
-  background: #FFD842;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  position: absolute;
-  height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding-top:50px;
-  padding-bottom: 50px;
-  color: $body-color;
-
-  p {
-    margin: 0;
-  }
-
-  .btn-call {
-    height: 40px;
-    margin-left: 22px;
-    position: relative;
-    top: -6px;
-  }
- }
 

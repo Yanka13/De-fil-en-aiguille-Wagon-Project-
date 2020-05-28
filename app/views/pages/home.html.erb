@@ -17,11 +17,11 @@
                 params[:radius],
                 value: 20
               %>
-
-              <%= hidden_field_tag :product,
-                params[:product],
-                value: 1
-              %>
+          
+            <%= hidden_field_tag :product,
+              params[:product],
+              value: Product.find_by(product_type: "masque").id
+          %>
 
             <div class="input-group-append-homepage">
               <%= submit_tag "Search", class: "btn btn-primary btn-lg button-search-bar" %>

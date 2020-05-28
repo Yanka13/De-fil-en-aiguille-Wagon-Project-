@@ -1,4 +1,4 @@
-  <div class="search-bar">
+<div class="search-bar">
     <%= form_tag offers_path, method: :get do |f| %>
         <div class="input-group">
             <%= text_field_tag :address,
@@ -12,7 +12,7 @@
               params[:radius],
               placeholder: "Rayon de recherche (km)",
               min: 1,
-              max: 20,
+              max: 40,
               class: "form-control",
               id: "radius-search-bar"
             %>
@@ -35,9 +35,9 @@
 
             <%= number_field_tag :price,
               params[:price],
-              placeholder: "Budget Maximum",
+              placeholder: "Prix maximum par produit",
               min: 1,
-              max: 20,
+              max: 30,
               class: "form-control",
               id: "price-search-bar"
             %>
@@ -58,19 +58,82 @@
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-<% if @product.present? %>
+
   <div class="call-to-action text-align-center">
 
-        <% if @stock >= params[:quantity].to_i &&  @stock== 1 %>
-          <p> <strong> <%= @stock%> </strong> <%= @product.product_type %> disponible. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
-          <%= link_to "Commander", new_project_path, class: "btn btn-primary" %>
-        <% elsif @stock >= params[:quantity].to_i && @stock > 1 %>
-         <p> <strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Bonne nouvelle, il y a assez de <%= @product.product_type  %> disponible autour de vous!</p>
-        <%= link_to "Commander", new_project_path, class: "btn btn-primary btn-call" %>
-        <% else %>
-          <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
-          <%= link_to "Créer un projet", new_project_path, class: "btn btn-primary btn-call" %>
-        <% end %>
-  </div>
- <% end %>
+    <% if @product.present? && params[:quantity] == "" &&  @stock == 1 %>
+      <p> <strong> <%= @stock%> </strong> <%= @product.product_type %> disponible. </p>
+    <%= link_to "Créer un projet",
+    new_project_path(project:
+      { product_id: params[:product],
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
+      ),
+      class: "btn btn-primary btn-call" %>
 
+    <% elsif @product.present? && params[:quantity] == "" && @stock > 1 %>
+   <p> <strong> <%= @stock%> </strong> <%= @product.product_type %>s disponibles. </p>
+    <%= link_to "Créer un projet",
+    new_project_path(project:
+      { product_id: params[:product],
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
+      ),
+    class: "btn btn-primary btn-call" %>
+
+    <% elsif @product.present? && params[:quantity] == "" && @stock == 0  %>
+    <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponible. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
+    <%= link_to "Créer un projet",
+    new_project_path(project:
+      { product_id: params[:product],
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
+      ),
+    class: "btn btn-primary btn-call" %>
+
+    <% elsif @product.present? && params[:quantity].present? && @stock < params[:quantity].to_i %>
+    <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponible... Cliquez ici pour demander de l'aide autour de vous!</p>
+   <%= link_to "Créer un projet",
+    new_project_path(project:
+      { product_id: params[:product],
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
+      ),
+    class: "btn btn-primary btn-call" %>
+
+    <% elsif @product.present? && params[:quantity].present? && @stock >= params[:quantity].to_i %>
+      <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponible! Bonne nouvelle, il y a assez de <%= @product.product_type %>s autour de vous!</p>
+   <%= link_to "Créer un projet",
+    new_project_path(project:
+      { product_id: params[:product],
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
+      ),
+     class: "btn btn-primary btn-call" %>
+
+    <% elsif @product.present? && params[:quantity].present? && @stock == 0  %>
+    <p><strong> <%= @stock%> </strong> <%= @product.product_type %>s disponible. Il n'y a pas sufisamment de <%= @product.product_type  %>s disponibles autour de vous, cliquez ici pour demander de l'aide autour de vous!</p>
+    <%= link_to "Créer un projet",
+    new_project_path(project:
+      { product_id: params[:product],
+      quantity: params[:quantity]
+      },
+      offers_id: @offersgeoco.pluck(:id),
+      price: params[:price]
+      ),
+    class: "btn btn-primary btn-call" %>
+
+    <% else %>
+    <p> Veuillez nous en dire plus sur votre recherche s'il vous plaît 🧐</p>
+  <% end %>
+ </div>
