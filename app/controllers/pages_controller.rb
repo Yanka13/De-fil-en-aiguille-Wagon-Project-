@@ -3,8 +3,5 @@ class PagesController < ApplicationController
 
   def home
     @products = Product.all
-    if params[:product].present?
-    @product = Product.find (params[:product])
-    end
   end
 end
