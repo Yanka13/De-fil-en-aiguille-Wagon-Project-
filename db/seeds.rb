@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Dropping database...'
+Match.destroy_all
+Project.destroy_all
 Offer.destroy_all
-User.destroy_all
 Product.destroy_all
+User.destroy_all
 
 puts 'Creating 7 users (5 mask-makers, 2 professionnels de santé)...'
 
@@ -83,7 +85,6 @@ anne = User.new(
   mask_maker: true
   )
 anne.save
-
 
 claire = User.new(
   first_name: "claire",
@@ -162,7 +163,6 @@ offer5 = Offer.new(
 )
 offer5.save
 
-
 offer6 = Offer.new(
   user: anne,
   product: masque,
@@ -179,7 +179,6 @@ offer7 = Offer.new(
   description: "je fais des blouses quand g le temps",
   price: 0
 )
-
 offer7.save
 
 offer8 = Offer.new(
@@ -189,6 +188,51 @@ offer8 = Offer.new(
   description: "je fais des blouses quand j'ai le temps",
   price: 0
 )
+offer8.save
 
-offer7.save
+puts 'Creating 3 Projects...'
+
+project1 = Project.new(
+  user: soraya,
+  product: blouse,
+  quantity: 8,
+  deadline: "2020-06-30",
+  budget: 16
+)
+project1.save
+
+project2 = Project.new(
+  user: yannis,
+  product: masque,
+  quantity: 80,
+  deadline: "2020-06-22",
+  budget: 8
+)
+project2.save
+
+project3 = Project.new(
+  user: yannis,
+  product: blouse,
+  quantity: 10,
+  deadline: "2020-06-22",
+  budget: 12
+)
+project3.save
+
+puts 'Creating 4 Matches...'
+
+match1 = Match.new(
+  project: project1,
+  offer: offer5,
+  quantity: 3
+)
+match1.save
+
+match2 = Match.new(
+  project: project2,
+  offer: offer3,
+  quantity: 5
+)
+match2.save
+
 puts 'Finished!'
