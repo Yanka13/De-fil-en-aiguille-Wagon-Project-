@@ -1,13 +1,13 @@
   <div class="search-bar">
     <%= form_tag offers_path, method: :get do |f| %>
         <div class="input-group">
-
             <%= text_field_tag :address,
               params[:address],
-              placeholder: "Adresse",
+              placeholder: " Indiquez votre adresse",
               class: "form-control",
               id: "address-search-bar"
             %>
+
             <%= number_field_tag :radius,
               params[:radius],
               placeholder: "Rayon de recherche (km)",
@@ -19,7 +19,7 @@
 
             <%= select_tag "product",
             options_from_collection_for_select(@products, "id", "product_type", params[:product]),
-            prompt: "Choisissez votre produit",
+            prompt: "Choissisez votre produit",
             class: "select2",
             id: "product-search-bar"
           %>

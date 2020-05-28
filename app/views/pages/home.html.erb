@@ -9,7 +9,7 @@
       <div class="input-group ">
             <%= text_field_tag :address,
               params[:address],
-              placeholder: "Adresse",
+              placeholder: "Indiquez votre adresse",
               class: "form-control",
               id: "search"
             %>
@@ -23,14 +23,13 @@
               value: 1
           %>
 
-          <div class="input-group-append">
-            <%= submit_tag "Search", class: "btn btn-outline-primary button-search-bar" %>
+          <div class="input-group-append-homepage">
+            <%= submit_tag "Search", class: "btn btn-primary btn-lg button-search-bar" %>
           </div>
 
       </div>
     <% end %>
   </div>
-
 
    </center>
 
