@@ -20,12 +20,12 @@
         </div>
 
         <!-- add notion of stocks -->
-      <p>blablabla sur les stocks</p>
-      <p>
-        <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
-        Mon adresse :
-      </p>
-      <%= current_user.address %>
+        <p>blablabla sur les stocks</p>
+        <p>
+          <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
+          Mon adresse :
+        </p>
+        <%= current_user.address %>
     </div>
 
               <% if @offers.present? %>
@@ -52,7 +52,10 @@
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
                               <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
-                                <small><%= "#{offer.price} €/unité" %></small>
+                                <small>
+                                  <%= p.input :quantity,
+                                  input_html: { value: offer.quantity } %>
+                                </small>
                               </div>
                               <p class="mb-1">
                                 <strong><%= "propose #{offer.quantity}" %>
