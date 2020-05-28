@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   border-radius: 4px;
+  justify-content: space-between;
 }
 
 .card-product img {
@@ -30,8 +31,10 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-product-infos {
   padding: 16px;
+  display: flex;
+  align-items: center;
 }
 
 .container-show-project-yannis {
@@ -39,6 +42,26 @@
   width: 100%;
 }
 
-.product-statu {
+.left-content-project-card{
+  display: flex;
+  flex-direction: row;
+}
 
+.right-content-project-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.product-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 13px;
+}
+
+.chat-icon {
+  position: relative;
+  top: 27px;
+  left: 470px;
 }
