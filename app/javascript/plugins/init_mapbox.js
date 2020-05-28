@@ -36,17 +36,18 @@ const addMarkersToMap = (map, markers, center) => {
       .setPopup(popup)
       .addTo(map);
   });
+  if (center) {
+    const pin = document.createElement('div');
+    pin.className = 'marker';
+    pin.style.backgroundImage = `url('${center.image_url}')`;
+    pin.style.backgroundSize = 'contain';
+    pin.style.width = '25px';
+    pin.style.height = '25px';
 
-  const pin = document.createElement('div');
-  pin.className = 'marker';
-  pin.style.backgroundImage = `url('${center.image_url}')`;
-  pin.style.backgroundSize = 'contain';
-  pin.style.width = '25px';
-  pin.style.height = '25px';
-
-  new mapboxgl.Marker(pin)
-    .setLngLat([center.lng, center.lat])
-    .addTo(map);
+    new mapboxgl.Marker(pin)
+      .setLngLat([center.lng, center.lat])
+      .addTo(map);
+  }
 };
 
 
@@ -59,10 +60,13 @@ const fitMapToMarkers = (map, markers) => {
 const initMapbox = () => {
   if (mapElement) {
     const center = JSON.parse(mapElement.dataset.center);
-    const map = buildMap(center);
-    const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers, center);
-    fitMapToMarkers(map, markers);
+    if (center) {
+      const map = buildMap(center);
+      const markers = JSON.parse(mapElement.dataset.markers);
+      addMarkersToMap(map, markers, center);
+      fitMapToMarkers(map, markers);
+    }
+
   }
 };
 

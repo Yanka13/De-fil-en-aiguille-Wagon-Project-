@@ -12,7 +12,7 @@ Offer.destroy_all
 Product.destroy_all
 User.destroy_all
 
-puts 'Creating 5 users (3 mask-makers, 2 professionnels de santé)...'
+puts 'Creating 7 users (5 mask-makers, 2 professionnels de santé)...'
 
 elise = User.new(
   first_name: "elise",
@@ -74,6 +74,30 @@ mike = User.new(
   )
 mike.save
 
+anne = User.new(
+  first_name: "anne",
+  last_name: "loba",
+  nickname: "annie",
+  email: "annie@example.com",
+  password: "annie@example.com",
+  address: "42 rue vieille du temple, Paris",
+  category: "particulier",
+  mask_maker: true
+  )
+anne.save
+
+claire = User.new(
+  first_name: "claire",
+  last_name: "loba",
+  nickname: "claire",
+  email: "claire@example.com",
+  password: "claire@example.com",
+  address: "42 rue du Chaffault, Paris",
+  category: "particulier",
+  mask_maker: true
+  )
+claire.save
+
 puts 'Creating 3 products...'
 
 masque = Product.new(
@@ -91,7 +115,7 @@ calot = Product.new(
   )
 calot.save
 
-puts 'Creating 5 offers...'
+puts 'Creating 8 offers...'
 
 offer1 = Offer.new(
   user: elise,
@@ -138,6 +162,33 @@ offer5 = Offer.new(
   price: 2
 )
 offer5.save
+
+offer6 = Offer.new(
+  user: anne,
+  product: masque,
+  quantity: 0,
+  description: "masques afnor sur mesure mp",
+  price: 0
+)
+offer6.save
+
+offer7 = Offer.new(
+  user: claire,
+  product: blouse,
+  quantity: 0,
+  description: "je fais des blouses quand g le temps",
+  price: 0
+)
+offer7.save
+
+offer8 = Offer.new(
+  user: elise,
+  product: blouse,
+  quantity: 0,
+  description: "je fais des blouses quand j'ai le temps",
+  price: 0
+)
+offer8.save
 
 puts 'Creating 3 Projects...'
 
