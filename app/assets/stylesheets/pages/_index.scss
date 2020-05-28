@@ -1,2 +1,67 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.form-control {
+    display: inline-block;
+    height: calc(1.5em + 0.8rem + 2.5px);
+    padding: 0.375rem 0.75rem;
+    color: $fire-opal;
+    background-color: #fff;
+    border: 1px double $steel-blue;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+ .input-group {
+    position: relative;
+    display: inline-flex;
+    border-radius: 6px;
+//     box-shadow: 0 0 5px $prussian-blue;
+//     background-color: white;
+}
+
+input, button, select, optgroup, textarea {
+    margin: 10px;
+}
+
+#quantity-form {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#address-search-bar {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  max-width: 400px;
+}
+
+#radius-search-bar {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  max-width: 300px;
+}
+
+#product-search-bar {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#quantity-search-bar {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  max-width: 150px;
+}
+
+#price-search-bar {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  max-width: 170px;
+}
+
+.input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+  border-radius: 50px;
+}
+
+
+
+
+

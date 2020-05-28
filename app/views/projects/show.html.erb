@@ -18,7 +18,7 @@
           <%#= @product.product_type %>
           <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %> x <%= @project.quantity %>
         </div>
-        <p>Mon budget : <br><%= "10" %><%= "€" %></p>
+        <p>Mon budget : <br><%= @project.budget %><%= "€" %></p>
         <p>Mon adresse : <br><%= @project.user.address %></p>
         <% if @project.deadline.present? %>
           <p>Dedadline : <%= @project.deadline %></p>

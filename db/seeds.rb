@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Dropping database...'
+Match.destroy_all
+Project.destroy_all
 Offer.destroy_all
-User.destroy_all
 Product.destroy_all
+User.destroy_all
 
-puts 'Creating 5 users (3 mask-makers, 2 professionnels de santé)...'
+puts 'Creating 7 users (5 mask-makers, 2 professionnels de santé)...'
 
 elise = User.new(
   first_name: "elise",
@@ -72,6 +74,30 @@ mike = User.new(
   )
 mike.save
 
+anne = User.new(
+  first_name: "anne",
+  last_name: "loba",
+  nickname: "annie",
+  email: "annie@example.com",
+  password: "annie@example.com",
+  address: "42 rue vieille du temple, Paris",
+  category: "particulier",
+  mask_maker: true
+  )
+anne.save
+
+claire = User.new(
+  first_name: "claire",
+  last_name: "loba",
+  nickname: "claire",
+  email: "claire@example.com",
+  password: "claire@example.com",
+  address: "42 rue du Chaffault, Paris",
+  category: "particulier",
+  mask_maker: true
+  )
+claire.save
+
 puts 'Creating 3 products...'
 
 masque = Product.new(
@@ -89,7 +115,7 @@ calot = Product.new(
   )
 calot.save
 
-puts 'Creating 5 offers...'
+puts 'Creating 8 offers...'
 
 offer1 = Offer.new(
   user: elise,
@@ -136,5 +162,77 @@ offer5 = Offer.new(
   price: 2
 )
 offer5.save
+
+offer6 = Offer.new(
+  user: anne,
+  product: masque,
+  quantity: 0,
+  description: "masques afnor sur mesure mp",
+  price: 0
+)
+offer6.save
+
+offer7 = Offer.new(
+  user: claire,
+  product: blouse,
+  quantity: 0,
+  description: "je fais des blouses quand g le temps",
+  price: 0
+)
+offer7.save
+
+offer8 = Offer.new(
+  user: elise,
+  product: blouse,
+  quantity: 0,
+  description: "je fais des blouses quand j'ai le temps",
+  price: 0
+)
+offer8.save
+
+puts 'Creating 3 Projects...'
+
+project1 = Project.new(
+  user: soraya,
+  product: blouse,
+  quantity: 8,
+  deadline: "2020-06-30",
+  budget: 16
+)
+project1.save
+
+project2 = Project.new(
+  user: yannis,
+  product: masque,
+  quantity: 80,
+  deadline: "2020-06-22",
+  budget: 8
+)
+project2.save
+
+project3 = Project.new(
+  user: yannis,
+  product: blouse,
+  quantity: 10,
+  deadline: "2020-06-22",
+  budget: 12
+)
+project3.save
+
+puts 'Creating 4 Matches...'
+
+match1 = Match.new(
+  project: project1,
+  offer: offer5,
+  quantity: 3
+)
+match1.save
+
+match2 = Match.new(
+  project: project2,
+  offer: offer3,
+  quantity: 5
+)
+match2.save
 
 puts 'Finished!'

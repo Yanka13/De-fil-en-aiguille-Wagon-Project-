@@ -4,8 +4,10 @@ class ProjectsController < ApplicationController
   def new
     @user = current_user
     @project = Project.new(project_params)
+    @project.budget =  params[:project][:quantity].to_i * params[:price].to_f
     authorize @project
     @product = Product.find(project_params[:product_id])
+    @offers = Offer.find(params[:offers_id])
   end
 
   def create
