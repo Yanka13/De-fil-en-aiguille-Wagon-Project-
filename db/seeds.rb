@@ -360,7 +360,8 @@ project2 = Project.new(
   product: masque,
   quantity: 40,
   deadline: "2020-04-10",
-  budget: 80
+  budget: 80,
+  status: "terminé"
 )
 project2.save
 
@@ -373,21 +374,24 @@ puts 'Creating 4 Matches...'
 match2 = Match.new(
   project: project2,
   offer: offer13,
-  quantity: 5
+  quantity: 5,
+  status: "terminé"
 )
 match2.save
 
 match3 = Match.new(
   project: project2,
   offer: offer14,
-  quantity: 5
+  quantity: 5,
+  status: "terminé"
 )
 match3.save
 
 match4 = Match.new(
   project: project2,
   offer: offer9,
-  quantity: 10
+  quantity: 10,
+  status: "terminé"
 )
 match4.save
 
@@ -395,7 +399,8 @@ match4.save
 match5 = Match.new(
   project: project2,
   offer: offer10,
-  quantity: 10
+  quantity: 10,
+  status: "terminé"
 )
 match5.save
 
@@ -403,7 +408,8 @@ match5.save
 match6 = Match.new(
   project: project2,
   offer: offer11,
-  quantity: 7
+  quantity: 7,
+  status: "terminé"
 )
 match6.save
 
@@ -411,7 +417,8 @@ match6.save
 match7 = Match.new(
   project: project2,
   offer: offer12,
-  quantity: 3
+  quantity: 3,
+  status: "terminé"
 )
 match7.save
 
