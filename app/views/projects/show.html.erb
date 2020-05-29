@@ -29,7 +29,7 @@
         <p>Mon budget : <br><%= @project.budget %><%= "€" %></p>
         <p>Mon adresse : <br><%= @project.user.address %></p>
         <% if @project.deadline.present? %>
-          <p>Dedadline : <%= @project.deadline %></p>
+          <p>Deadline : <%= @project.deadline %></p>
         <% else %>
           <p>Deadline : --</p>
         <% end %>
@@ -50,12 +50,14 @@
         <% @matches.each do |match|%>
             <div class="card-product">
               <div class="left-content-project-card">
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <img src=<%= match.offer.user.photo %> />
                 <div class="card-product-infos">
                   <div class="desc">
-                    <h2><%= match.offer.user.first_name.capitalize %></h2>
-                    <p>Quantité : <%= match.offer.quantity %></p>
-                    <p><%= match.offer.description %></p>
+                    <div class="mask-maker-name-and-level">
+                      <h2><%= "#{match.offer.user.first_name.capitalize}  " %></h2>
+                      <span class="badge badge-pill badge-info"><%= match.offer.user.level %></span>
+                    </div>
+                    <p><%= match.offer.quantity %> <%= @project.product.product_type.capitalize %></p>
                   </div>
                 </div>
               </div>
@@ -74,15 +76,21 @@
         <% end %>
       </div>
       <div class="tab-pane fade align-content-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <% @projects.each do |project|%>
+        <% @user_projects.each do |project|%>
           <div class="card-product">
             <div class="left-content-project-card">
               <div class="card-product-infos">
                 <div class="desc">
-                  <h2><%= @project.product.product_type.capitalize %></h2>
-                  <p>Quantité : <%= @project.quantity %></p>
-                  <p>Dedadline : <%= @project.deadline %></p>
+                  <h2><%= project.product.product_type.capitalize %></h2>
+                  <p>Quantité : <%= project.quantity %></p>
+                  <p>Deadline : <%= project.deadline %></p>
                 </div>
+              </div>
+            </div>
+            <div class="right-content-project-card">
+              <div class="product-status">
+                <div class="green-badge"></div>
+                <span><em>Projet terminé</em></span>
               </div>
             </div>
           </div>

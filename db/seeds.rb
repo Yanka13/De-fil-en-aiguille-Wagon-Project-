@@ -80,7 +80,7 @@ mike = User.new(
   category: "particulier",
   mask_maker: true,
   level: "Couturier Junior",
-  photo: "https://kitt.lewagon.com/placeholder/users/krokrob"
+  photo: "https://avatars0.githubusercontent.com/u/61206672?v=4"
   )
 mike.save
 
@@ -94,7 +94,7 @@ anne = User.new(
   category: "particulier",
   mask_maker: true,
   level: "Couturière Junior",
-  photo: "https://kitt.lewagon.com/placeholder/users/cveneziani"
+  photo: "https://avatars2.githubusercontent.com/u/61512090?v=4"
   )
 anne.save
 
@@ -108,7 +108,7 @@ claire = User.new(
   category: "particulier",
   mask_maker: true,
   level: "Couturière Junior",
-  photo: "https://kitt.lewagon.com/placeholder/users/sarahlafer"
+  photo: "https://avatars3.githubusercontent.com/u/35339451?v=4"
 
   )
 claire.save
@@ -123,7 +123,7 @@ sebastien = User.new(
   category: "particulier",
   mask_maker: true,
   level: "Couturier Junior",
-  photo: "https://kitt.lewagon.com/placeholder/users/arthur-littm"
+  photo: "https://avatars3.githubusercontent.com/u/61217555?v=4"
   )
 sebastien.save
 
@@ -137,7 +137,7 @@ eric = User.new(
   category: "particulier",
   mask_maker: true,
   level: "Couturier Junior",
-  photo: "https://kitt.lewagon.com/placeholder/users/arthur-littm"
+  photo: "https://avatars2.githubusercontent.com/u/61455340?v=4"
   )
 eric.save
 
@@ -152,7 +152,7 @@ julia = User.new(
   category: "particulier",
   mask_maker: true,
   level: "Couturière de tonerre",
-  photo: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1494&q=80"
+  photo: "https://avatars3.githubusercontent.com/u/60839390?v=4"
   )
 julia.save
 
@@ -166,7 +166,7 @@ amine = User.new(
   category: "particulier",
   mask_maker: true,
   level: "Couturier confirmé",
-  photo: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+  photo: "https://avatars3.githubusercontent.com/u/62165886?v=4"
   )
 amine.save
 
@@ -180,7 +180,7 @@ clara = User.new(
   category: "particulier",
   mask_maker: true,
   level: "Couturier Junior",
-  photo: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+  photo: "https://avatars0.githubusercontent.com/u/60292126?v=4"
   )
 clara.save
 
@@ -194,7 +194,7 @@ yasmina = User.new(
   category: "particulier",
   mask_maker: true,
   level: "Couturier Junior",
-  photo: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1494&q=80"
+  photo: "https://avatars2.githubusercontent.com/u/61580912?v=4"
   )
 yasmina.save
 puts 'Creating 3 products...'
