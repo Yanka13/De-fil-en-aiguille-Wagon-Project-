@@ -18,49 +18,85 @@
         <div class="d-none" id="project-deadline">
           <%= f.input :deadline, as: :string, required: false, input_html: {class: "datepicker"} %>
         </div>
+
         <!-- add notion of stocks -->
-        <p>blablabla sur les stocks</p>
+
         <p>
           <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
           Mon adresse :
         </p>
         <%= current_user.address %>
-        <div class="submit-project mt-3 mb-1">
-          <%= f.submit class: 'btn btn-primary'%>
-          <%= f.button :button, "Cancel", type: "reset", class: "btn btn-outline-primary" %>
-        </div>
-      <% end %>
     </div>
 
-    <!-- display le recap si et seulement si des personnes sont dispos -->
-    <% if @offers.present? %>
-    <!-- recheck si la boucle fonctionne bien - recherche montigny par ex -->
-      <div class="recap_collab col-6">
-        <h5>En créant votre projet, vous sollicitez leur aide</h5>
-        <div class="list-group">
-          <% @offers.each do |offer| %>
-            <li class="list-group-item flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
-                <small><%= "#{offer.price} €/unité" %></small>
-              </div>
-              <p class="mb-1">
-                <% if offer.product.product_type == "masque" %>
-                  <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
-                <% elsif offer.product.product_type == "blouse" %>
-                  <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %>
-                <% else %>
-                  <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
-                <% end %>
-                <strong><%= " x #{offer.quantity}" %></strong>
-              </p>
-              <p class="mb-1"><%= offer.description.capitalize %></p>
-              <small><%= offer.user.address %></small>
-            </li>
+              <% if @offers.present? %>
+                <div class="recap_collab col-6">
+
+          <%= simple_fields_for :matches do |m| %>
+            <%#= p.input :offer_ids, as: :check_boxes,
+            collection: @offers.map { |offer| offer.id },
+            input_html: {  } %>
+
+            <fieldset class="form-group check_boxes required matches_offer_ids">
+              <legend class="col-form-label pt-0">Sollicitez leur aide<abbr title="required">*</abbr></legend>
+
+              <input type="hidden" name="matches[offer_ids][]" value="">
+
+
+                    <div class="list-group">
+
+                      <% @offers.each do |offer| %>
+
+                        <div class="form-check">
+                          <input class="form-check-input check_boxes required d-none" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
+                          <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                              <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
+                                <small>
+                                  <%= m.input :match_quantity,
+                                              input_html: {
+                                                value: offer.quantity,
+                                                name: "matches[match_quantity_offer_#{offer.id}]",
+                                                id: "match_quantity_offer_#{offer.id}"
+                                              } %>
+                                </small>
+                              </div>
+                              <p class="mb-1">
+                                <strong><%= "propose #{offer.quantity}" %>
+                                <% if offer.product.product_type == "masque" %>
+                                  <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
+                                <% elsif offer.product.product_type == "blouse" %>
+                                  <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %>
+                                <% else %>
+                                  <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
+                                <% end %>
+                                <%= " à #{offer.price} €/unité" %></strong>
+                              </p>
+                              <p class="mb-1"><%= offer.description.capitalize %></p>
+                              <small><%= offer.user.address %></small>
+                            </li>
+                          </label>
+                        </div>
+
+                      <% end %>
+
+                    </div>
           <% end %>
+
+
+            </fieldset>
+
+          <% end %>
+      </div>
+
+      <div class="row col-12 justify-content-center">
+        <div class="submit-project mt-3 mb-1">
+          <%= f.submit class: 'btn btn-primary' %>
+          <%= f.button :button, "Cancel", type: "reset", class: "btn btn-outline-primary" %>
         </div>
       </div>
     <% end %>
 
   </div>
+
 </div>

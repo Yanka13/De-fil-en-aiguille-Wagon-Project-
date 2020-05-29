@@ -15,7 +15,7 @@ const buildMap = (center) => {
       container: 'map',
       style: 'mapbox://styles/yanka13/ckanz4tlh4z9a1il6hglrrkw4',
     });
-    }
+    };
 };
 
 const addMarkersToMap = (map, markers, center) => {
@@ -47,7 +47,7 @@ const addMarkersToMap = (map, markers, center) => {
     new mapboxgl.Marker(pin)
       .setLngLat([center.lng, center.lat])
       .addTo(map);
-  }
+  };
 };
 
 
@@ -65,9 +65,8 @@ const initMapbox = () => {
       const markers = JSON.parse(mapElement.dataset.markers);
       addMarkersToMap(map, markers, center);
       fitMapToMarkers(map, markers);
-    }
-
-  }
+    };
+  };
 };
 
 export { initMapbox };
