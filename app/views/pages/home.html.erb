@@ -1,8 +1,10 @@
 <div class="banner-home-page" style="background-image: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.05)), url(<%= image_path "banner.jpg" %>)">
   <div class="container-banner">
-    <center>
-    <h1>Rencontrez des vendeurs et acheteurs <strong>près de chez vous</strong> en <strong>toute sécurité</strong></h1>
-    <p>Fil en Aiguille est une plateforme de mise en relation </p>
+
+    <div class="font-banner-color">
+    <h1>De Fil en Aiguille</h1>
+    <p>Confectionnez et trouvez des masques autour de vous</p>
+    </div>
 
 <div class="search-bar">
     <%= form_tag offers_path, method: :get do |f| %>
@@ -27,15 +29,11 @@
             <%= submit_tag "Search", class: "btn btn-outline-primary" %>
           </div>
       </div>
+
+  </div>
+
     <% end %>
   </div>
-
-
-
-  </center>
-  </div>
-</div>
-
 
 
 <center>
