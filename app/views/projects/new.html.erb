@@ -31,7 +31,7 @@
               <% if @offers.present? %>
                 <div class="recap_collab col-6">
 
-          <%= simple_fields_for :matches do |p| %>
+          <%= simple_fields_for :matches do |m| %>
             <%#= p.input :offer_ids, as: :check_boxes,
             collection: @offers.map { |offer| offer.id },
             input_html: {  } %>
@@ -53,8 +53,12 @@
                               <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
                                 <small>
-                                  <%= p.input :quantity,
-                                  input_html: { value: offer.quantity } %>
+                                  <%= m.input :match_quantity,
+                                              input_html: {
+                                                value: offer.quantity,
+                                                name: "matches[match_quantity_offer_#{offer.id}]",
+                                                id: "match_quantity_offer_#{offer.id}"
+                                              } %>
                                 </small>
                               </div>
                               <p class="mb-1">

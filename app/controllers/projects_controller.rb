@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @product = Product.find(project_params[:product_id])
     @offers = Offer.order('price ASC, quantity DESC').find(params[:offers_id]) if params[:offers_id]
+    @matches_quantity = []
   end
 
   def create
@@ -16,10 +17,9 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
     @product = Product.find_by(params[:product_type])
     @project.product_id = @product.id
-
     if @project.save!
       params[:matches][:offer_ids].each do |offer_id|
-        Match.create(project: @project, offer_id: offer_id.to_i, quantity: quantity)
+        Match.create(project: @project, offer_id: offer_id.to_i, quantity: params[:matches]["#{:match_quantity_offer_}"+"#{offer_id}"])
       end
       redirect_to project_path(@project)
     else
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
   end
 
   def match_params
-    params.require(:matches).permit(:offer_ids, :quantity)
+    params.require(:matches).permit(:offer_ids, :match_quantity)
   end
 
   def set_project

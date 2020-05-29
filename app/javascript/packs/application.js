@@ -37,7 +37,7 @@ import { initListGroupItemsAction } from '../plugins/init_list_group_items_actio
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
-  initMapbox();
+  // initMapbox();
   initAutocomplete();
   initCalendarDisplay();
   initListGroupItemsAction();
