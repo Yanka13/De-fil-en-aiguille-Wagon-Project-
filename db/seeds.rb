@@ -71,11 +71,11 @@ soraya = User.new(
 soraya.save
 
 mike = User.new(
-  first_name: "emile",
+  first_name: "mike",
   last_name: "mmra",
-  nickname: "emile",
-  email: "emile@example.com",
-  password: "emile@example.com",
+  nickname: "mikey",
+  email: "mikey@example.com",
+  password: "mikey@example.com",
   address: "70 Rue Mazarine, 75006 Paris",
   category: "particulier",
   mask_maker: true,
@@ -85,11 +85,11 @@ mike = User.new(
 mike.save
 
 anne = User.new(
-  first_name: "alex",
+  first_name: "anne",
   last_name: "loba",
-  nickname: "alex",
-  email: "alex@example.com",
-  password: "alex@example.com",
+  nickname: "annie",
+  email: "annie@example.com",
+  password: "annie@example.com",
   address: "42 rue vieille du temple, Paris",
   category: "particulier",
   mask_maker: true,
@@ -114,11 +114,11 @@ claire = User.new(
 claire.save
 
 sebastien = User.new(
-  first_name: "julien",
+  first_name: "sebastien",
   last_name: "hobert",
-  nickname: "julien",
-  email: "julien@example.com",
-  password: "julien@example.com",
+  nickname: "seb",
+  email: "sebastien@example.com",
+  password: "sebastien@example.com",
   address: "6 Rue les Enfants du Paradis, Boulogne-Billancourt",
   category: "particulier",
   mask_maker: true,
@@ -128,11 +128,11 @@ sebastien = User.new(
 sebastien.save
 
 eric = User.new(
-  first_name: "ugo",
+  first_name: "eric",
   last_name: "pierrus",
-  nickname: "ugo",
-  email: "ugo@example.com",
-  password: "ugo@example.com",
+  nickname: "eric-koh-lanta",
+  email: "eric@example.com",
+  password: "eric@example.com",
   address: "10 Rue de Fontenay, Nogent-sur-Marne",
   category: "particulier",
   mask_maker: true,
@@ -143,11 +143,11 @@ eric.save
 
 
 julia = User.new(
-  first_name: "coralie",
+  first_name: "julia",
   last_name: "monnet",
-  nickname: "coralie",
-  email: "coralie@example.com",
-  password: "coralie@example.com",
+  nickname: "julia",
+  email: "julia@example.com",
+  password: "julia@example.com",
   address: "10 Rue Henri Barbusse, Joinville-le-Pont, Île-de-France, France",
   category: "particulier",
   mask_maker: true,
@@ -157,11 +157,11 @@ julia = User.new(
 julia.save
 
 amine = User.new(
-  first_name: "stan",
+  first_name: "amine",
   last_name: "benaflex",
-  nickname: "stan",
-  email: "stan@example.com",
-  password: "stan@example.com",
+  nickname: "amine",
+  email: "amine@example.com",
+  password: "amine@example.com",
   address: "10 Rue Émile Bastard, Ivry-sur-Seine, Île-de-France, France",
   category: "particulier",
   mask_maker: true,
@@ -171,11 +171,11 @@ amine = User.new(
 amine.save
 
 clara = User.new(
-  first_name: "laurence",
+  first_name: "clara",
   last_name: "pamplette",
-  nickname: "laurance",
-  email: "laurance@example.com",
-  password: "laurance@example.com",
+  nickname: "clara",
+  email: "clara@example.com",
+  password: "clara@example.com",
   address: "10 Rue de l'Arcade, Charenton-le-Pont, Île-de-France, France",
   category: "particulier",
   mask_maker: true,
@@ -185,11 +185,11 @@ clara = User.new(
 clara.save
 
 yasmina = User.new(
-  first_name: "noeline",
+  first_name: "yasmina",
   last_name: "pamplette",
-  nickname: "noeline",
-  email: "noeline@example.com",
-  password: "noeline@example.com",
+  nickname: "yasmina",
+  email: "yasmina@example.com",
+  password: "yasmina@example.com",
   address: "13 Place Édouard Herriot, Le Kremlin-Bicêtre, Île-de-France, France",
   category: "particulier",
   mask_maker: true,
