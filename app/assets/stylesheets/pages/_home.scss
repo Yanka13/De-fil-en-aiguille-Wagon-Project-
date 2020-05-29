@@ -71,16 +71,19 @@ $transition: .2s;
   }
 }
 
+.font-banner-color {
+
 h1 {
-  font-size: 22px;
+  font-size: 30px;
   color: white !important;
 }
 
 p {
-  font-size: 12px;
+  font-size: 19px;
   color: white !important;
 }
 
+}
 
 .card-home {
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -112,7 +115,4 @@ p {
   }
 
 }
-
-
-
 
