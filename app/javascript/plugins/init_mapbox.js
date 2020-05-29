@@ -8,7 +8,7 @@ const buildMap = (center) => {
       container: 'map',
       style: 'mapbox://styles/yanka13/ckanz4tlh4z9a1il6hglrrkw4',
       center: [center.lng, center.lat],
-      zoom : 12
+      zoom : 11
     });
   } else {
       return new mapboxgl.Map({
