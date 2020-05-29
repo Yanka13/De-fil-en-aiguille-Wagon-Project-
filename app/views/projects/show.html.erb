@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="tab-pane fade align-content-tab" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <% @matches.each do  |match|%>
+        <% @matches.each do |match|%>
             <div class="card-product">
               <div class="left-content-project-card">
                 <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
@@ -74,11 +74,18 @@
         <% end %>
       </div>
       <div class="tab-pane fade align-content-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <% @projects.each do |project| %>
-          <% if !(project.user == current_user) %>
-            <%= link_to projects_path(project) do %>
-            <% end %>
-          <% end %>
+        <% @projects.each do |project|%>
+          <div class="card-product">
+            <div class="left-content-project-card">
+              <div class="card-product-infos">
+                <div class="desc">
+                  <h2><%= @project.product.product_type.capitalize %></h2>
+                  <p>Quantité : <%= @project.quantity %></p>
+                  <p>Dedadline : <%= @project.deadline %></p>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
