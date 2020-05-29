@@ -151,7 +151,7 @@ julia = User.new(
   address: "10 Rue Henri Barbusse, Joinville-le-Pont, Île-de-France, France",
   category: "particulier",
   mask_maker: true,
-  level: "Couturier Junior",
+  level: "Couturière de tonerre",
   photo: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1494&q=80"
   )
 julia.save
@@ -165,7 +165,7 @@ amine = User.new(
   address: "10 Rue Émile Bastard, Ivry-sur-Seine, Île-de-France, France",
   category: "particulier",
   mask_maker: true,
-  level: "Couturier Junior",
+  level: "Couturier confirmé",
   photo: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
   )
 amine.save
