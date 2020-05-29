@@ -25,13 +25,11 @@ class ProjectsController < ApplicationController
     else
       render :new
     end
-    raise
   end
 
   def show
     @matches = @project.matches
     @user_projects = Project.where(user: current_user)
-    raise
   end
 
   def edit
