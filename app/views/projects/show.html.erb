@@ -81,16 +81,19 @@
         <% end %>
       </div>
       <div class="tab-pane fade align-content-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <% @user_projects.each do |project|%>
-          <div class="card-product">
-            <div class="left-content-project-card">
-              <div class="card-product-infos">
-                <div class="desc">
-                  <h2><%= project.product.product_type.capitalize %></h2>
-                  <p>Quantité : <%= project.quantity %></p>
-                  <p>Deadline : <%= project.deadline %></p>
-                </div>
-              </div>
+        <%= link_to project_path(@project), class: "project-links" do %>
+          <div class="linkable">
+            <% @user_projects.each do |project|%>
+              <div class="card-product">
+                <div class="left-content-project-card">
+                  <div class="card-product-infos">
+                    <div class="desc">
+                      <h2><%= project.product.product_type.capitalize %></h2>
+                      <p>Quantité : <%= project.quantity %></p>
+                      <p>Deadline : <%= project.deadline %></p>
+                    </div>
+                  </div>
+                
             </div>
             <div class="right-content-project-card">
               <div class="product-status">
