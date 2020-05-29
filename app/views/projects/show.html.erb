@@ -54,8 +54,9 @@
                 <div class="card-product-infos">
                   <div class="desc">
                     <div class="mask-maker-name-and-level">
-                      <h2><%= "#{match.offer.user.first_name.capitalize}  " %></h2>
                       <span class="badge badge-pill badge-info"><%= match.offer.user.level %></span>
+                      <h2><%= "#{match.offer.user.first_name.capitalize}  " %></h2>
+
                     </div>
                     <p><%= match.offer.quantity %> <%= @project.product.product_type.capitalize %></p>
                   </div>
@@ -86,8 +87,8 @@
             <div class="left-content-project-card">
               <div class="card-product-infos">
                 <div class="desc">
-                  <h2><%= project.product.product_type.capitalize %></h2>
-                  <p>Quantité : <%= project.quantity %></p>
+                  <h2><%= link_to 'Projet', project_path(project) %></h2>
+                  <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
                   <p>Deadline : <%= project.deadline %></p>
                 </div>
               </div>
