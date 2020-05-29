@@ -5,7 +5,7 @@
         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Récapitulatif</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Collaborateurs</a>
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Fournisseurs</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mes projets</a>
@@ -58,8 +58,20 @@
                       <h2><%= "#{match.offer.user.first_name.capitalize}  " %></h2>
 
                     </div>
-                    <p><%= match.offer.quantity %> <%= @project.product.product_type.capitalize %></p>
+                    <% if match.offer.price == 0.0 %>
+                    <p><%= match.offer.quantity %> <%= @project.product.product_type %>s - Prix : gratuit </p>
+                    <% else %>
+                    <p><%= match.offer.quantity %> <%= @project.product.product_type %>s - Prix :<%= match.offer.price %> € </p>
+                    <% end %>
+                    <% if match.offer.quantity * match.offer.price  == 0 %>
+                    <p> Total: gratuit  </p>
+                    <% else %>
+                    <p> Total: <%= match.offer.quantity * match.offer.price %> € </p>
+                    <% end %>
+                    <%  @distance = Geocoder::Calculations.distance_between([@userlocalisation[0],@userlocalisation[1]], [Geocoder.search(match.offer.user.address).first.coordinates[0],Geocoder.search(match.offer.user.address).first.coordinates[1]]) * 1.60934 %>
+                    <p> Distance: <%= @distance.round(1)  %> km </p>
                   </div>
+
                 </div>
               </div>
               <div class="right-content-project-card">

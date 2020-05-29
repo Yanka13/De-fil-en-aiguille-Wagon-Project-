@@ -28,6 +28,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @userlocalisation = Geocoder.search(current_user.address).first.coordinates
     @matches = @project.matches
     @user_projects = Project.where(user: current_user)
   end
