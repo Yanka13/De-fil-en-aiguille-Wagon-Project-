@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
 
   def show
     @matches = @project.matches
+    @user_projects = Project.where(user: current_user)
   end
 
   def edit

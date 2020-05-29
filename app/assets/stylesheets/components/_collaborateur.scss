@@ -7,6 +7,7 @@
   align-items: center;
   border-radius: 4px;
   justify-content: space-between;
+  margin-top: 8px;
 }
 
 .card-product img {
@@ -64,4 +65,8 @@
   position: relative;
   top: 27px;
   left: 470px;
+}
+
+.mask-maker-name-and-level{
+  display: flex;
 }
