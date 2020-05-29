@@ -63,8 +63,13 @@
               </div>
               <div class="right-content-project-card">
                 <div class="product-status">
+                  <% if match.status == "terminé" %>
                   <div class="green-badge"></div>
                   <span><em>Commande Livrée</em></span>
+                  <% else %>
+                  <div class="orange-badge"></div>
+                  <span><em>Commande en cours </em></span>
+                  <% end %>
                 </div>
                 <div class="chat-icon">
                   <%= link_to edit_project_path do %>
@@ -88,15 +93,19 @@
                       <p>Deadline : <%= project.deadline %></p>
                     </div>
                   </div>
-                </div>
-                <div class="right-content-project-card">
-                  <div class="product-status">
-                    <div class="green-badge"></div>
-                    <span><em>Projet terminé</em></span>
-                  </div>
-                </div>
+                
+            </div>
+            <div class="right-content-project-card">
+              <div class="product-status">
+                <% if project.status == "terminé" %>
+                <div class="green-badge"></div>
+                <span><em>Projet terminé</em></span>
+                <% else %>
+                <div class="orange-badge"></div>
+                <span><em>Projet en cours</em></span>
+                <% end %>
               </div>
-            <% end %>
+            </div>
           </div>
         <% end %>
       </div>
