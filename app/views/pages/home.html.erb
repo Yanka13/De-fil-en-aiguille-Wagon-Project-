@@ -6,21 +6,6 @@
     <p>Confectionnez et trouvez des masques autour de vous</p>
     </div>
 
-<<<<<<< HEAD
-  <div class="search-bar">
-      <%= form_tag offers_path, method: :get do |f| %>
-        <div class="input-group ">
-              <%= text_field_tag :address,
-                params[:address],
-                placeholder: "Indiquez votre adresse",
-                class: "form-control",
-                id: "search"
-              %>
-              <%= hidden_field_tag :radius,
-                params[:radius],
-                value: 20
-              %>
-=======
 <div class="search-bar">
     <%= form_tag offers_path, method: :get do |f| %>
       <div class="input-group ">
@@ -34,7 +19,6 @@
               params[:radius],
               value: 20
             %>
->>>>>>> 3155a65e62ca9a715039310f01bdbe8e00b7bae6
 
             <%= hidden_field_tag :product,
               params[:product],
@@ -45,20 +29,11 @@
             <%= submit_tag "Search", class: "btn btn-outline-primary" %>
           </div>
       </div>
-<<<<<<< HEAD
 
-    </div>
+  </div>
 
     <% end %>
   </div>
-
-
-
-  </center>
->>>>>>> 3155a65e62ca9a715039310f01bdbe8e00b7bae6
-  </div>
-</div>
-
 
 
 <center>
