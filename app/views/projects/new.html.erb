@@ -20,7 +20,7 @@
         </div>
 
         <!-- add notion of stocks -->
-        <p>blablabla sur les stocks</p>
+
         <p>
           <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
           Mon adresse :
@@ -47,7 +47,7 @@
                       <% @offers.each do |offer| %>
 
                         <div class="form-check">
-                          <input class="form-check-input check_boxes required" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
+                          <input class="form-check-input check_boxes required d-none" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
                           <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
                               <div class="d-flex w-100 justify-content-between">
