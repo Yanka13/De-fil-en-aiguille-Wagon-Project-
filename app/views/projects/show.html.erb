@@ -68,8 +68,6 @@
                     <% else %>
                     <p> Total: <%= match.offer.quantity * match.offer.price %> € </p>
                     <% end %>
-                    <%  @distance = Geocoder::Calculations.distance_between([@userlocalisation[0],@userlocalisation[1]], [Geocoder.search(match.offer.user.address).first.coordinates[0],Geocoder.search(match.offer.user.address).first.coordinates[1]]) * 1.60934 %>
-                    <p> Distance: <%= @distance.round(1)  %> km </p>
                   </div>
 
                 </div>
@@ -84,6 +82,10 @@
                   <span><em>Commande en cours </em></span>
                   <% end %>
                 </div>
+                  <div class= "distance">
+                  <%  @distance = Geocoder::Calculations.distance_between([@userlocalisation[0],@userlocalisation[1]], [Geocoder.search(match.offer.user.address).first.coordinates[0],Geocoder.search(match.offer.user.address).first.coordinates[1]]) * 1.60934 %>
+                  <p> Distance: <%= @distance.round(1)  %> km </p>
+                  </div>
                 <div class="chat-icon">
                   <%= link_to edit_project_path do %>
                     <%= image_tag "message.svg", style:"width:8%", alt: "chat-icon" %>
