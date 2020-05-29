@@ -14,10 +14,16 @@
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active align-content-tab" id="home" role="tabpanel" aria-labelledby="home-tab">
         <h5>Récapitulatif du besoin</h5>
-        <div class="test">
-          <%#= @product.product_type %>
-          <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %> x <%= @project.quantity %>
-        </div>
+        <p class="mb-1">
+          <% if @project.product.product_type == "masque" %>
+            <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "3%", alt: "masque" %>
+          <% elsif @project.product.product_type == "blouse" %>
+            <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "3%", alt: "blouse" %>
+          <% else %>
+            <%= image_tag "crochet.svg", width: "3%", alt: "autre" %>
+          <% end %>
+          <strong><%= " x #{@project.quantity}" %></strong>
+        </p>
         <p>Mon budget : <br><%= @project.budget %><%= "€" %></p>
         <p>Mon adresse : <br><%= @project.user.address %></p>
         <% if @project.deadline.present? %>
