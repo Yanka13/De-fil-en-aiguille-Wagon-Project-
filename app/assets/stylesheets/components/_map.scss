@@ -1,20 +1,22 @@
 .call-to-action {
-  background: $beau-blue;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  position: absolute;
-  height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
-  bottom:0;
-  width:100%;
-  padding-top:50px;
-  padding-bottom: 50px;
-  color: $body-color;
+    background: #D8EDFF;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    height: 100px;
+    /* padding: 0px 50px; */
+    color: rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    width: 100%;
+    padding-top: 42px;
+    /* padding-bottom: 50px; */
+    color: #192F4E;
 
   p {
     margin: 0;
+    font-size: 16px;
+
   }
 
   .btn-call {
