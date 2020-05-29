@@ -54,6 +54,8 @@ $transition: .2s;
 .grid-home {
   display: grid;
   width: auto;
+  margin-left: 32px;
+  margin-right: 32px;
   grid-gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: start;
