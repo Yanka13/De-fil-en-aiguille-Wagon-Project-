@@ -9,26 +9,32 @@
 
 // VARIABLES
 
+
+.banner-home-page {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+  .input-group {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+  }
+}
 .container-banner {
- margin-left: 230px;
+  margin: 0px;
 }
 
 .container-banner h1 {
-  margin-left: 10px;
+  color: white;
+
 }
 
-.container-banner p {
-  margin-left: 10px;
-}
 
-.input-group-append-homepage {
-  display: flex;
-  justify-content: left;
-  width: 100%;
-}
 
-.algolia-places {
-    width: 30%;
+.search-bar-home {
+  width: 550px;
 }
 
 .my-home-container {
