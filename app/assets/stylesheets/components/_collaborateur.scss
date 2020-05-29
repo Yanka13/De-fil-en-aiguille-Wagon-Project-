@@ -1,0 +1,67 @@
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  justify-content: space-between;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-infos {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.container-show-project-yannis {
+  padding: 7px;
+  width: 100%;
+}
+
+.left-content-project-card{
+  display: flex;
+  flex-direction: row;
+}
+
+.right-content-project-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.product-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 13px;
+}
+
+.chat-icon {
+  position: relative;
+  top: 27px;
+  left: 470px;
+}

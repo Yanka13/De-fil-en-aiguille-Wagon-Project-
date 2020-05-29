@@ -14,6 +14,7 @@
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active align-content-tab" id="home" role="tabpanel" aria-labelledby="home-tab">
         <h5>Récapitulatif du besoin</h5>
+
         <p class="mb-1">
           <% if @project.product.product_type == "masque" %>
             <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "3%", alt: "masque" %>
@@ -24,6 +25,7 @@
           <% end %>
           <strong><%= " x #{@project.quantity}" %></strong>
         </p>
+
         <p>Mon budget : <br><%= @project.budget %><%= "€" %></p>
         <p>Mon adresse : <br><%= @project.user.address %></p>
         <% if @project.deadline.present? %>
@@ -44,22 +46,32 @@
           <% end %>
         </div>
       </div>
-
       <div class="tab-pane fade align-content-tab" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <% @matches.each do  |match|%>
-
-        <div class="card-product">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-
-          <div class="card-product-infos">
-          <h2><%= match.offer.user.first_name %></h2>
-          <p><%= match.offer.quantity %></p>
-          <p><%= match.offer.description %></p>
-          <p> status</p>
-          </div>
-        </div>
+            <div class="card-product">
+              <div class="left-content-project-card">
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <div class="card-product-infos">
+                  <div class="desc">
+                    <h2><%= match.offer.user.first_name.capitalize %></h2>
+                    <p>Quantité : <%= match.offer.quantity %></p>
+                    <p><%= match.offer.description %></p>
+                  </div>
+                </div>
+              </div>
+              <div class="right-content-project-card">
+                <div class="product-status">
+                  <div class="green-badge"></div>
+                  <span><em>Commande Livrée</em></span>
+                </div>
+                <div class="chat-icon">
+                  <%= link_to edit_project_path do %>
+                    <%= image_tag "message.svg", style:"width:8%", alt: "chat-icon" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
         <% end %>
-
       </div>
       <div class="tab-pane fade align-content-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <p>< INSERTION DU CHAT ICI ></p>

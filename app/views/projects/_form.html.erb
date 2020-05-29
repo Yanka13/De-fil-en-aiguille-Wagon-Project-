@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-6 title">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <%= simple_form_for @project do |f| %>
         <%= f.association :product, label_method: lambda { |product| product.product_type.capitalize } %>
         <%= f.input :quantity %>
