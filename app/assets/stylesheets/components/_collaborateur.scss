@@ -19,9 +19,10 @@
 }
 
 .card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: initial;
+    margin-top: 9px;
 }
 
 .card-product p {
@@ -67,6 +68,3 @@
   left: 470px;
 }
 
-.mask-maker-name-and-level{
-  display: flex;
-}
