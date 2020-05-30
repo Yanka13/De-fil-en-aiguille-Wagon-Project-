@@ -7,6 +7,7 @@
   align-items: center;
   border-radius: 4px;
   justify-content: space-between;
+  margin-top: 8px;
 }
 
 .card-product img {
@@ -18,9 +19,10 @@
 }
 
 .card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: initial;
+    margin-top: 9px;
 }
 
 .card-product p {
@@ -65,3 +67,4 @@
   top: 27px;
   left: 470px;
 }
+

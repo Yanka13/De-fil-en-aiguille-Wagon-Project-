@@ -1,14 +1,13 @@
 import mapboxgl from 'mapbox-gl';
-const mapElement = document.getElementById('map');
 
-const buildMap = (center) => {
-  mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+const buildMap = (map, center) => {
+  mapboxgl.accessToken = map.dataset.mapboxApiKey;
   if (center) {
     return new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/yanka13/ckanz4tlh4z9a1il6hglrrkw4',
       center: [center.lng, center.lat],
-      zoom : 12
+      zoom : 11
     });
   } else {
       return new mapboxgl.Map({
@@ -58,10 +57,11 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const initMapbox = () => {
+  const mapElement = document.getElementById('map');
   if (mapElement) {
     const center = JSON.parse(mapElement.dataset.center);
     if (center) {
-      const map = buildMap(center);
+      const map = buildMap(mapElement, center);
       const markers = JSON.parse(mapElement.dataset.markers);
       addMarkersToMap(map, markers, center);
       fitMapToMarkers(map, markers);
