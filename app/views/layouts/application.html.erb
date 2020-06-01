@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   </head>
 
-  <body>
+  <body class="<%= "home" if params[:action] == "home" %>">
     <% unless params[:controller] == "pages" && params[:action] == "dashboard" %>
 
     <%= render 'shared/navbar' %>
