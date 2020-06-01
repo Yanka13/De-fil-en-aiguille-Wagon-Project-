@@ -1,1 +1,65 @@
-<p>Hello <%= current_user.first_name %></p>
+<div class=dashboard>
+ <%= image_tag current_user.photo, class: "avatar-large avatar-position", alt: "avatar" %>
+
+
+  <div class=icons-and-titles>
+    <div class="dashboard-icons">
+      <i class="fas fa-plus"></i>
+      <i class="fas fa-folder"></i>
+      <i class="fas fa-trophy"></i>
+      <i class="fas fa-user"></i>
+    </div>
+
+     <div class= "dashboard-title">
+       <p>Nouvelle commande</p>
+       <p>Projets</p>
+       <p>Produits</p>
+       <p>Profile</p>
+    </div>
+  </div>
+</div>
+
+<div class= "projects">
+  <% @projects.each do |project|%>
+    <div class="card-product-dashboard">
+
+      <div class="left-content-project-card">
+        <div class="card-product-infos">
+          <div class="desc">
+
+             <%= link_to project_path(project) do %>
+               Projet
+              <% end %>
+            <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
+
+
+            <% if project.deadline.present? %>
+              <p>Deadline : <%= project.deadline.strftime("%d %B %Y") %></p>
+            <% else %>
+             <p>Deadline non spécifiée </p>
+            <% end %>
+
+            <p>Couturiers sur le projet : <%= project.matches.count %></p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="right-content-project-card">
+
+        <div class="product-status">
+          <% if project.status == "terminé" %>
+            <div class="green-badge"></div>
+            <span><em>Projet terminé</em></span>
+          <% else %>
+            <div class="orange-badge"></div>
+            <span><em>Projet en cours</em></span>
+          <% end %>
+        </div>
+
+      </div>
+
+    </div>
+
+  <% end %>
+ </div>

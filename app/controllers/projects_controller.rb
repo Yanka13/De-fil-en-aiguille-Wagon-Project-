@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @product = Product.find(project_params[:product_id])
     @offers = Offer.order('price ASC, quantity DESC').find(params[:offers_id]) if params[:offers_id]
+    @usertocontact = User.near(current_user.address, 10) #cela représente tous les mask makers à 10km à la ronde du client
   end
 
   def create
@@ -19,6 +20,13 @@ class ProjectsController < ApplicationController
       params[:matches][:offer_ids].each do |offer_id|
         Match.create(project: @project, offer_id: offer_id.to_i, quantity: params[:matches]["#{:match_quantity_offer_}"+"#{offer_id}"])
       end
+
+      @usertocontact = User.near(current_user.address, 10) #cela représente tous les masks makers situés à 10km du client
+     #@usertocontact.map(&:id).each do |id|
+      #ing = Offer.create(product: @product, quantity: 0, user_id: id )
+      #Match.create(project: @project, quantity: 0, offer_id: ing.id )
+      #end
+
       redirect_to project_path(@project)
     else
       render :new
@@ -26,6 +34,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @userlocalisation = Geocoder.search(current_user.address).first.coordinates
     @matches = @project.matches
     @user_projects = Project.where(user: current_user)
   end

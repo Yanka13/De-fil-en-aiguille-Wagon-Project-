@@ -9,6 +9,10 @@
   <div class="row pt-3">
     <div class="recap_project col-6">
       <h5>Récapitulatif du besoin</h5>
+      <% if params[:stock].to_i < params[:project][:quantity].to_i %>
+      <p>Malheureusement, il n'y a pas assez de stock de <%= @product.product_type %>s autour de vous.
+      Nous allons contacter les <%= User.near(current_user.address, 10).to_a.count  %> couturiers autour de vous afin de solliciter leur aide  </p>
+    <% end %>
         <%= f.association :product,
           label_method: lambda { |product| product.product_type.capitalize },
           value: f.object.product.product_type.capitalize || @project.product.product_type.capitalize %>
@@ -42,7 +46,7 @@
                     <div class="list-group">
 
                       <% @offers.each do |offer| %>
-
+                        <% if offer.quantity != 0 %>
                         <div class="form-check">
                           <input class="form-check-input check_boxes required d-none" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
                           <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
@@ -74,7 +78,7 @@
                             </li>
                           </label>
                         </div>
-
+                       <% end %>
                       <% end %>
 
                     </div>
