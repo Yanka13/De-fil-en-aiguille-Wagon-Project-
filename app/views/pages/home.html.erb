@@ -2,7 +2,8 @@
 
   <div class="container-banner">
 
-    <h1>Des masques <strong>pour vous </strong> autour de <strong>vous</strong></h1>
+    <h1>De <strong>Fil </strong> en <strong>Aiguille</strong></h1>
+    <p>Des masques pour vous autour de vous</p>
 
 
   <div class="search-bar-home">
@@ -19,10 +20,12 @@
               value: 20
             %>
 
-            <%= hidden_field_tag :product,
-              params[:product],
-              value: Product.find_by(product_type: "masque").id
-          %>
+            <%= select_tag "product",
+            options_from_collection_for_select(@products, "id", "product_type", params[:product]),
+            prompt: "Choissisez votre produit",
+            class: "select2",
+            id: "product-search-bar"
+            %>
 
           <div class="input-button">
             <%= submit_tag "Search", class: "btn btn-primary" %>
