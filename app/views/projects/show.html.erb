@@ -47,7 +47,7 @@
             <% if @project.deadline.present? %>
               <p><strong>Deadline : </strong><%= @project.deadline %></p>
             <% else %>
-              <p>D<strong>Deadline : </strong>--</p>
+              <p><strong>Deadline : </strong>--</p>
             <% end %>
           </div>
           <div class="margin-top-recap-elements">
@@ -125,28 +125,26 @@
       <!-- ONGLET MES PROJETS -->
       <div class="tab-pane fade align-content-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <% @user_projects.each do |project| %>
-        <%= link_to project_path(project) do %>
-        <div class="linkable">
-          <div class="card-product">
-            <div class="left-content-project-card">
-              <div class="card-product-infos">
-                <div class="desc">
-                  <h2>Ref : Projet <%= @project.id %></h2>
-                  <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
-                  <p>Deadline : <%= project.deadline %></p>
-                </div>
+        <%= link_to project_path(project), class: "linkable-project" do %>
+        <div class="card-product">
+          <div class="left-content-project-card">
+            <div class="card-product-infos">
+              <div class="desc">
+                <h2>Ref : Projet <%= @project.id %></h2>
+                <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
+                <p>Deadline : <%= project.deadline %></p>
               </div>
             </div>
-            <div class="right-content-project-card">
-              <div class="product-status">
-                <% if project.status == "terminé" %>
-                <div class="green-badge"></div>
-                <span><em>Projet terminé</em></span>
-                <% else %>
-                <div class="orange-badge"></div>
-                <span><em>Projet en cours</em></span>
-                <% end %>
-              </div>
+          </div>
+          <div class="right-content-project-card">
+            <div class="product-status">
+              <% if project.status == "terminé" %>
+              <div class="green-badge"></div>
+              <span><em>Projet terminé</em></span>
+              <% else %>
+              <div class="orange-badge"></div>
+              <span><em>Projet en cours</em></span>
+              <% end %>
             </div>
           </div>
         </div>
