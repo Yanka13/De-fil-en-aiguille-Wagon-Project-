@@ -69,8 +69,16 @@
 }
 
 .distance {
-
     text-align: end;
     margin-right: 27px;
     margin-top: 1px;
+}
+
+.linkable-project {
+  color: black;
+}
+
+.linkable-project:hover {
+  text-decoration: none;
+  color: black;
 }

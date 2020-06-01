@@ -141,7 +141,6 @@ eric = User.new(
   )
 eric.save
 
-
 julia = User.new(
   first_name: "julia",
   last_name: "monnet",
@@ -197,6 +196,7 @@ yasmina = User.new(
   photo: "https://avatars2.githubusercontent.com/u/61580912?v=4"
   )
 yasmina.save
+
 puts 'Creating 3 products...'
 
 masque = Product.new(
@@ -209,10 +209,10 @@ blouse = Product.new(
   )
 blouse.save
 
-calot = Product.new(
-  product_type: "calot"
+autre = Product.new(
+  product_type: "autre"
   )
-calot.save
+autre.save
 
 puts 'Creating 8 offers...'
 
@@ -227,7 +227,7 @@ offer1.save
 
 offer2 = Offer.new(
   user: elise,
-  product: calot,
+  product: autre,
   quantity: 1,
   description: "calot pour professionnel de santé, je peux en faire avec de jolis tissus si besoin 🧵🙂",
   price: 2
@@ -289,8 +289,6 @@ offer8 = Offer.new(
 )
 offer8.save
 
-
-
 offer9 = Offer.new(
   user: sebastien,
   product: masque,
@@ -300,7 +298,6 @@ offer9 = Offer.new(
 )
 offer9.save
 
-
 offer10 = Offer.new(
   user: eric,
   product: masque,
@@ -308,7 +305,6 @@ offer10 = Offer.new(
   description: "Couturier de métier, je fais tout type de masque",
   price: 4
 )
-
 offer10.save
 
 offer11 = Offer.new(
@@ -318,9 +314,7 @@ offer11 = Offer.new(
   description: "Hello, je fais des masques sur mesure si besoin",
   price: 0
 )
-
 offer11.save
-
 
 offer12 = Offer.new(
   user: amine,
@@ -329,7 +323,6 @@ offer12 = Offer.new(
   description: "masque confortable",
   price: 0
 )
-
 offer12.save
 
 offer13 = Offer.new(
@@ -339,7 +332,6 @@ offer13 = Offer.new(
   description: "blouse confortable et solide taille moyenne",
   price: 1
 )
-
 offer13.save
 
 offer14 = Offer.new(
@@ -349,11 +341,9 @@ offer14 = Offer.new(
   description: "Masque en lin !",
   price: 4
 )
-
 offer13.save
+
 puts 'Creating 3 Projects...'
-
-
 
 project2 = Project.new(
   user: soraya,
@@ -365,12 +355,8 @@ project2 = Project.new(
 )
 project2.save
 
-
-
 puts 'Creating 4 Matches...'
 
-
-#YANNIS PROJET FINI !
 match2 = Match.new(
   project: project2,
   offer: offer13,
@@ -395,7 +381,6 @@ match4 = Match.new(
 )
 match4.save
 
-
 match5 = Match.new(
   project: project2,
   offer: offer10,
@@ -404,7 +389,6 @@ match5 = Match.new(
 )
 match5.save
 
-
 match6 = Match.new(
   project: project2,
   offer: offer11,
@@ -412,7 +396,6 @@ match6 = Match.new(
   status: "terminé"
 )
 match6.save
-
 
 match7 = Match.new(
   project: project2,

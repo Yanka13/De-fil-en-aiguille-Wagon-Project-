@@ -1,6 +1,7 @@
 <div class="container-show-project-yannis">
   <div class="card-show-project">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <!-- NOM DES ONGLETS -->
       <li class="nav-item">
         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Récapitulatif</a>
       </li>
@@ -11,80 +12,106 @@
         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mes projets</a>
       </li>
     </ul>
+    <!-- RECAPITULATIF DES BESOINS -->
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active align-content-tab" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <h5>Récapitulatif du besoin</h5>
-
-        <p class="mb-1">
-          <% if @project.product.product_type == "masque" %>
-            <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "3%", alt: "masque" %>
-          <% elsif @project.product.product_type == "blouse" %>
-            <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "3%", alt: "blouse" %>
-          <% else %>
-            <%= image_tag "crochet.svg", width: "3%", alt: "autre" %>
-          <% end %>
-          <strong><%= " x #{@project.quantity}" %></strong>
-        </p>
-
-        <p>Mon budget : <br><%= @project.budget %><%= "€" %></p>
-        <p>Mon adresse : <br><%= @project.user.address %></p>
-        <% if @project.deadline.present? %>
-          <p>Deadline : <%= @project.deadline %></p>
-        <% else %>
-          <p>Deadline : --</p>
-        <% end %>
-        <div class= "edit-project-buttons pt-3">
-          <% if policy(@project).update? %>
-            <%= link_to 'Editer', edit_project_path(@project), class: "btn btn-outline-primary" %>
-          <% end %>
-          <% if policy(@project).destroy? %>
-            <%= link_to "Supprimer",
-                project_path(@project),
-                method: :delete,
-                data: { confirm: 'Voulez-vous supprimer le projet ?' },
-                class: "btn btn-outline-primary" %>
-          <% end %>
+        <div class="recap-container">
+          <h5>Récapitulatif de mon besoin</h5>
+          <hr>
+          <div class="margin-top-recap-elements">
+            <div class="horizontal-item-centred-recap">
+              <p class="mb-1">
+                <% if @project.product.product_type == "masque" %>
+                  <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque", class: "mr-1" %>
+                <% elsif @project.product.product_type == "blouse" %>
+                  <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse", class: "mr-1" %>
+                <% else %>
+                  <%= image_tag "crochet.svg", width: "5%", alt: "autre", class: "mr-1" %>
+                <% end %>
+                <strong><%= " x #{@project.quantity}" %></strong>
+              </p>
+            </div>
+          </div>
+          <div class="margin-top-recap-elements">
+            <p><strong>Description :</strong> <%= @project.description %></p>
+          </div>
+          <div class="margin-top-recap-elements">
+            <div class="column-content-recap">
+              <div class="horizontal-item-centred-recap">
+                <p style="margin-bottom: 0px;"><%= image_tag "real-estate.svg", width: "3%", alt: "home", class: "mr-1" %><strong> Mon adresse :</strong></p>
+              </div>
+              <p id="adress-recap"><%= @project.user.address %></p>
+            </div>
+          </div>
+          <div class="margin-top-recap-elements">
+            <% if @project.deadline.present? %>
+              <p><strong>Deadline : </strong><%= @project.deadline %></p>
+            <% else %>
+              <p><strong>Deadline : </strong>--</p>
+            <% end %>
+          </div>
+          <div class="margin-top-recap-elements">
+            <div class="column-content-recap">
+              <p><strong>Mon budget : </strong><%= @project.budget %><%= "€" %></p>
+            </div>
+            <div class="margin-top-recap-elements">
+              <p><strong>Montant : </strong> -- €</p>
+            </div>
+          </div>
+          <div class="btn-modif-recap">
+            <div class= "edit-project-buttons pt-3">
+              <% if policy(@project).update? %>
+                <%= link_to 'Editer', edit_project_path(@project), class: "btn btn-outline-primary" %>
+              <% end %>
+              <% if policy(@project).destroy? %>
+                <%= link_to "Supprimer",
+                    project_path(@project),
+                    method: :delete,
+                    data: { confirm: 'Voulez-vous supprimer votre demande ?' },
+                    class: "btn btn-outline-primary" %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- ONGLET COLLABORATEURS -->
       <div class="tab-pane fade align-content-tab" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <% @matches.each do |match|%>
             <div class="card-product">
               <div class="left-content-project-card">
-                <img src=<%= match.offer.user.photo %> />
+                <img src=<%= match.offer.user.photo %>/>
                 <div class="card-product-infos">
                   <div class="desc">
                     <div class="mask-maker-name-and-level">
                       <span class="badge badge-pill badge-info"><%= match.offer.user.level %></span>
                       <h2><%= "#{match.offer.user.first_name.capitalize}  " %></h2>
-
                     </div>
                     <% if match.offer.price == 0.0 %>
-                    <p><%= match.offer.quantity %> <%= @project.product.product_type %>s - Prix : gratuit </p>
+                      <p><%= match.offer.quantity %> <%= @project.product.product_type %>s - Prix : gratuit </p>
                     <% else %>
-                    <p><%= match.offer.quantity %> <%= @project.product.product_type %>s - Prix :<%= match.offer.price %> € </p>
+                      <p><%= match.offer.quantity %> <%= @project.product.product_type %>s - Prix :<%= match.offer.price %> € </p>
                     <% end %>
                     <% if match.offer.quantity * match.offer.price  == 0 %>
-                    <p> Total: gratuit  </p>
+                      <p> Total: gratuit  </p>
                     <% else %>
-                    <p> Total: <%= match.offer.quantity * match.offer.price %> € </p>
+                      <p> Total: <%= match.offer.quantity * match.offer.price %> € </p>
                     <% end %>
                   </div>
-
                 </div>
               </div>
               <div class="right-content-project-card">
                 <div class="product-status">
                   <% if match.status == "terminé" %>
-                  <div class="green-badge"></div>
-                  <span><em>Commande Livrée</em></span>
+                    <div class="green-badge"></div>
+                    <span><em>Commande Livrée</em></span>
                   <% else %>
-                  <div class="orange-badge"></div>
-                  <span><em>Commande en cours </em></span>
+                    <div class="orange-badge"></div>
+                    <span><em>Commande en cours </em></span>
                   <% end %>
                 </div>
                   <div class= "distance">
-                  <%  @distance = Geocoder::Calculations.distance_between([@userlocalisation[0],@userlocalisation[1]], [Geocoder.search(match.offer.user.address).first.coordinates[0],Geocoder.search(match.offer.user.address).first.coordinates[1]]) * 1.60934 %>
-                  <p> Distance: <%= @distance.round(1)  %> km </p>
+                    <%  @distance = Geocoder::Calculations.distance_between([@userlocalisation[0],@userlocalisation[1]], [Geocoder.search(match.offer.user.address).first.coordinates[0],Geocoder.search(match.offer.user.address).first.coordinates[1]]) * 1.60934 %>
+                    <p> Distance: <%= @distance.round(1)  %> km </p>
                   </div>
                 <div class="chat-icon">
                   <%= link_to edit_project_path do %>
@@ -95,30 +122,33 @@
             </div>
         <% end %>
       </div>
+      <!-- ONGLET MES PROJETS -->
       <div class="tab-pane fade align-content-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <% @user_projects.each do |project|%>
-          <div class="card-product">
-            <div class="left-content-project-card">
-              <div class="card-product-infos">
-                <div class="desc">
-                  <h2><%= link_to 'Projet', project_path(project) %></h2>
-                  <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
-                  <p>Deadline : <%= project.deadline %></p>
-                </div>
-              </div>
-            </div>
-            <div class="right-content-project-card">
-              <div class="product-status">
-                <% if project.status == "terminé" %>
-                <div class="green-badge"></div>
-                <span><em>Projet terminé</em></span>
-                <% else %>
-                <div class="orange-badge"></div>
-                <span><em>Projet en cours</em></span>
-                <% end %>
+        <% @user_projects.each do |project| %>
+        <%= link_to project_path(project), class: "linkable-project" do %>
+        <div class="card-product">
+          <div class="left-content-project-card">
+            <div class="card-product-infos">
+              <div class="desc">
+                <h2>Ref : Demande <%= @project.id %></h2>
+                <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
+                <p>Deadline : <%= project.deadline %></p>
               </div>
             </div>
           </div>
+          <div class="right-content-project-card">
+            <div class="product-status">
+              <% if project.status == "terminé" %>
+              <div class="green-badge"></div>
+              <span><em>Demande terminé</em></span>
+              <% else %>
+              <div class="orange-badge"></div>
+              <span><em>Demande en cours</em></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
         <% end %>
       </div>
     </div>

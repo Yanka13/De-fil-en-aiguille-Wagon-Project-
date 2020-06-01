@@ -35,7 +35,7 @@ import { initCalendarDisplay } from '../plugins/init_calendar_display';
 import { initListGroupItemsAction } from '../plugins/init_list_group_items_action';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { initProjectCable } from '../channels/project_channel';
-
+import { initProductChoice } from '../plugins/init_product_choice';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
@@ -49,6 +49,7 @@ document.addEventListener('turbolinks:load', () => {
   title: "A nice alert",
   text: "This is a great alert, isn't it?",
   icon: "warning"
-});
+  });
+  initProductChoice();
 })
 

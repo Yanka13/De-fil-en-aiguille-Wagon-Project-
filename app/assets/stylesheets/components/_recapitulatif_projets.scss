@@ -1,0 +1,48 @@
+.recap-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.recap-container hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.recap-container h5 {
+  margin-left: 3rem
+}
+
+.recap-container .btn-modif-recap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 3rem;
+}
+
+.column-content-recap {
+  display: flex;
+  flex-direction: column;
+}
+
+#adress-recap {
+  margin-left: 20px;
+}
+
+.horizontal-item-centred-recap {
+  display: flex;
+  align-items: center;
+}
+
+.horizontal-item-centred-recap p {
+  display: flex;
+  align-items: center;
+}
+
+.margin-top-recap-elements{
+  margin-top: 1rem;
+}

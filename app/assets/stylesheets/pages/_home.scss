@@ -9,29 +9,54 @@
 
 // VARIABLES
 
-
 .banner-home-page {
   display: flex;
   text-align: center;
   justify-content: center;
+  background-size: cover;
+  background-position: center;
+  padding: 300px 0;
+
+  h1 {
+  margin: 0px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  }
+
+  p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
 
   .input-group {
   display: flex;
   text-align: center;
   justify-content: center;
+  position: relative;
+  border-radius: 6px;
+  width: 125%;
+  flex-wrap: unset;
+
+  .select2-container .select2-selection--single {
+  margin-left: 20px;
+  }
 
   }
+
+  .select2 {
+    width: 53% !important;
+  }
+
 }
+
 .container-banner {
-  margin: 0px;
+  width: 690px;
 }
-
-.container-banner h1 {
-  color: white;
-
-}
-
-
 
 .search-bar-home {
   width: 550px;
@@ -79,23 +104,7 @@ $transition: .2s;
   }
 }
 
-.font-banner-color {
-
-h1 {
-  font-size: 30px;
-  color: white !important;
-}
-
-p {
-  font-size: 19px;
-  color: white !important;
-}
-
-}
-
 .card-home {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 4px;
 
   .card-home-img {
     display: inline-block;

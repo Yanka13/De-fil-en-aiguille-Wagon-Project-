@@ -30,5 +30,15 @@
   transition: opacity 0.3s ease;
 }
 
+.home .navbar-lewagon {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
+}
 
+.home .navbar-light .navbar-nav .nav-link {
+   color: white !important;
+  }
