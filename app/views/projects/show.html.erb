@@ -12,8 +12,8 @@
         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mes projets</a>
       </li>
     </ul>
+    <!-- RECAPITULATIF DES BESOINS -->
     <div class="tab-content" id="myTabContent">
-      <!-- RECAPITULATIF DES BESOINS -->
       <div class="tab-pane fade show active align-content-tab" id="home" role="tabpanel" aria-labelledby="home-tab">
         <h5>Récapitulatif du besoin</h5>
         <p class="mb-1">
@@ -49,3 +49,82 @@
       <!-- ONGLET COLLABORATEURS -->
       <div class="tab-pane fade align-content-tab" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <% @matches.each do |match|%>
+            <div class="card-product">
+              <div class="left-content-project-card">
+                <img src=<%= match.offer.user.photo %>/>
+                <div class="card-product-infos">
+                  <div class="desc">
+                    <div class="mask-maker-name-and-level">
+                      <span class="badge badge-pill badge-info"><%= match.offer.user.level %></span>
+                      <h2><%= "#{match.offer.user.first_name.capitalize}  " %></h2>
+                    </div>
+                    <% if match.offer.price == 0.0 %>
+                      <p><%= match.offer.quantity %> <%= @project.product.product_type %>s - Prix : gratuit </p>
+                    <% else %>
+                      <p><%= match.offer.quantity %> <%= @project.product.product_type %>s - Prix :<%= match.offer.price %> € </p>
+                    <% end %>
+                    <% if match.offer.quantity * match.offer.price  == 0 %>
+                      <p> Total: gratuit  </p>
+                    <% else %>
+                      <p> Total: <%= match.offer.quantity * match.offer.price %> € </p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="right-content-project-card">
+                <div class="product-status">
+                  <% if match.status == "terminé" %>
+                    <div class="green-badge"></div>
+                    <span><em>Commande Livrée</em></span>
+                  <% else %>
+                    <div class="orange-badge"></div>
+                    <span><em>Commande en cours </em></span>
+                  <% end %>
+                </div>
+                  <div class= "distance">
+                    <%  @distance = Geocoder::Calculations.distance_between([@userlocalisation[0],@userlocalisation[1]], [Geocoder.search(match.offer.user.address).first.coordinates[0],Geocoder.search(match.offer.user.address).first.coordinates[1]]) * 1.60934 %>
+                    <p> Distance: <%= @distance.round(1)  %> km </p>
+                  </div>
+                <div class="chat-icon">
+                  <%= link_to edit_project_path do %>
+                    <%= image_tag "message.svg", style:"width:8%", alt: "chat-icon" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+      <!-- ONGLET MES PROJETS -->
+      <div class="tab-pane fade align-content-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <% @user_projects.each do |project| %>
+        <%= link_to project_path(project) do %>
+        <div class="linkable">
+          <div class="card-product">
+            <div class="left-content-project-card">
+              <div class="card-product-infos">
+                <div class="desc">
+                  <h2>Ref : Projet <%= @project.id %></h2>
+                  <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
+                  <p>Deadline : <%= project.deadline %></p>
+                </div>
+              </div>
+            </div>
+            <div class="right-content-project-card">
+              <div class="product-status">
+                <% if project.status == "terminé" %>
+                <div class="green-badge"></div>
+                <span><em>Projet terminé</em></span>
+                <% else %>
+                <div class="orange-badge"></div>
+                <span><em>Projet en cours</em></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
