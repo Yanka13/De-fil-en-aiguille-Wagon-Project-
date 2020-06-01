@@ -19,16 +19,18 @@
           <h5>Récapitulatif de mon besoin</h5>
           <hr>
           <div class="quantity-budget">
-            <p class="mb-1">
-              <% if @project.product.product_type == "masque" %>
-                <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
-              <% elsif @project.product.product_type == "blouse" %>
-                <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %>
-              <% else %>
-                <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
-              <% end %>
-              <strong><%= " x #{@project.quantity}" %></strong>
-            </p>
+            <div class="horizontal-item-centred-recap">
+              <p class="mb-1">
+                <% if @project.product.product_type == "masque" %>
+                  <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
+                <% elsif @project.product.product_type == "blouse" %>
+                  <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %>
+                <% else %>
+                  <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
+                <% end %>
+                <strong><%= " x #{@project.quantity}" %></strong>
+              </p>
+            </div>
             <div class="column-content-recap">
               <p>Mon budget : <%= @project.budget %><%= "€" %></p>
               <p>Montant :  -- €</p>
@@ -36,7 +38,9 @@
           </div>
           <div class="adress-deadline">
             <div class="column-content-recap">
-              <span> <%= image_tag "real-estate.svg", width: "3%", alt: "home" %> Mon adresse :</span>
+              <div class="horizontal-item-centred-recap">
+                <p><%= image_tag "real-estate.svg", width: "3%", alt: "home" %> Mon adresse :</p>
+              </div>
               <p id="adress-recap"><%= @project.user.address %></p>
             </div>
             <% if @project.deadline.present? %>
