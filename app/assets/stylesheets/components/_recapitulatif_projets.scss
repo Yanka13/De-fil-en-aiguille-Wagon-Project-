@@ -1,0 +1,46 @@
+.recap-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.quantity-budget {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.adress-deadline {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.recap-container hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.recap-container h5 {
+  margin-left: 3rem
+}
+
+.recap-container .btn-modif-recap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 7rem;
+}
+
+.column-content-recap {
+  display: flex;
+  flex-direction: column;
+}
+
+#adress-recap {
+  margin-left: 22px;
+}
