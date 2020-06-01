@@ -30,16 +30,8 @@
              <%= link_to project_path(project) do %>
                Projet
               <% end %>
-              <div class= "quantity-product">
-            <p>Quantité : <%= project.quantity %> x </p>
-            <% if project.product.product_type == "masque" %>
-            <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "3%", alt: "masque" %>
-          <% elsif project.product.product_type == "blouse" %>
-            <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "3%", alt: "blouse" %>
-          <% else %>
-            <%= image_tag "crochet.svg", width: "3%", alt: "autre" %>
-          <% end %>
-          </div>
+            <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
+
 
             <% if project.deadline.present? %>
               <p>Deadline : <%= project.deadline.strftime("%d %B %Y") %></p>
