@@ -15,35 +15,63 @@
     <!-- RECAPITULATIF DES BESOINS -->
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active align-content-tab" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <h5>Récapitulatif du besoin</h5>
-        <p class="mb-1">
-          <% if @project.product.product_type == "masque" %>
-            <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "3%", alt: "masque" %>
-          <% elsif @project.product.product_type == "blouse" %>
-            <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "3%", alt: "blouse" %>
-          <% else %>
-            <%= image_tag "crochet.svg", width: "3%", alt: "autre" %>
-          <% end %>
-          <strong><%= " x #{@project.quantity}" %></strong>
-        </p>
-        <p>Mon budget : <br><%= @project.budget %><%= "€" %></p>
-        <p>Mon adresse : <br><%= @project.user.address %></p>
-        <% if @project.deadline.present? %>
-          <p>Deadline : <%= @project.deadline %></p>
-        <% else %>
-          <p>Deadline : --</p>
-        <% end %>
-        <div class= "edit-project-buttons pt-3">
-          <% if policy(@project).update? %>
-            <%= link_to 'Editer', edit_project_path(@project), class: "btn btn-outline-primary" %>
-          <% end %>
-          <% if policy(@project).destroy? %>
-            <%= link_to "Supprimer",
-                project_path(@project),
-                method: :delete,
-                data: { confirm: 'Voulez-vous supprimer le projet ?' },
-                class: "btn btn-outline-primary" %>
-          <% end %>
+        <div class="recap-container">
+          <h5>Récapitulatif de mon besoin</h5>
+          <hr>
+          <div class="margin-top-recap-elements">
+            <div class="horizontal-item-centred-recap">
+              <p class="mb-1">
+                <% if @project.product.product_type == "masque" %>
+                  <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque", class: "mr-1" %>
+                <% elsif @project.product.product_type == "blouse" %>
+                  <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse", class: "mr-1" %>
+                <% else %>
+                  <%= image_tag "crochet.svg", width: "5%", alt: "autre", class: "mr-1" %>
+                <% end %>
+                <strong><%= " x #{@project.quantity}" %></strong>
+              </p>
+            </div>
+          </div>
+          <div class="margin-top-recap-elements">
+            <p><strong>Description :</strong> <%= @project.description %></p>
+          </div>
+          <div class="margin-top-recap-elements">
+            <div class="column-content-recap">
+              <div class="horizontal-item-centred-recap">
+                <p style="margin-bottom: 0px;"><%= image_tag "real-estate.svg", width: "3%", alt: "home", class: "mr-1" %><strong> Mon adresse :</strong></p>
+              </div>
+              <p id="adress-recap"><%= @project.user.address %></p>
+            </div>
+          </div>
+          <div class="margin-top-recap-elements">
+            <% if @project.deadline.present? %>
+              <p><strong>Deadline : </strong><%= @project.deadline %></p>
+            <% else %>
+              <p><strong>Deadline : </strong>--</p>
+            <% end %>
+          </div>
+          <div class="margin-top-recap-elements">
+            <div class="column-content-recap">
+              <p><strong>Mon budget : </strong><%= @project.budget %><%= "€" %></p>
+            </div>
+            <div class="margin-top-recap-elements">
+              <p><strong>Montant : </strong> -- €</p>
+            </div>
+          </div>
+          <div class="btn-modif-recap">
+            <div class= "edit-project-buttons pt-3">
+              <% if policy(@project).update? %>
+                <%= link_to 'Editer', edit_project_path(@project), class: "btn btn-outline-primary" %>
+              <% end %>
+              <% if policy(@project).destroy? %>
+                <%= link_to "Supprimer",
+                    project_path(@project),
+                    method: :delete,
+                    data: { confirm: 'Voulez-vous supprimer votre demande ?' },
+                    class: "btn btn-outline-primary" %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
       <!-- ONGLET COLLABORATEURS -->
@@ -97,28 +125,26 @@
       <!-- ONGLET MES PROJETS -->
       <div class="tab-pane fade align-content-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <% @user_projects.each do |project| %>
-        <%= link_to project_path(project) do %>
-        <div class="linkable">
-          <div class="card-product">
-            <div class="left-content-project-card">
-              <div class="card-product-infos">
-                <div class="desc">
-                  <h2>Ref : Projet <%= @project.id %></h2>
-                  <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
-                  <p>Deadline : <%= project.deadline %></p>
-                </div>
+        <%= link_to project_path(project), class: "linkable-project" do %>
+        <div class="card-product">
+          <div class="left-content-project-card">
+            <div class="card-product-infos">
+              <div class="desc">
+                <h2>Ref : Demande <%= @project.id %></h2>
+                <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
+                <p>Deadline : <%= project.deadline %></p>
               </div>
             </div>
-            <div class="right-content-project-card">
-              <div class="product-status">
-                <% if project.status == "terminé" %>
-                <div class="green-badge"></div>
-                <span><em>Projet terminé</em></span>
-                <% else %>
-                <div class="orange-badge"></div>
-                <span><em>Projet en cours</em></span>
-                <% end %>
-              </div>
+          </div>
+          <div class="right-content-project-card">
+            <div class="product-status">
+              <% if project.status == "terminé" %>
+              <div class="green-badge"></div>
+              <span><em>Demande terminé</em></span>
+              <% else %>
+              <div class="orange-badge"></div>
+              <span><em>Demande en cours</em></span>
+              <% end %>
             </div>
           </div>
         </div>
