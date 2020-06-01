@@ -5,18 +5,10 @@
     display: inline-block;
     height: calc(1.5em + 0.8rem + 2.5px);
     padding: 0.375rem 0.75rem;
-    color: $fire-opal;
+    color: $prussian-blue;
     background-color: #fff;
     border: 1px double $steel-blue;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
- .input-group {
-    position: relative;
-    display: inline-flex;
-    border-radius: 6px;
-//     box-shadow: 0 0 5px $prussian-blue;
-//     background-color: white;
 }
 
 input, button, select, optgroup, textarea {
