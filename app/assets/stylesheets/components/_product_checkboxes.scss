@@ -1,0 +1,30 @@
+.product-choices {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  margin-right: 40px;
+}
+
+.form-check-label.collection_radio_buttons.product-choice {
+  border-color: #b7b7b7;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: .4;
+  flex: 0 0 30%;
+  text-align: center;
+  color: black;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+    background: $primary;
+    color: white;
+    opacity: 1;
+  }
+}
+
+.product-choice-checkbox {
+  visibility: hidden;
+  position: absolute;
+}

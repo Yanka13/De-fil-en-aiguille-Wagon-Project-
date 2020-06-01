@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :matches, through: :offers
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  has_many :notifications
 end

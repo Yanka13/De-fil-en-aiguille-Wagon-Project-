@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_091227) do
+
+ActiveRecord::Schema.define(version: 2020_06_01_110922) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +26,16 @@ ActiveRecord::Schema.define(version: 2020_06_01_091227) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["offer_id"], name: "index_matches_on_offer_id"
     t.index ["project_id"], name: "index_matches_on_project_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_notifications_on_project_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -82,6 +94,8 @@ ActiveRecord::Schema.define(version: 2020_06_01_091227) do
 
   add_foreign_key "matches", "offers"
   add_foreign_key "matches", "projects"
+  add_foreign_key "notifications", "projects"
+  add_foreign_key "notifications", "users"
   add_foreign_key "offers", "products"
   add_foreign_key "offers", "users"
   add_foreign_key "projects", "products"
