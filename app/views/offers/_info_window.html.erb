@@ -1,6 +1,8 @@
 
 <div class="content-card-pop-up <%= 'card-grey' if offer.quantity == 0 %>" >
-  <%= image_tag offer.user.photo, class: "avatar", alt: "avatar" %>
+  <% if offer.user.photo.present? %>
+ <%= image_tag offer.user.photo, class: "avatar", alt: "avatar" %>
+ <% end %>$
   <div class="name-text">
     <h2><%= offer.user.first_name.capitalize %> <%= offer.user.last_name.first.capitalize %>. </h2>
   </div>

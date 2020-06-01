@@ -23,13 +23,17 @@ input, button, select, optgroup, textarea {
 #address-search-bar {
   border-radius: 6px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  max-width: 400px;
+  margin-right: 22px;
+  margin-left: 0px;
 }
 
 #radius-search-bar {
   border-radius: 6px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   max-width: 300px;
+  margin-right: 30px;
+  margin-left: 0px;
+
 }
 
 #product-search-bar {
@@ -41,23 +45,49 @@ input, button, select, optgroup, textarea {
   border-radius: 6px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   max-width: 150px;
+  margin-right: 22px;
+  margin-left: 0px;
 }
 
 #price-search-bar {
   border-radius: 6px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   max-width: 170px;
+  margin-right: 22px;
+  margin-left: 0px;
 }
 
 .input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
   border-radius: 50px;
+  height: 50px;
+  margin-top: 36px;
 }
 
 .search-bar-index {
-    background-color: $azure;
+    background-color: white;
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+
+.field {
+  margin-left: 20px;
+  label {
+    display: block;
+  }
+}
+
+.field-adress {
+  flex:1;
+}
+
+
+
+
+
+
+
+
 
 
 
