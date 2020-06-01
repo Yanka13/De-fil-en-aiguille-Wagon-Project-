@@ -14,8 +14,8 @@
       Nous allons contacter les <%= User.near(current_user.address, 10).to_a.count  %> couturiers autour de vous afin de solliciter leur aide  </p>
     <% end %>
         <%= f.association :product,
-          collection: Product.all.map {|product| product.product_type.capitalize},
-          selected: f.object.product.product_type.capitalize || @project.product.product_type.capitalize %>
+          label_method: lambda { |product| product.product_type.capitalize },
+          value: f.object.product.product_type.capitalize || @project.product.product_type.capitalize %>
         <%= f.input :quantity, input_html: {value: f.object.quantity || @project.quantity } %>
         <%= f.input :budget, input_html: {value: f.object.budget || @project.budget } %>
         <%= f.label "j'ai une deadline", class: "btn-outline-primary", id: "btn-project-datepicker" %>
@@ -36,9 +36,6 @@
                 <div class="recap_collab col-6">
 
           <%= simple_fields_for :matches do |m| %>
-            <%#= p.input :offer_ids, as: :check_boxes,
-            collection: @offers.map { |offer| offer.id },
-            input_html: {  } %>
 
             <fieldset class="form-group check_boxes required matches_offer_ids">
               <legend class="col-form-label pt-0">Sollicitez leur aide<abbr title="required">*</abbr></legend>
@@ -55,7 +52,7 @@
                           <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
                               <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1"><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
+                                <h5 class="mb-1"><%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
                                 <small>
                                   <%= m.input :match_quantity,
                                               input_html: {
