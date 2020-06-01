@@ -18,7 +18,7 @@
         <div class="recap-container">
           <h5>Récapitulatif de mon besoin</h5>
           <hr>
-          <div class="quantity-budget">
+          <div class="margin-top-recap-elements">
             <div class="horizontal-item-centred-recap">
               <p class="mb-1">
                 <% if @project.product.product_type == "masque" %>
@@ -31,24 +31,30 @@
                 <strong><%= " x #{@project.quantity}" %></strong>
               </p>
             </div>
-            <div class="column-content-recap">
-              <p>Mon budget : <%= @project.budget %><%= "€" %></p>
-              <p>Montant :  -- €</p>
-            </div>
           </div>
-          <div class="adress-deadline">
-            <div class="column-content-recap">
-              <div class="horizontal-item-centred-recap">
-                <p><%= image_tag "real-estate.svg", width: "3%", alt: "home" %> Mon adresse :</p>
-              </div>
-              <p id="adress-recap"><%= @project.user.address %></p>
+        <div class="margin-top-recap-elements">
+          <div class="column-content-recap">
+            <div class="horizontal-item-centred-recap">
+              <p style="margin-bottom: 0px;"><%= image_tag "real-estate.svg", width: "3%", alt: "home" %> Mon adresse :</p>
             </div>
-            <% if @project.deadline.present? %>
-              <p>Deadline : <%= @project.deadline %></p>
-            <% else %>
-              <p>Deadline : --</p>
-            <% end %>
+            <p id="adress-recap"><%= @project.user.address %></p>
           </div>
+        </div>
+        <div class="margin-top-recap-elements">
+          <% if @project.deadline.present? %>
+            <p>Deadline : <%= @project.deadline %></p>
+          <% else %>
+            <p>Deadline : --</p>
+          <% end %>
+        </div>
+        <div class="margin-top-recap-elements">
+          <div class="column-content-recap">
+            <p>Mon budget : <%= @project.budget %><%= "€" %></p>
+          </div>
+          <div class="margin-top-recap-elements">
+            <p>Montant :  -- €</p>
+          </div>
+        </div>
           <div class="btn-modif-recap">
             <div class= "edit-project-buttons pt-3">
               <% if policy(@project).update? %>
