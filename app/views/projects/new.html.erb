@@ -73,7 +73,9 @@
                                 <% end %>
                                 <%= " à #{offer.price} €/unité" %></strong>
                               </p>
-                              <p class="mb-1"><%= offer.description.capitalize %></p>
+                              <% if offer.description.present? %>
+                                <p class="mb-1"><%= offer.description.capitalize %></p>
+                              <% end %>
                               <small><%= offer.user.address %></small>
                             </li>
                           </label>
