@@ -1,46 +1,61 @@
 <div class="search-bar-index">
     <%= form_tag offers_path, method: :get do |f| %>
         <div class="input-group">
-            <%= text_field_tag :address,
-              params[:address],
-              placeholder: " Indiquez votre adresse",
-              class: "form-control",
-              id: "address-search-bar"
-            %>
+            <div class="field field-address">
+              <label for="site-search">Votre adresse</label>
+              <%= text_field_tag :address,
+                params[:address],
+                placeholder: "Indiquez votre adresse",
+                class: "form-control",
+                id: "address-search-bar"
+              %>
+            </div>
 
-            <%= number_field_tag :radius,
-              params[:radius],
-              placeholder: "Rayon de recherche (km)",
-              min: 1,
-              max: 40,
-              class: "form-control",
-              id: "radius-search-bar"
-            %>
+            <div class="field">
+              <label for="site-search">Distance</label>
+              <%= number_field_tag :radius,
+                params[:radius],
+                placeholder: "Rayon de recherche (km)",
+                min: 1,
+                max: 40,
+                class: "form-control",
+                id: "radius-search-bar"
+              %>
+            </div>
 
-            <%= select_tag "product",
-            options_from_collection_for_select(@products, "id", "product_type", params[:product]),
-            prompt: "Choissisez votre produit",
-            class: "select2",
-            id: "product-search-bar"
-          %>
+            <div class="field">
+              <label for="site-search">Catégorie</label>
+              <%= select_tag "product",
+                options_from_collection_for_select(@products, "id", "product_type", params[:product]),
+                prompt: "Choissisez votre produit",
+                class: "select2",
+                id: "product-search-bar"
+              %>
+            </div>
 
-            <%= number_field_tag :quantity,
-              params[:quantity],
-              placeholder: "Quantité",
-              min: 1,
-              max: 200,
-              class: "form-control",
-              id: "quantity-search-bar"
-            %>
+            <div class="field">
+              <label for="site-search">Quantité</label>
+              <%= number_field_tag :quantity,
+                params[:quantity],
+                placeholder: "Quantité",
+                min: 1,
+                max: 200,
+                class: "form-control",
+                id: "quantity-search-bar"
+              %>
+            </div>
 
-            <%= number_field_tag :price,
-              params[:price],
-              placeholder: "Prix maximum par produit",
-              min: 1,
-              max: 30,
-              class: "form-control",
-              id: "price-search-bar"
-            %>
+            <div class="field">
+              <label for="site-search">Prix à l'unité</label>
+              <%= number_field_tag :price,
+                params[:price],
+                placeholder: "Prix maximum par produit",
+                min: 1,
+                max: 30,
+                class: "form-control",
+                id: "price-search-bar"
+              %>
+            </div>
 
             <div class="input-group-append">
             <%= submit_tag "Search", id: "sweet-alert-demo", class: " btn btn-primary" %>
