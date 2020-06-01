@@ -67,7 +67,7 @@
                 <%= link_to "Supprimer",
                     project_path(@project),
                     method: :delete,
-                    data: { confirm: 'Voulez-vous supprimer le projet ?' },
+                    data: { confirm: 'Voulez-vous supprimer votre demande ?' },
                     class: "btn btn-outline-primary" %>
               <% end %>
             </div>
@@ -130,7 +130,7 @@
           <div class="left-content-project-card">
             <div class="card-product-infos">
               <div class="desc">
-                <h2>Ref : Projet <%= @project.id %></h2>
+                <h2>Ref : Demande <%= @project.id %></h2>
                 <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
                 <p>Deadline : <%= project.deadline %></p>
               </div>
@@ -140,10 +140,10 @@
             <div class="product-status">
               <% if project.status == "terminé" %>
               <div class="green-badge"></div>
-              <span><em>Projet terminé</em></span>
+              <span><em>Demande terminé</em></span>
               <% else %>
               <div class="orange-badge"></div>
-              <span><em>Projet en cours</em></span>
+              <span><em>Demande en cours</em></span>
               <% end %>
             </div>
           </div>
