@@ -1,0 +1,104 @@
+.dashboard {
+  background: #0d7272;
+  width: 280px;
+  height: 1000px;
+  display: block;
+  text-align: center;
+
+  .avatar-large {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+}
+
+.fas.fa-plus {
+  padding: 4px;
+  color: white;
+}
+
+.fas.fa-folder {
+  padding: 4px;
+  color: white;
+}
+
+.fas.fa-trophy {
+  padding: 4px;
+  color: white;
+}
+
+.fas.fa-user {
+  padding: 4px;
+  color: white;
+}
+
+.dashboard-title {
+  display: inline-grid;
+  text-align: initial;
+  color: white;
+
+}
+
+.dashboard-icons {
+  display: inline-grid;
+  margin-right: 10px;
+  height: 160px;
+}
+
+.icons-and-titles {
+
+  margin-left: -23px;
+}
+
+.projects {
+
+    width: 600px;
+    position: absolute;
+    top: 140px;
+    left: 400px;
+}
+
+
+.card-product-dashboard {
+  overflow: hidden;
+  width: 769px;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+
+
+.card-product-dashboard img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.card-product-dashboard h2 {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: initial;
+    margin-top: 9px;
+}
+
+.card-product-dashboard p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+
+.quantity-product {
+display: flex;
+justify-content: space-around;
+}
