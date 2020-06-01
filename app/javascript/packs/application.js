@@ -33,6 +33,7 @@ import { initSelect2 } from '../components/init_select2';
 import { flatdate } from "../plugins/flatpickr"
 import { initCalendarDisplay } from '../plugins/init_calendar_display';
 import { initListGroupItemsAction } from '../plugins/init_list_group_items_action';
+import { initProductChoice } from '../plugins/init_product_choice';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -42,5 +43,6 @@ document.addEventListener('turbolinks:load', () => {
   initListGroupItemsAction();
   flatdate();
   initMapbox();
+  initProductChoice();
 })
 
