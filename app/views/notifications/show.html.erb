@@ -1,0 +1,15 @@
+
+  <h3>🧠 Make an offer reservation 🧠</h3>
+
+  <%= simple_form_for [@offer] do |f| %>
+    <%= f.input :quantity %>
+    <%= f.input :price %>
+    <%= f.input :product_id, :as => :hidden, :input_html => { :value => @notification.project.product.id }  %>
+    <%= f.input :project_id, :as => :hidden, :input_html => { :value => @notification.project.id }  %>
+
+    <%= f.submit class: 'btn btn-primary'%>
+
+
+
+
+  <% end %>

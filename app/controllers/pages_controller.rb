@@ -9,5 +9,6 @@ class PagesController < ApplicationController
    @projects = current_user.projects
    @offers = current_user.offers
    @user_projects = Project.where(user: current_user)
+
   end
 end

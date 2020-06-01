@@ -61,4 +61,32 @@ class OffersController < ApplicationController
       }
     end
   end
+
+
+  def create
+    @offer = Offer.new(offer_params)
+    @offer.user = current_user
+    if @offer.save
+    authorize @offer
+    @project = Project.find(params[:offer][:project_id])
+    Match.create(project: @project, offer_id: @offer.id, quantity: @offer.quantity, status: "Commande en cours" )
+    ProjectChannel.broadcast_to(
+    @project,
+    render_to_string(partial: "notification", locals: { user: current_user }))
+    @project.user.projects.each do |project|
+      ProjectChannel.broadcast_to(
+      project,
+      render_to_string(partial: "notification", locals: { user: current_user }))
+      end
+    redirect_to notifications_path
+    else
+      render "notifications/show"
+    end
+  end
+
+  private
+
+  def offer_params
+    params.require(:offer).permit(:quantity, :price, :description, :product_id)
+  end
 end

@@ -21,7 +21,12 @@ class ProjectsController < ApplicationController
         Match.create(project: @project, offer_id: offer_id.to_i, quantity: params[:matches]["#{:match_quantity_offer_}"+"#{offer_id}"])
       end
 
-      @usertocontact = User.near(current_user.address, 10) #cela représente tous les masks makers situés à 10km du client
+      @usertocontact = User.near(current_user.address, 10)
+      @usertocontact.each do |user|
+      Notification.create(project: @project, user_id: user.id, description: "Si t'es chaud crée l'offre")
+
+      end
+         #cela représente tous les masks makers situés à 10km du client
      #@usertocontact.map(&:id).each do |id|
       #ing = Offer.create(product: @product, quantity: 0, user_id: id )
       #Match.create(project: @project, quantity: 0, offer_id: ing.id )
