@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:quantity, :status, :deadline, :product_id, :budget)
+    params.require(:project).permit(:quantity, :status, :deadline, :product_id, :budget, :description)
   end
 
   def match_params

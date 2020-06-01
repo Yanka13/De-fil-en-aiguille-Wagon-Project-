@@ -1,39 +1,74 @@
 <div class="container">
   <div class="row m-3 justify-content-center">
-    <h1>Mon projet</h1>
+    <h1>Ma demande</h1>
   </div>
 
     <hr>
 
-      <%= simple_form_for @project do |f| %>
-  <div class="row pt-3">
-    <div class="recap_project col-6">
-      <h5>Récapitulatif du besoin</h5>
-      <% if params[:stock].to_i < params[:project][:quantity].to_i %>
-      <p>Malheureusement, il n'y a pas assez de stock de <%= @product.product_type %>s autour de vous.
-      Nous allons contacter les <%= User.near(current_user.address, 10).to_a.count  %> couturiers autour de vous afin de solliciter leur aide  </p>
-    <% end %>
-        <%= f.association :product,
-          label_method: lambda { |product| product.product_type.capitalize },
-          value: f.object.product.product_type.capitalize || @project.product.product_type.capitalize %>
-        <%= f.input :quantity, input_html: {value: f.object.quantity || @project.quantity } %>
-        <%= f.input :budget, input_html: {value: f.object.budget || @project.budget } %>
-        <%= f.label "j'ai une deadline", class: "btn-outline-primary", id: "btn-project-datepicker" %>
-        <div class="d-none" id="project-deadline">
-          <%= f.input :deadline, as: :string, required: false, input_html: {class: "datepicker"} %>
-        </div>
+  <%= simple_form_for @project do |f| %>
+    <div class="row pt-3">
+      <div class="recap_project col-6">
+        <h5>Récapitulatif de mon besoin</h5>
 
-        <!-- add notion of stocks -->
+          <fieldset class="form-group radio_buttons required project_product form-group-valid">
+            <legend class="col-form-label pt-0">J'ai besoin de :<abbr title="required">*</abbr></legend>
+            <input type="hidden" name="project[product_id]" value="">
+            <div class="product-choices">
+              <input class="form-check-input is-valid radio_buttons required product-choice-checkbox" type="radio" value="4" <%= 'checked="checked"' if @project.product_id == 4 %> name="project[product_id]" id="project_product_id_4">
+              <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == 4 %>" for="project_product_id_4">
+                <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "20%", alt: "masque" %>
+                <p>Masque(s)</p>
+              </label>
+              <input class="form-check-input is-valid radio_buttons required product-choice-checkbox " type="radio" value="5" <%= 'checked="checked"' if @project.product_id == 5 %> name="project[product_id]" id="project_product_id_5">
+              <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == 5 %> " for="project_product_id_5">
+                <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "20%", alt: "blouse" %>
+                <p>Blouse(s)</p>
+              </label>
+              <input class="form-check-input is-valid radio_buttons required product-choice-checkbox" type="radio" value="6" <%= 'checked="checked"' if @project.product_id == 6 %> name="project[product_id]" id="project_product_id_6">
+              <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == 6 %>" for="project_product_id_6">
+                <%= image_tag "crochet.svg", width: "20%", alt: "autre" %>
+                <p>Autre(s)</p>
+              </label>
+            </div>
+          </fieldset>
 
-        <p>
-          <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
-          Mon adresse :
-        </p>
-        <%= current_user.address %>
-    </div>
+          <%= f.input :quantity,
+                      label: "Quantité souhaitée :",
+                      input_html: {value: f.object.quantity || @project.quantity } %>
+          <%= f.input :budget,
+                      label: "Mon budget total est de :",
+                      input_html: {value: f.object.budget || @project.budget } %>
+          <%= f.input :description,
+                      label: "Plus d'informations sur ma demande..." %>
+          <%= f.label "j'ai une deadline", class: "btn-outline-primary", id: "btn-project-datepicker" %>
 
-              <% if @offers.present? %>
-                <div class="recap_collab col-6">
+          <div class="d-none" id="project-deadline">
+            <%= f.input :deadline,
+                        as: :string,
+                        required: false,
+                        input_html: {class: "datepicker"} %>
+          </div>
+
+          <!-- add notion of stocks -->
+
+          <p>
+            <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
+            Mon adresse :
+          <%= current_user.address %>
+          </p>
+
+        <% if params[:stock].to_i < params[:project][:quantity].to_i %>
+          <p>
+            Malheureusement, il n'y a pas assez de stock de <%= @product.product_type %>s autour de vous.
+            Nous allons contacter les <%= User.near(current_user.address, 10).to_a.count  %>
+            couturiers autour de vous afin de solliciter leur aide.
+          </p>
+        <% end %>
+
+      </div>
+
+      <% if @offers.present? %>
+        <div class="recap_collab col-6">
 
           <%= simple_fields_for :matches do |m| %>
 
@@ -42,62 +77,62 @@
 
               <input type="hidden" name="matches[offer_ids][]" value="">
 
+              <div class="list-group">
 
-                    <div class="list-group">
-
-                      <% @offers.each do |offer| %>
-                        <% if offer.quantity != 0 %>
-                        <div class="form-check">
-                          <input class="form-check-input check_boxes required d-none" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
-                          <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
-                            <li class="list-group-item list-group-item-action flex-column align-items-start">
-                              <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1"><%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
-                                <small>
-                                  <%= m.input :match_quantity,
-                                              input_html: {
-                                                value: offer.quantity,
-                                                name: "matches[match_quantity_offer_#{offer.id}]",
-                                                id: "match_quantity_offer_#{offer.id}"
-                                              } %>
-                                </small>
-                              </div>
-                              <p class="mb-1">
-                                <strong><%= "propose #{offer.quantity}" %>
-                                <% if offer.product.product_type == "masque" %>
-                                  <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
-                                <% elsif offer.product.product_type == "blouse" %>
-                                  <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %>
-                                <% else %>
-                                  <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
-                                <% end %>
-                                <%= " à #{offer.price} €/unité" %></strong>
-                              </p>
-                              <p class="mb-1"><%= offer.description.capitalize %></p>
-                              <small><%= offer.user.address %></small>
-                            </li>
-                          </label>
-                        </div>
-                       <% end %>
-                      <% end %>
-
+                <% @offers.each do |offer| %>
+                  <% if offer.quantity != 0 %>
+                    <div class="form-check">
+                      <input class="form-check-input check_boxes required d-none" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
+                      <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
+                        <li class="list-group-item list-group-item-action flex-column align-items-start">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1"><%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
+                            <small>
+                              <%= m.input :match_quantity,
+                                          label: "J'en demande :",
+                                          input_html: {
+                                            value: offer.quantity,
+                                            name: "matches[match_quantity_offer_#{offer.id}]",
+                                            id: "match_quantity_offer_#{offer.id}"
+                                          } %>
+                            </small>
+                          </div>
+                          <p class="mb-1">
+                            <strong><%= "propose #{offer.quantity}" %>
+                            <% if offer.product.product_type == "masque" %>
+                              <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
+                            <% elsif offer.product.product_type == "blouse" %>
+                              <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %>
+                            <% else %>
+                              <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
+                            <% end %>
+                            <%= " à #{offer.price} €/unité" %></strong>
+                          </p>
+                          <p class="mb-1"><%= offer.description.capitalize %></p>
+                          <small><%= offer.user.address %></small>
+                        </li>
+                      </label>
                     </div>
-          <% end %>
+                  <% end %>
+                <% end %>
 
+              </div>
 
             </fieldset>
 
           <% end %>
-      </div>
-
-      <div class="row col-12 justify-content-center">
-        <div class="submit-project mt-3 mb-1">
-          <%= f.submit class: 'btn btn-primary' %>
-          <%= f.button :button, "Cancel", type: "reset", class: "btn btn-outline-primary" %>
         </div>
-      </div>
+      <% end %>
 
-  </div>
-    <% end %>
+        <div class="row col-12 justify-content-center">
+          <div class="submit-project mt-3 mb-1">
+            <%= f.submit "Soumettre ma demande", class: 'btn btn-primary' %>
+            <%= f.button :button, "Annuler", type: "reset", class: "btn btn-outline-primary" %>
+          </div>
+        </div>
+
+    </div>
+
+  <% end %>
 
 </div>
