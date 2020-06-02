@@ -13,7 +13,7 @@
       <p>Description - <%= offer.description %></p>
   </div>
 
-  <div class="stock-text <%= 'card-green' if offer.quantity > 0 %>">
+  <div class="stock-text">
     <% if offer.product.product_type == "masque" && offer.quantity.to_i > 1 %>
         <p style= "color: #4dc42d; font-size: 11px;"> Stock - <strong> <%= offer.quantity %> </strong> <%= offer.product.product_type  %>s </p>
         <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", class: "masque", alt: "masque" %>
