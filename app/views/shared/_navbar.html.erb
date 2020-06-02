@@ -1,7 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "sewing-machine.svg" %>
-  <% end %>
+  <div class="logo-and-name">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "sewing-machine.svg" %>
+    <% end %>
+    <% if current_page = "home" %>
+      <%= image_tag "defilenaigiuille1lb.svg", class: "navbar-brand-name" %>
+    <% else %>
+      <%= image_tag "defilenaigiuille1lr.svg", class: "navbar-brand-name" %>
+    <% end %>
+  </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
