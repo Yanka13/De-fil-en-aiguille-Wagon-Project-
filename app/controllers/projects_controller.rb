@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
   def new
     @user = current_user
+    @products = Product.all
     @project = Project.new(project_params)
     @project.budget =  params[:project][:quantity].to_i * params[:price].to_f
     authorize @project

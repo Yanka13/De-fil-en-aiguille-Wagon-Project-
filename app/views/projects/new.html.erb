@@ -9,21 +9,19 @@
               <legend class="col-form-label pt-0">J'ai besoin de :<abbr title="required">*</abbr></legend>
               <input type="hidden" name="project[product_id]" value="">
               <div class="product-choices">
-                <input class="form-check-input is-valid radio_buttons required product-choice-checkbox" type="radio" value="1" <%= 'checked="checked"' if @project.product_id == 1 %> name="project[product_id]" id="project_product_id_1">
-                <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == 1 %>" for="project_product_id_1">
-                  <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "20%", alt: "masque" %>
-                  <p>Masque(s)</p>
-                </label>
-                <input class="form-check-input is-valid radio_buttons required product-choice-checkbox " type="radio" value="2" <%= 'checked="checked"' if @project.product_id == 2 %> name="project[product_id]" id="project_product_id_2">
-                <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == 2 %> " for="project_product_id_2">
-                  <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "20%", alt: "blouse" %>
-                  <p>Blouse(s)</p>
-                </label>
-                <input class="form-check-input is-valid radio_buttons required product-choice-checkbox" type="radio" value="3" <%= 'checked="checked"' if @project.product_id == 3 %> name="project[product_id]" id="project_product_id_3">
-                <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == 3 %>" for="project_product_id_3">
-                  <%= image_tag "crochet.svg", width: "20%", alt: "autre" %>
-                  <p>Autre(s)</p>
-                </label>
+                <% @products.each do |product| %>
+                  <input class="form-check-input is-valid radio_buttons required product-choice-checkbox" type="radio" value="<%= product.id %>" <%= 'checked="checked"' if @project.product_id == product.id %> name="project[product_id]" id="project_product_id_<%= product.id %>">
+                  <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == product.id %>" for="project_product_id_<%= product.id %>">
+                    <% if product.product_type == "masque" %>
+                      <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "20%", alt: "masque" %>
+                    <% elsif product.product_type == "blouse" %>
+                      <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "20%", alt: "blouse" %>
+                    <% else %>
+                      <%= image_tag "crochet.svg", width: "20%", alt: "autre" %>
+                    <% end %>
+                    <p> <%= "#{product.product_type.capitalize}(s)" %> </p>
+                  </label>
+                <% end %>
               </div>
             </fieldset>
             <%= f.input :quantity,
@@ -76,15 +74,17 @@
                               <h5 class="mb-1"><%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
                               <small>
                                 <%= m.input :match_quantity,
+                                            as: :integer,
                                             label: "J'en demande :",
                                             input_html: {
                                               value: offer.quantity,
                                               name: "matches[match_quantity_offer_#{offer.id}]",
-                                              id: "match_quantity_offer_#{offer.id}"
+                                              id: "match_quantity_offer_#{offer.id}",
+                                              class: "match-quantity"
                                             } %>
                               </small>
                             </div>
-                            <p class="mb-1">
+                            <p class="mb-1 paragraph-price" data-price="<%= offer.price %>">
                               <strong><%= "propose #{offer.quantity}" %>
                               <% if offer.product.product_type == "masque" %>
                                 <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
@@ -111,10 +111,13 @@
       <% end %>
     </div>
   </div>
-  <div class="new-project-banner">
+  <div class="new-project-banner justify-content-center">
     <div class="submit-project">
       <%= f.submit "Soumettre ma demande", class: 'btn btn-primary' %>
       <%= f.button :button, "Annuler", type: "reset", class: "btn btn-outline-primary" %>
+      <div class="recap-submission-project">
+        <p id="offers-total-quantity"></p>
+      </div>
     </div>
   </div>
 <% end %>

@@ -44,12 +44,11 @@ document.addEventListener('turbolinks:load', () => {
   initCalendarDisplay();
   initListGroupItemsAction();
   flatdate();
-  initMapbox();
   initProjectCable();
   initSweetalert('#sweet-alert-demo', {
-  title: "A nice alert",
-  text: "This is a great alert, isn't it?",
-  icon: "warning"
+    title: "A nice alert",
+    text: "This is a great alert, isn't it?",
+    icon: "warning"
   });
   initProductChoice();
   initCounterOffers();
@@ -59,5 +58,6 @@ document.addEventListener('turbolinks:load', () => {
       $('#sidebar, #content').toggleClass('active');
     });
   });
+  initMapbox();
 })
 
