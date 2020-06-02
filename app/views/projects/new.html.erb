@@ -63,43 +63,47 @@
             <fieldset class="form-group check_boxes required matches_offer_ids">
               <legend class="col-form-label pt-0">Sollicitez leur aide<abbr title="required">*</abbr></legend>
               <input type="hidden" name="matches[offer_ids][]" value="">
-              <div class="list-group">
-                <% @offers.each do |offer| %>
-                  <% if offer.quantity != 0 %>
-                    <div class="form-check">
-                      <input class="form-check-input check_boxes required d-none" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
-                      <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
-                        <li class="list-group-item list-group-item-action flex-column align-items-start">
-                          <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
-                            <small>
-                              <%= m.input :match_quantity,
-                                          label: "J'en demande :",
-                                          input_html: {
-                                            value: offer.quantity,
-                                            name: "matches[match_quantity_offer_#{offer.id}]",
-                                            id: "match_quantity_offer_#{offer.id}"
-                                          } %>
-                            </small>
-                          </div>
-                          <p class="mb-1">
-                            <strong><%= "propose #{offer.quantity}" %>
-                            <% if offer.product.product_type == "masque" %>
-                              <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
-                            <% elsif offer.product.product_type == "blouse" %>
-                              <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %>
-                            <% else %>
-                              <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
-                            <% end %>
-                            <%= " à #{offer.price} €/unité" %></strong>
-                          </p>
-                          <p class="mb-1"><%= offer.description.capitalize %></p>
-                          <small><%= offer.user.address %></small>
-                        </li>
-                      </label>
-                    </div>
+              <div class="recap-collab-list">
+                <div class="list-group">
+                  <% @offers.each do |offer| %>
+                    <% if offer.quantity != 0 %>
+                      <div class="form-check">
+                        <input class="form-check-input check_boxes required d-none" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
+                        <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
+                          <li class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1"><%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
+                              <small>
+                                <%= m.input :match_quantity,
+                                            as: :integer,
+                                            label: "J'en demande :",
+                                            input_html: {
+                                              value: offer.quantity,
+                                              name: "matches[match_quantity_offer_#{offer.id}]",
+                                              class: "match-quantity",
+                                              id: "match_quantity_offer_#{offer.id}"
+                                            } %>
+                              </small>
+                            </div>
+                            <p class="mb-1">
+                              <strong><%= "propose #{offer.quantity}" %>
+                              <% if offer.product.product_type == "masque" %>
+                                <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
+                              <% elsif offer.product.product_type == "blouse" %>
+                                <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse" %>
+                              <% else %>
+                                <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
+                              <% end %>
+                              <%= " à #{offer.price} €/unité" %></strong>
+                            </p>
+                            <p class="mb-1"><%= offer.description.capitalize %></p>
+                            <small><%= offer.user.address %></small>
+                          </li>
+                        </label>
+                      </div>
+                    <% end %>
                   <% end %>
-                <% end %>
+                </div>
               </div>
             </fieldset>
           <% end %>
