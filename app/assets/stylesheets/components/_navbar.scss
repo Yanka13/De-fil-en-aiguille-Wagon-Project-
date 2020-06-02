@@ -43,3 +43,13 @@
 .home .navbar-light .navbar-nav .nav-link {
    color: white !important;
   }
+
+.logo-and-name {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand-name {
+  width: 50%;
+  margin-top: 10px;
+}
