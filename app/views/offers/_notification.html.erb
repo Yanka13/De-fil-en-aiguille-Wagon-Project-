@@ -1,5 +1,6 @@
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   <strong><%= user.first_name %> <% user.last_name %> vient de rejoindre ton projet !</strong> <%= user.offers.last.quantity %> <%= user.offers.last.product.product_type  %>s en plus!
+  <p><%= user.offers.last.description  %></p>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
