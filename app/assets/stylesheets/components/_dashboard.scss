@@ -1,6 +1,5 @@
 .vertical-nav {
   min-width: 17rem;
-  margin-top: 71px;
   width: 17rem;
   height: 100vh;
   position: fixed;
@@ -63,4 +62,37 @@
   }
 }
 
+.dashboard-cards {
+  border-radius: 4px;
+  background: white;
+  border: 2px solid transparent;
+  margin-bottom: 35px;
+  padding: 13px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08)
 
+
+}
+
+.dashboard-cards-notification {
+  margin-top: 35px;
+  border-radius: 4px;
+  background: white;
+  border: 1px solid transparent;
+  margin-bottom: 35px;
+  padding: 13px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08)
+
+
+}
+
+.dashboard-cards-map {
+  margin-top: 35px;
+  border-radius: 4px;
+  background: white;
+  border: 1px solid transparent;
+  margin-bottom: 35px;
+  padding: 13px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08)
+
+
+}
