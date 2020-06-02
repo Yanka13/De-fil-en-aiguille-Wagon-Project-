@@ -1,65 +1,120 @@
-<div class=dashboard>
- <%= image_tag current_user.photo, class: "avatar-large avatar-position", alt: "avatar" %>
-
-
-  <div class=icons-and-titles>
-    <div class="dashboard-icons">
-      <i class="fas fa-plus"></i>
-      <i class="fas fa-folder"></i>
-      <i class="fas fa-trophy"></i>
-      <i class="fas fa-user"></i>
-    </div>
-
-     <div class= "dashboard-title">
-       <p>Nouvelle commande</p>
-       <p>Projets</p>
-       <p>Produits</p>
-       <p>Profile</p>
+<!-- Vertical navbar -->
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex align-items-center"><img src="<%= current_user.photo %>" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+      <div class="media-body">
+        <h4 class="m-0"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h4>
+        <p class="font-weight-light text-muted mb-0">Responsable EPHAD d'Alfortville</p>
+      </div>
     </div>
   </div>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Achat</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="dashboard/" class="nav-link text-dark font-italic bg-light">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                Dashboard
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="projects/" class="nav-link text-dark font-italic">
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                Mes Projets
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                Nouvelle commande
+            </a>
+    </li>
+  </ul>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Ventes</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                Mes offres
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+                Mon profil
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                Messages
+            </a>
+    </li>
+
+  </ul>
 </div>
-
-<div class= "projects">
-  <% @projects.each do |project|%>
-    <div class="card-product-dashboard">
-
-      <div class="left-content-project-card">
-        <div class="card-product-infos">
-          <div class="desc">
-
-             <%= link_to project_path(project) do %>
-               Projet
-              <% end %>
-            <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
+<!-- End vertical navbar -->
 
 
-            <% if project.deadline.present? %>
-              <p>Deadline : <%= project.deadline.strftime("%d %B %Y") %></p>
-            <% else %>
-             <p>Deadline non spécifiée </p>
-            <% end %>
+<!-- Page content holder -->
+<div class="page-content p-5" id="content">
+  <!-- Toggle button -->
+  <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
 
-            <p>Couturiers sur le projet : <%= project.matches.count %></p>
+  <!-- Demo content -->
+  <h2 class="display-4 text-white">Dashboard</h2>
+  <p class="lead text-white mb-0">Synthèse de votre activité sur notre plateforme 😇 </p>
 
-          </div>
+  <div class="separator"></div>
+  <div class="row text-white">
+    <div class="col-lg-7">
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor.
+      </p>
+      <div class="bg-white p-5 rounded my-5 shadow-sm">
+
+        <div id="map"
+             style="width: 100%; height: 600px;"
+             data-markers="<%= @markers.to_json %>"
+             data-center="<%= @marker_center.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
 
-      <div class="right-content-project-card">
-
-        <div class="product-status">
-          <% if project.status == "terminé" %>
-            <div class="green-badge"></div>
-            <span><em>Projet terminé</em></span>
-          <% else %>
-            <div class="orange-badge"></div>
-            <span><em>Projet en cours</em></span>
-          <% end %>
+      <div class="d-flex justify-content-end mb-4">
+        <div class="img_cont_msg">
+          <img src="<%=current_user.projects.last.offers.last.user.photo  %>" class="avatar"></div>
+        </div>
+        <div class="msg_cotainer_send">
+          <%= current_user.projects.last.offers.last.description   %>
+          <span class="msg_time_send"><%= current_user.projects.last.offers.last.user.first_name %></span>
         </div>
 
-      </div>
 
+      </p>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor.
+      </p>
     </div>
+    <div class="col-lg-5">
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor.
+      </p>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor.
+      </p>
+    </div>
+  </div>
 
-  <% end %>
- </div>
+</div>

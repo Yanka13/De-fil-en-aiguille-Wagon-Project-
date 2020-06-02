@@ -1,4 +1,77 @@
-<div class="container-show-project-yannis">
+<!-- Vertical navbar -->
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex align-items-center"><img src="<%= current_user.photo %>" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+      <div class="media-body">
+        <h4 class="m-0"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h4>
+        <p class="font-weight-light text-muted mb-0">Responsable EPHAD d'Alfortville</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Achat</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="dashboard/" class="nav-link text-dark font-italic bg-light">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                Dashboard
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="projects/" class="nav-link text-dark font-italic">
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                Mes Projets
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                Nouvelle commande
+            </a>
+    </li>
+  </ul>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Ventes</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                Mes offres
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+                Mon profil
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                Messages
+            </a>
+    </li>
+
+  </ul>
+</div>
+<!-- End vertical navbar -->
+
+
+<!-- Page content holder -->
+<div class="page-content p-5" id="content">
+  <!-- Toggle button -->
+  <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+
+  <!-- Demo content -->
+  <h2 class="display-4 text-white">Récapitulatif de votre commande</h2>
+  <p class="lead text-white mb-0">Récap et fournisseurs</p>
+
+  </p>
+  <div class="separator"></div>
+  <div class="row text-white">
+  <div class="container-show-project-yannis">
   <div class="card-show-project">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <!-- NOM DES ONGLETS -->
@@ -8,9 +81,7 @@
       <li class="nav-item">
         <a class="nav-link" id="profile-tab" data-toggle="tab" data-project-id="<%=@project.id%>" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Fournisseurs</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mes projets</a>
-      </li>
+
     </ul>
     <!-- RECAPITULATIF DES BESOINS -->
     <div class="tab-content" id="myTabContent">
@@ -123,34 +194,18 @@
         <% end %>
       </div>
       <!-- ONGLET MES PROJETS -->
-      <div class="tab-pane fade align-content-tab" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <% @user_projects.each do |project| %>
-        <%= link_to project_path(project), class: "linkable-project" do %>
-        <div class="card-product">
-          <div class="left-content-project-card">
-            <div class="card-product-infos">
-              <div class="desc">
-                <h2>Ref : Demande <%= @project.id %></h2>
-                <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
-                <p>Deadline : <%= project.deadline %></p>
-              </div>
-            </div>
-          </div>
-          <div class="right-content-project-card">
-            <div class="product-status">
-              <% if project.status == "terminé" %>
-              <div class="green-badge"></div>
-              <span><em>Demande terminé</em></span>
-              <% else %>
-              <div class="orange-badge"></div>
-              <span><em>Demande en cours</em></span>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        <% end %>
-      </div>
+
+
     </div>
   </div>
 </div>
+
+  </div>
+  </div>
+
+</div>
+
+
+
+
+
