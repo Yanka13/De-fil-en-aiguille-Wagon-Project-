@@ -14,8 +14,6 @@ const initCounterOffers = () => {
         listActive.forEach((element) => {
           let qty = element.querySelector(".match-quantity").value;
           let price = element.querySelector(".paragraph-price").dataset.price;
-          console.log(element);
-          console.log(price);
           sum += Number.parseInt(qty, 10);
           totalPrice += Number.parseInt(price, 10) * Number.parseInt(qty, 10);
           people += 1;
