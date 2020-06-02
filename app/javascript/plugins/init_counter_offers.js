@@ -17,7 +17,7 @@ const initCounterOffers = () => {
           console.log(element);
           console.log(price);
           sum += Number.parseInt(qty, 10);
-          totalPrice += Number.parseInt(price, 10) * Number.parseInt(qty, 10);
+          totalPrice += Number.parseFloat(price, 10) * Number.parseInt(qty, 10);
           people += 1;
         });
         if (totalPrice === 0) {
