@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
 
       @usertocontact = User.near(current_user.address, 10)
       @usertocontact.each do |user|
-      Notification.create(project: @project, user_id: user.id, description: "Si t'es chaud crée l'offre")
+      Notification.create(project: @project, user_id: user.id, description: params[:description])
 
       end
          #cela représente tous les masks makers situés à 10km du client
