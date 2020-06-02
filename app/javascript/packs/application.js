@@ -35,6 +35,7 @@ import { initCalendarDisplay } from '../plugins/init_calendar_display';
 import { initListGroupItemsAction } from '../plugins/init_list_group_items_action';
 import { initProjectCable } from '../channels/project_channel';
 import { initProductChoice } from '../plugins/init_product_choice';
+import { initCounterOffers } from '../plugins/init_counter_offers';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
@@ -42,14 +43,15 @@ document.addEventListener('turbolinks:load', () => {
   initCalendarDisplay();
   initListGroupItemsAction();
   flatdate();
-  initMapbox();
   initProjectCable();
   initProductChoice();
+  initCounterOffers();
   $(function() {
-  // Sidebar toggle behavior
-  $('#sidebarCollapse').on('click', function() {
-    $('#sidebar, #content').toggleClass('active');
+    // Sidebar toggle behavior
+    $('#sidebarCollapse').on('click', function() {
+      $('#sidebar, #content').toggleClass('active');
+    });
   });
-});
+  initMapbox();
 })
 
