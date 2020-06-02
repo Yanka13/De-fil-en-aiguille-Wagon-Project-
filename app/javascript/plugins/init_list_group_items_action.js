@@ -1,6 +1,5 @@
 const initListGroupItemsAction = () => {
   const list = document.querySelectorAll(".list-group-item ");
-  console.log(list);
   if (list) {
     list.forEach((listitem) => {
       listitem.addEventListener("click", (event) => {
