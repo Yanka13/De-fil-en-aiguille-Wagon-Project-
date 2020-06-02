@@ -1,0 +1,35 @@
+.new_project {
+}
+
+.main-project-actions {
+  height: calc(100vh - 70px - 80px);
+  overflow: hidden;
+}
+
+.new_project .new-project-banner {
+  height: 80px;
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+}
+
+.new_project .recap-collab-list {
+  height: calc(100vh - 205px);
+  overflow: hidden;
+  .list-group {
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+.new_project .recap-project-form-container {
+  height: calc(100vh - 205px);
+  overflow: hidden;
+  .recap-project-form {
+    height: 100%;
+    overflow-y: auto;
+  }
+  .recap-project-form .form-control {
+    width: 90%;
+  }
+}
