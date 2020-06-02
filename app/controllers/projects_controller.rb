@@ -11,6 +11,10 @@ class ProjectsController < ApplicationController
     @usertocontact = User.near(current_user.address, 10) #cela représente tous les mask makers à 10km à la ronde du client
   end
 
+  def index
+    @user_projects = policy_scope(Project).where(user: current_user)
+  end
+
   def create
     @project = current_user.projects.new(project_params)
     authorize @project
@@ -23,7 +27,7 @@ class ProjectsController < ApplicationController
 
       @usertocontact = User.near(current_user.address, 10)
       @usertocontact.each do |user|
-      Notification.create(project: @project, user_id: user.id, description: "Si t'es chaud crée l'offre")
+      Notification.create(project: @project, user_id: user.id, description: params[:description])
 
       end
          #cela représente tous les masks makers situés à 10km du client

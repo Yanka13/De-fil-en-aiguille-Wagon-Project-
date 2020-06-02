@@ -13,15 +13,12 @@
   </head>
 
   <body class="<%= "home" if params[:action] == "home" %>">
-    <% unless params[:controller] == "pages" && params[:action] == "dashboard" %>
-
     <%= render 'shared/navbar' %>
-    <% end %>
     <div id="main-content">
       <%= yield %>
     </div>
     <%= render 'shared/flashes' %>
-    <% unless (params[:controller] == "offers" && params[:action] == "index") || (params[:controller] == "projects" && params[:action] == "show") || (params[:controller] == "pages" && params[:action] == "dashboard") %>
+    <% unless (params[:controller] == "offers" && params[:action] == "index") || (params[:controller] == "projects" && params[:action] == "show") || (params[:controller] == "pages" && params[:action] == "dashboard") || (params[:controller] == "projects") %>
       <%= render 'shared/footer' %>
     <% end %>
   </body>

@@ -1,0 +1,58 @@
+<%= render 'shared/dashboard' %>
+
+<!-- Page content holder -->
+<div class="page-content p-5" id="content">
+  <!-- Toggle button -->
+  <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+
+  <!-- Demo content -->
+  <h2 class="display-4 text-white">Vos projets</h2>
+  <p class="lead text-white mb-0">Un récapitulatif de vos projets sous vos yeux chatoyants</p>
+
+  <div class="separator"></div>
+
+   <% @user_projects.each do |project| %>
+      <%= link_to project_path(project), class: "linkable-project" do %>
+      <div class="card-product">
+        <div class="left-content-project-card">
+          <div class="card-product-infos">
+            <div class="desc">
+              <h2>Projet</h2>
+              <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
+              <p>Deadline : <%= project.deadline %></p>
+            </div>
+          </div>
+        </div>
+        <div class="right-content-project-card">
+          <div class="product-status">
+            <% if project.status == "terminé" %>
+            <div class="green-badge"></div>
+            <span><em>Demande terminé</em></span>
+            <% else %>
+            <div class="orange-badge"></div>
+            <span><em>Demande en cours</em></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
