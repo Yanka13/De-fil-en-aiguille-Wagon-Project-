@@ -1,9 +1,15 @@
 const initListGroupItemsAction = () => {
-  const list = document.querySelectorAll(".list-group-item");
+  const list = document.querySelectorAll(".list-group-item ");
   if (list) {
     list.forEach((listitem) => {
       listitem.addEventListener("click", (event) => {
-        event.currentTarget.classList.toggle("active");
+        // const inputQuantity = document.querySelector(".match-quantity");
+        // console.log(event.currentTarget.classList.contains("match-quantity"));
+        // console.log(inputQuantity.classList.contains("match-quantity"));
+        // if (event.currentTarget != inputQuantity) {
+        //   event.preventDefault();
+          event.currentTarget.classList.toggle("active");
+        // };
       });
     });
   };

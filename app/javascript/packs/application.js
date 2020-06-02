@@ -36,6 +36,7 @@ import { initListGroupItemsAction } from '../plugins/init_list_group_items_actio
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { initProjectCable } from '../channels/project_channel';
 import { initProductChoice } from '../plugins/init_product_choice';
+import { initCounterOffers } from '../plugins/init_counter_offers';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
@@ -43,19 +44,20 @@ document.addEventListener('turbolinks:load', () => {
   initCalendarDisplay();
   initListGroupItemsAction();
   flatdate();
-  initMapbox();
   initProjectCable();
   initSweetalert('#sweet-alert-demo', {
-  title: "A nice alert",
-  text: "This is a great alert, isn't it?",
-  icon: "warning"
+    title: "A nice alert",
+    text: "This is a great alert, isn't it?",
+    icon: "warning"
   });
   initProductChoice();
+  initCounterOffers();
   $(function() {
-  // Sidebar toggle behavior
-  $('#sidebarCollapse').on('click', function() {
-    $('#sidebar, #content').toggleClass('active');
+    // Sidebar toggle behavior
+    $('#sidebarCollapse').on('click', function() {
+      $('#sidebar, #content').toggleClass('active');
+    });
   });
-});
+  initMapbox();
 })
 
