@@ -9,6 +9,23 @@
               <legend class="col-form-label pt-0">J'ai besoin de :<abbr title="required">*</abbr></legend>
               <input type="hidden" name="project[product_id]" value="">
               <div class="product-choices">
+<<<<<<< HEAD
+                <input class="form-check-input is-valid radio_buttons required product-choice-checkbox" type="radio" value="25" <%= 'checked="checked"' if @project.product_id == 25 %> name="project[product_id]" id="project_product_id_25">
+                <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == 25 %>" for="project_product_id_25">
+                  <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "20%", alt: "masque" %>
+                  <p>Masque(s)</p>
+                </label>
+                <input class="form-check-input is-valid radio_buttons required product-choice-checkbox " type="radio" value="26" <%= 'checked="checked"' if @project.product_id == 26 %> name="project[product_id]" id="project_product_id_26">
+                <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == 26 %> " for="project_product_id_26">
+                  <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "20%", alt: "blouse" %>
+                  <p>Blouse(s)</p>
+                </label>
+                <input class="form-check-input is-valid radio_buttons required product-choice-checkbox" type="radio" value="27" <%= 'checked="checked"' if @project.product_id == 27 %> name="project[product_id]" id="project_product_id_27">
+                <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == 27 %>" for="project_product_id_27">
+                  <%= image_tag "crochet.svg", width: "20%", alt: "autre" %>
+                  <p>Autre(s)</p>
+                </label>
+=======
                 <% @products.each do |product| %>
                   <input class="form-check-input is-valid radio_buttons required product-choice-checkbox" type="radio" value="<%= product.id %>" <%= 'checked="checked"' if @project.product_id == product.id %> name="project[product_id]" id="project_product_id_<%= product.id %>">
                   <label class="form-check-label collection_radio_buttons product-choice <%= "active" if @project.product_id == product.id %>" for="project_product_id_<%= product.id %>">
@@ -22,6 +39,7 @@
                     <p> <%= "#{product.product_type.capitalize}(s)" %> </p>
                   </label>
                 <% end %>
+>>>>>>> bffaeba95c08ddf875e96a2a22715858daa49b7e
               </div>
             </fieldset>
             <%= f.input :quantity,
