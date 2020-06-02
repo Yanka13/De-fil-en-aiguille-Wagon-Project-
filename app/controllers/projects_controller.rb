@@ -43,9 +43,13 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @somme = 0
     @userlocalisation = Geocoder.search(current_user.address).first.coordinates
     @matches = @project.matches
     @user_projects = Project.where(user: current_user)
+    @matches.each do |match|
+      @somme += match.offer.quantity * match.offer.price
+    end
   end
 
   def edit
