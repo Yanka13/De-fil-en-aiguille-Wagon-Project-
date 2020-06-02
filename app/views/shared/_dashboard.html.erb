@@ -1,7 +1,11 @@
 <!-- Vertical navbar -->
 <div class="vertical-nav bg-white" id="sidebar">
   <div class="py-4 px-3 mb-4 bg-light">
-    <div class="media d-flex align-items-center"><img src="<%= current_user.photo %>" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+    <% if current_user.photo.present? %>
+      <div class="media d-flex align-items-center"><img src="<%= current_user.photo %>" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+    <% else %>
+      <div class="media d-flex align-items-center"><img src="../assets/images/hotel.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+    <% end %>
       <div class="media-body">
         <h4 class="m-0"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h4>
         <p class="font-weight-light text-muted mb-0">Responsable EPHAD d'Alfortville</p>
