@@ -9,8 +9,18 @@ class ProjectsController < ApplicationController
     @project.budget =  params[:project][:quantity].to_i * params[:price].to_f
     authorize @project
     @product = Product.find(project_params[:product_id])
-    @offers = Offer.order('price ASC, quantity DESC').find(params[:offers_id]) if params[:offers_id]
-    @usertocontact = User.near(current_user.address, 10) #cela représente tous les mask makers à 10km à la ronde du client
+
+    # display only offers with quantity > 0
+    @all_offers = Offer.order('price ASC, quantity DESC').find(params[:offers_id]) if params[:offers_id]
+    @offers = []
+    @all_offers.each do |offer|
+      if offer.quantity > 0
+        @offers << offer
+      end
+    end
+
+    # tous les mask makers à 10km à la ronde du client
+    @usertocontact = User.near(current_user.address, 10)
   end
 
   def index
