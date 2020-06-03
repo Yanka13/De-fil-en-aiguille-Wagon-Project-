@@ -96,9 +96,7 @@
   border: 1px solid transparent;
   margin-bottom: 35px;
   padding: 13px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08)
-
-
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .dashboard-cards-map {
@@ -108,7 +106,7 @@
   border: 1px solid transparent;
   margin-bottom: 35px;
   padding: 13px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08)
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 #circle-container {
@@ -150,8 +148,6 @@
   border-left: 1px solid rgba(0,0,0,0.2);
 }
 
-
-
 .dashboard-cards-map {
   margin-top: 35px;
   border-radius: 4px;
@@ -160,10 +156,7 @@
   margin-bottom: 35px;
   padding: 13px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
-
-
 }
-
 
 .dashboard-card-friends {
   position: relative;
@@ -175,19 +168,15 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: space-around;
-  background: #7eb5fa;
-
-
+  background: #FFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1)
 }
 
 .friend-card-text {
   display: block;
   margin-left: 50px;
-
-
   h2 {
     font-size: 24px;
-
   }
 }
 
@@ -197,9 +186,5 @@
     border-radius: 50%;
     position: absolute;
     top: 17px;
-    left: 41px
+    left: 41px;
 }
-
-
-
-
