@@ -72,17 +72,8 @@
                         <input class="form-check-input check_boxes required d-none" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
                         <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
                           <li class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                              <h5 class="mb-1 offerer-name"><%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <%= "#{offer.user.nickname}" %></h5>
-
-                                <!-- input match quantity -->
-                                <div class="form-group integer required matches_match_quantity">
-                                  <label class="integer required" for="match_quantity_offer_<%= offer.id %>">J'en demande : <abbr title="required">*</abbr></label>
-                                  <input class="form-control numeric integer required match-quantity" value="<%= offer.quantity %>" name="matches[match_quantity_offer_<%= offer.id %>]" id="match_quantity_offer_<%= offer.id %>" type="number" step="1">
-                                </div>
-
-                            </div>
                             <p class="mb-1 paragraph-price" data-price="<%= offer.price %>">
+                              <%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <strong><%= "#{offer.user.nickname}" %></strong>
                               <strong><%= "propose #{offer.quantity}" %>
                               <% if offer.product.product_type == "masque" %>
                                 <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
@@ -93,8 +84,15 @@
                               <% end %>
                               <%= " à #{offer.price} €/unité" %></strong>
                             </p>
+
+                            <!-- input match quantity -->
+                            <div class="form-group integer required matches_match_quantity">
+                              <label class="integer required" for="match_quantity_offer_<%= offer.id %>">J'en demande : <abbr title="required">*</abbr></label>
+                              <input class="form-control numeric integer required match-quantity" value="<%= offer.quantity %>" name="matches[match_quantity_offer_<%= offer.id %>]" id="match_quantity_offer_<%= offer.id %>" type="number" step="1">
+                            </div>
+
                             <p class="mb-1"><%= offer.description.capitalize %></p>
-                            <small><%= offer.user.address %></small>
+                            <small><%= image_tag "location.png", width: "5%", alt: "location" %><%= offer.user.address %></small>
                           </li>
                         </label>
                       </div>
@@ -110,13 +108,13 @@
     </div>
   </div>
 
-  <div class="new-project-banner justify-content-center">
+  <div class="new-project-banner d-flex justify-content-between align-items-center">
+    <div class="recap-submission-project">
+      <p id="offers-total-quantity"></p>
+    </div>
     <div class="submit-project">
       <%= f.submit "Soumettre ma demande", class: 'btn btn-primary' %>
       <%= f.button :button, "Annuler", type: "reset", class: "btn btn-outline-primary" %>
-      <div class="recap-submission-project">
-        <p id="offers-total-quantity"></p>
-      </div>
     </div>
   </div>
 
