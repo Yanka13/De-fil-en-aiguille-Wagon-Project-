@@ -3,12 +3,14 @@
 
 .form-control {
     display: inline-block;
-    height: calc(1.5em + 0.8rem + 2.5px);
+    height: 40px;
     padding: 0.375rem 0.75rem;
     color: $prussian-blue;
     background-color: #fff;
-    border: 1px double $steel-blue;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 5px;
+    border: 1px solid white !important;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2) !important;
+    font-size: 15px !important;
 }
 
 input, button, select, optgroup, textarea {
@@ -18,6 +20,7 @@ input, button, select, optgroup, textarea {
 #quantity-form {
   border-radius: 6px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  font-size: 15px;
 }
 
 #address-search-bar {
@@ -26,6 +29,7 @@ input, button, select, optgroup, textarea {
   margin-right: 22px;
   margin-left: 0px;
   margin-top: 9px;
+  font-size: 15px;
 }
 
 #radius-search-bar {
@@ -35,12 +39,14 @@ input, button, select, optgroup, textarea {
   margin-right: 30px;
   margin-left: 0px;
   margin-top: 9px;
+  font-size: 15px;
 
 }
 
 #product-search-bar {
   border-radius: 6px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  font-size: 15px;
 }
 
 #quantity-search-bar {
@@ -50,6 +56,7 @@ input, button, select, optgroup, textarea {
   margin-right: 22px;
   margin-left: 0px;
   margin-top: 9px;
+  font-size: 15px;
 }
 
 #price-search-bar {
@@ -58,19 +65,23 @@ input, button, select, optgroup, textarea {
   max-width: 170px;
   margin-right: 22px;
   margin-left: 0px;
-  margin-top: 7px;
+  margin-top: 9px;
+  font-size: 15px;
 }
 
 .input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
-  border-radius: 50px;
-  height: 50px;
-  margin-top: 24px;
+    border-radius: 50px;
+    width: 140px;
+    height: 43px;
+    margin-top: 30px;
+    font-size: 15px;
 }
 
 .search-bar-index {
     background-color: white;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-size: 15px;
 }
 
 
@@ -79,6 +90,7 @@ input, button, select, optgroup, textarea {
   label {
     display: block;
     margin: 0;
+    font-size: 15px;
   }
 }
 

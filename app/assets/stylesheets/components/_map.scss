@@ -1,20 +1,20 @@
 .call-to-action {
-    background: $beau-blue;
+    background: $maya-blue;
     display: flex;
+    color: $prussian-blue;
     align-items: center;
     position: absolute;
     justify-content: space-between;
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
-    color: rgba(0, 0, 0, 0.3);
     width: 80%;
     height: 50px;
-    color: $prussian-blue;
-    border-radius: 10px;
+    border-radius: 5px;
+    font-size: 15px;
 
   p {
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: 0px;
     text-align: center;
     flex-grow: 1;
@@ -23,13 +23,22 @@
   .btn-call {
     height: 50px;
     display: flex;
+    background-color:white;
+    color: $maya-blue;
+    border-color:white;
     align-items: center;
+    border-radius: 5px;
+    width: 250px;
+    justify-content: center;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    font-size: 15px;
   }
  }
 
 .mapboxgl-popup {
   max-width: 240px;
-  border-radius: 4px;
+  border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: absolute;
 }
