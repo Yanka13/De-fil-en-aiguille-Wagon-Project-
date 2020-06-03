@@ -149,3 +149,57 @@
   height: 100px;
   border-left: 1px solid rgba(0,0,0,0.2);
 }
+
+
+
+.dashboard-cards-map {
+  margin-top: 35px;
+  border-radius: 4px;
+  background: white;
+  border: 1px solid transparent;
+  margin-bottom: 35px;
+  padding: 13px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+
+
+}
+
+
+.dashboard-card-friends {
+  position: relative;
+  margin-top: 35px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  margin-bottom: 35px;
+  padding: 13px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-around;
+  background: #7eb5fa;
+
+
+}
+
+.friend-card-text {
+  display: block;
+  margin-left: 50px;
+
+
+  h2 {
+    font-size: 24px;
+
+  }
+}
+
+.avatar-friend {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 17px;
+    left: 41px
+}
+
+
+
+

@@ -12,7 +12,7 @@ Offer.destroy_all
 Product.destroy_all
 User.destroy_all
 
-puts 'Creating 7 users (5 mask-makers, 2 professionnels de santé)...'
+puts 'Creating 13 users (12 mask-makers, 1 professionnels de santé)...'
 
 elise = User.new(
   first_name: "elise",
@@ -30,14 +30,13 @@ elise.save
 
 yannis = User.new(
   first_name: "yannis",
-  last_name: "bou",
+  last_name: "bouhamou",
   nickname: "yaya",
   email: "yannis.bouhamou@hotmail.fr",
   password: "yannis.bouhamou@hotmail.fr",
-  address: "12 Rue de la Roquette, 75011 Paris",
+  address: "50 Rue Marcelin Berthelot, Alfortville, Île-de-France, France",
   category: "professionnel de santé",
   mask_maker: false,
-  level: "Couturier Junior",
   photo: "https://avatars2.githubusercontent.com/u/61419311?v=4"
   )
 yannis.save
@@ -48,7 +47,7 @@ jeremy = User.new(
   nickname: "JeremyBRD",
   email: "jbarbedienne3@gmail.com",
   password: "jbarbedienne3@gmail.com",
-  address: "35 Boulevard de Magenta, 75010 Paris",
+  address: "10 Rue Bernard Palissy, Créteil, Île-de-France, France",
   category: "particulier",
   mask_maker: true,
   level: "Couturier Junior",
@@ -62,9 +61,9 @@ soraya = User.new(
   nickname: "soso",
   email: "soraya-b55@hotmail.fr",
   password: "soraya-b55@hotmail.fr",
-  address: "50 Rue Marcelin Berthelot, Alfortville, Île-de-France, France",
+  address: "12 Rue de la Roquette, 75011 Paris",
   category: "professionnel de santé",
-  mask_maker: false,
+  mask_maker: true,
   level: "Couturière Junior",
   photo: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1586765163/enwvenu4lyw4p00dearh.jpg"
   )
@@ -130,7 +129,7 @@ sebastien.save
 eric = User.new(
   first_name: "eric",
   last_name: "pierrus",
-  nickname: "eric-koh-lanta",
+  nickname: "eric",
   email: "eric@example.com",
   password: "eric@example.com",
   address: "10 Rue de Fontenay, Nogent-sur-Marne",
@@ -257,8 +256,8 @@ offer5 = Offer.new(
   user: jeremy,
   product: blouse,
   quantity: 3,
-  description: "blouses petite taille, tissu sobre",
-  price: 2
+  description: "blouses taille M, tissu sobre",
+  price: 5
 )
 offer5.save
 
@@ -274,8 +273,8 @@ offer6.save
 offer7 = Offer.new(
   user: claire,
   product: blouse,
-  quantity: 0,
-  description: "je fais des blouses quand g le temps",
+  quantity: 3,
+  description: "je fais des blouses en coton",
   price: 0
 )
 offer7.save
@@ -303,7 +302,7 @@ offer10 = Offer.new(
   product: masque,
   quantity: 10,
   description: "Couturier de métier, je fais tout type de masque",
-  price: 4
+  price: 2
 )
 offer10.save
 
@@ -315,15 +314,6 @@ offer11 = Offer.new(
   price: 0
 )
 offer11.save
-
-offer12 = Offer.new(
-  user: amine,
-  product: masque,
-  quantity: 3,
-  description: "masque confortable",
-  price: 0
-)
-offer12.save
 
 offer13 = Offer.new(
   user: clara,
@@ -338,71 +328,94 @@ offer14 = Offer.new(
   user: yasmina,
   product: masque,
   quantity: 5,
-  description: "Masque en lin !",
-  price: 4
+  description: "masque en lin !",
+  price: 1
 )
-offer13.save
+offer14.save
+
+offer12 = Offer.new(
+  user: amine,
+  product: masque,
+  quantity: 3,
+  description: "masque confortable",
+  price: 0
+)
+offer12.save
+
+
+
+# projet
 
 puts 'Creating 3 Projects...'
 
-project2 = Project.new(
-  user: soraya,
+project1 = Project.new(
+  user: yannis,
   product: masque,
   quantity: 40,
-  deadline: "2020-04-10",
+  deadline: "2020-05-10",
   budget: 80,
+  description: "Bonjour à tous amis couturiers, notre salon de coiffure va réouvrir très prochainement et nous avons besoin de masques pour assurer la sécurité de notre clientèle.
+  Peu importe la taille et le tissu, tout masque est le bienvenu!
+  Merci d'avance à tous,
+  Yannis.",
   status: "terminé"
 )
-project2.save
+project1.save
+
+#Match
 
 puts 'Creating 4 Matches...'
 
+
+
+match1 = Match.new(
+  project: project1,
+  offer: offer9,
+  quantity: 10,
+  status: "terminé"
+)
+match1.save
+
 match2 = Match.new(
-  project: project2,
-  offer: offer13,
-  quantity: 5,
+  project: project1,
+  offer: offer10,
+  quantity: 10,
   status: "terminé"
 )
 match2.save
 
 match3 = Match.new(
-  project: project2,
-  offer: offer14,
-  quantity: 5,
+  project: project1,
+  offer: offer11,
+  quantity: 7,
   status: "terminé"
 )
 match3.save
 
-match4 = Match.new(
-  project: project2,
-  offer: offer9,
-  quantity: 10,
-  status: "terminé"
-)
-match4.save
-
 match5 = Match.new(
-  project: project2,
-  offer: offer10,
-  quantity: 10,
+  project: project1,
+  offer: offer13,
+  quantity: 5,
   status: "terminé"
 )
 match5.save
 
 match6 = Match.new(
-  project: project2,
-  offer: offer11,
-  quantity: 7,
+  project: project1,
+  offer: offer14,
+  quantity: 5,
   status: "terminé"
 )
 match6.save
 
-match7 = Match.new(
-  project: project2,
+match4 = Match.new(
+  project: project1,
   offer: offer12,
   quantity: 3,
   status: "terminé"
 )
-match7.save
+match4.save
+
+
 
 puts 'Finished!'
