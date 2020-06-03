@@ -59,10 +59,10 @@
               </div>
               <div class="margin-top-recap-elements">
                 <div class="column-content-recap">
-                  <p><strong>Mon budget : </strong><%= @project.budget %><%= "€" %></p>
+                  <p><strong>Budget initial: </strong><%= @project.budget %><%= "€" %></p>
                 </div>
                 <div class="margin-top-recap-elements">
-                  <p><strong>Montant : </strong> <%= @somme %> €</p>
+                  <p><strong>Montant total : </strong> <%= @somme %> €</p>
                 </div>
               </div>
               <div class="btn-modif-recap">
@@ -93,15 +93,11 @@
                         <span class="badge badge-pill badge-info"><%= match.offer.user.level %></span>
                         <h2><%= "#{match.offer.user.first_name.capitalize}  " %></h2>
                       </div>
-                      <% if match.offer.price == 0.0 %>
-                        <p><%= match.offer.quantity %> <%= @project.product.product_type %>s - Prix : gratuit </p>
-                      <% else %>
-                        <p><%= match.offer.quantity %> <%= @project.product.product_type %>s - Prix :<%= match.offer.price %> € </p>
-                      <% end %>
+                        <p><%= match.offer.quantity %> <%= match.offer.product.product_type%>s</p>
                       <% if match.offer.quantity * match.offer.price  == 0 %>
                         <p> Total: gratuit  </p>
                       <% else %>
-                        <p> Total: <%= match.offer.quantity * match.offer.price %> € </p>
+                        <p> Prix à l'unité: <%=match.offer.price %> € - Total: <%= match.offer.quantity * match.offer.price %> € </p>
                       <% end %>
                     </div>
                   </div>
