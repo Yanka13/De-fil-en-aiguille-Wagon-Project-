@@ -22,6 +22,7 @@
   }
     .list-group-item {
       cursor: pointer;
+      border-radius: 5px;
   }
 }
 
@@ -67,3 +68,20 @@
     margin-top: 2px;
   }
 }
+
+
+#btn-project-datepicker {
+  color: $fire-opal;
+}
+
+#btn-cancel-project {
+  color: $fire-opal;
+  border-color: $fire-opal;
+}
+
+
+
+
+
+
+

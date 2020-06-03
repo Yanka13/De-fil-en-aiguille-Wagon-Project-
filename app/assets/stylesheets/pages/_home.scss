@@ -33,12 +33,22 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
 
+  .btn-home-page {
+  border-radius: 50px;
+  height: 40px;
+  width: 110px;
+  font-size: 15px;
+  background-color: $fire-opal;
+  color: white;
+  border-color: $fire-opal;
+  }
+
   .input-group {
   display: flex;
   text-align: center;
   justify-content: center;
   position: relative;
-  border-radius: 6px;
+  border-radius: 5px;
   width: 125%;
   flex-wrap: unset;
 
@@ -91,7 +101,7 @@ $transition: .2s;
 
   &home-item {
     background-color: #fff;
-    border-radius: .4rem;
+    border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 3rem 6rem rgba(0, 0, 0, .1);
     cursor: pointer;

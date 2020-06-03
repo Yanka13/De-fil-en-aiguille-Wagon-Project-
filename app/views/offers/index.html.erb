@@ -12,7 +12,7 @@
         </div>
 
         <div class="field">
-          <label for="site-search">Distance</label>
+          <label for="site-search">Distance(km)</label>
           <%= number_field_tag :radius,
             params[:radius],
             placeholder: "Rayon de recherche (km)",
@@ -58,7 +58,7 @@
         </div>
 
         <div class="input-group-append">
-          <%= submit_tag "Search", class: " btn btn-primary" %>
+          <%= submit_tag "Rechercher", class: " btn btn-primary" %>
         </div>
     </div>
   <% end %>
@@ -154,7 +154,9 @@
         class: "btn btn-primary btn-call" %>
 
     <% else %>
+     <div class="cta-index">
       <p> Pourriez-vous nous en dire plus s'il vous plaît ? 🤔</p>
+     </div>
     <% end %>
   </div>
 </div>

@@ -3,9 +3,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 70px;
   padding: 0px 50px;
   color: $body-color;
+  position: relative;
 }
 
 .footer-links {
@@ -25,6 +26,6 @@
   transform: scale(1.2);
 }
 .footer .fa-heart {
-  color: $primary;
+  color: $fire-opal;
 }
 
