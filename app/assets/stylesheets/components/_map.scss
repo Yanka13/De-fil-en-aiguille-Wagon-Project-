@@ -1,5 +1,5 @@
 .call-to-action {
-    background: $maya-blue;
+    background: $white;
     display: flex;
     color: $prussian-blue;
     align-items: center;
@@ -23,9 +23,9 @@
   .btn-call {
     height: 50px;
     display: flex;
-    background-color:white;
-    color: $maya-blue;
-    border-color:white;
+    background-color:$maya-blue;
+    color: $prussian-blue;
+    border-color: $maya-blue;
     align-items: center;
     border-radius: 5px;
     width: 250px;
@@ -89,3 +89,15 @@
 .map-container {
   position: relative;
 }
+
+.cta-index {
+  width: 100%;
+  height: 100%;
+  background-color: $maya-blue;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+}
+
