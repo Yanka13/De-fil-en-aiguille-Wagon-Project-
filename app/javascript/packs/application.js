@@ -36,6 +36,7 @@ import { initListGroupItemsAction } from '../plugins/init_list_group_items_actio
 import { initProjectCable } from '../channels/project_channel';
 import { initProductChoice } from '../plugins/init_product_choice';
 import { initCounterOffers } from '../plugins/init_counter_offers';
+// import { initProgressBar } from '../components/init_progressbar';
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
@@ -46,6 +47,7 @@ document.addEventListener('turbolinks:load', () => {
   initProjectCable();
   initProductChoice();
   initCounterOffers();
+  // initProgressBar();
   $(function() {
     // Sidebar toggle behavior
     $('#sidebarCollapse').on('click', function() {
