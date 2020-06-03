@@ -13,9 +13,11 @@ class ProjectsController < ApplicationController
     # display only offers with quantity > 0
     @all_offers = Offer.order('price ASC, quantity DESC').find(params[:offers_id]) if params[:offers_id]
     @offers = []
-    @all_offers.each do |offer|
-      if offer.quantity > 0
-        @offers << offer
+    if @all_offers.present?
+      @all_offers.each do |offer|
+        if offer.quantity > 0
+          @offers << offer
+        end
       end
     end
 
