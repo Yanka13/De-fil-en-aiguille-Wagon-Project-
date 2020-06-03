@@ -3,10 +3,8 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "sewing-machine.svg" %>
     <% end %>
-    <% if current_page = "home" %>
-      <%= image_tag "defilenaigiuille1lb.svg", class: "navbar-brand-name" %>
-    <% else %>
-      <%= image_tag "defilenaigiuille1lr.svg", class: "navbar-brand-name" %>
+    <% unless (params[:controller] == "pages" && params[:action] == "home") %>
+      <%= image_tag "defilenaigiuille1lrouge.svg", class: "navbar-brand-name" %>
     <% end %>
   </div>
 
