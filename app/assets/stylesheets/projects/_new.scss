@@ -6,7 +6,8 @@
 .new_project .new-project-banner {
   height: 80px;
   background-color: white;
-  border-top: 1px ridge rgba(25, 47, 78, .2);
+  // border-top: 1px ridge rgba(25, 47, 78, .2);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 16px;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -51,4 +52,27 @@
 .submit-project {
   justify-content: center;
   align-items: center;
+}
+
+.call-to-action-project {
+    background: $beau-blue;
+    display: flex;
+    align-items: center;
+    // position: absolute;
+    // justify-content: space-between;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(0, 0, 0, 0.3);
+    width: 80%;
+    height: 50px;
+    color: $prussian-blue;
+    border-radius: 10px;
+
+  p {
+    font-size: 16px;
+    margin-bottom: 0px;
+    text-align: center;
+    flex-grow: 1;
+  }
 }
