@@ -7,20 +7,20 @@
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
 $body-bg:                 white;
-$font-size-base: 1rem;
+$font-size-base: 0.97rem;
 
 // Colors
 $body-color: $prussian-blue;
-$primary:    $fire-opal;
+$primary:    $maya-blue;
 $success:    $light-green;
 $info:       $steel-blue;
 $danger:     $fire-opal;
 $warning:    $beau-blue;
 
 // Buttons & inputs' radius
-$border-radius:    2px;
-$border-radius-lg: 2px;
-$border-radius-sm: 2px;
+$border-radius:    5px;
+$border-radius-lg: 5px;
+$border-radius-sm: 5px;
 
 // Override other variables below!
 $prussian-blue: #192F4E;
@@ -30,3 +30,4 @@ $uranian-blue: #EC635E;
 $beau-blue: #D8EDFF;
 $light-green: #A0FCB4;
 $azure: #F1FFFF;
+$maya-blue: #85C6FF;

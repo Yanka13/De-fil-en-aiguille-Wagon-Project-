@@ -1,10 +1,24 @@
 .navbar-lewagon {
   height: 70px;
   justify-content: space-between;
-  background-color: $azure;
+  background-color: white;
+  border-bottom: 1px solid lightgrey;
 
   .btn-ghost .nav-link {
     color: $primary;
+    border-radius: 5px;
+  }
+
+  .btn-primary-navbar {
+  border-radius: 50px;
+  height: 40px;
+  width: 130px;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  background-color: $fire-opal;
+  color: white;
+  border-color: $fire-opal;
   }
 }
 
@@ -37,12 +51,13 @@
   top: 0;
   left: 0;
   right: 0;
+  border-bottom: none !important;
 
 }
 
 .home .navbar-light .navbar-nav .nav-link {
    color: white !important;
-  }
+}
 
 .logo-and-name {
   display: flex;

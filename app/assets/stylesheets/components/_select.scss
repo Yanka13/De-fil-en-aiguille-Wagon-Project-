@@ -6,9 +6,9 @@
 
 .select2-container--default .select2-selection--single {
     background-color: #fff !important;
-    border: 1px solid $steel-blue !important;
+    border: 1px solid white !important;
     box-shadow: 0 0 5px rgba(0,0,0,0.2) !important;
-    border-radius: 6px !important;
+    border-radius: 5px !important;
     padding: 10px !important;
 }
 
@@ -26,7 +26,8 @@
 }
 
 .select2-container .select2-selection--single {
-    height: 39.5px !important;
+    height: 40px !important;
+    margin-top: 1px !important;
 }
 
 .select2-search--dropdown .select2-search__field {
@@ -43,6 +44,7 @@
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     color: #737C82 !important;
     line-height: 19px !important;
+    font-size: 15px !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
