@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
     @user = current_user
     @products = Product.all
     @project = Project.new(project_params)
+    @price_per_item = params[:price].to_f
     @project.budget =  params[:project][:quantity].to_i * params[:price].to_f
     authorize @project
     @product = Product.find(project_params[:product_id])
