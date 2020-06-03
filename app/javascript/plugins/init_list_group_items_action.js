@@ -1,5 +1,5 @@
 const initListGroupItemsAction = () => {
-  const list = document.querySelectorAll(".list-group-item ");
+  const list = document.querySelectorAll('.list-group-item:not(.match-quantity)');
   if (list) {
     list.forEach((listitem) => {
       listitem.addEventListener("click", (event) => {
