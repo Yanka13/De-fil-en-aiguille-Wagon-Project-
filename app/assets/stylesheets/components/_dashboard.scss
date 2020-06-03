@@ -14,6 +14,7 @@
   width: calc(100% - 17rem);
   margin-left: 17rem;
   transition: all 0.4s;
+  padding: 1rem 3rem;
 }
 
 /* for toggle behavior */
@@ -63,6 +64,22 @@
   }
 }
 
+.top-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.top-in-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  p {
+    margin-bottom: 0px;
+  }
+}
+
 .dashboard-cards {
   border-radius: 4px;
   background: white;
@@ -70,8 +87,6 @@
   margin-bottom: 35px;
   padding: 13px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08)
-
-
 }
 
 .dashboard-cards-notification {
@@ -97,8 +112,40 @@
 }
 
 #circle-container {
-  margin: 20px;
-  width: 200px;
-  height: 200px;
-  position: relative;
+  // margin: 20px;
+  // width: 200px;
+  // height: 200px;
+  // position: relative;
+  border: 10px solid $dark-blue;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.percentage {
+  // position: absolute;
+  // top: 45px;
+  // left: 112px;
+  font-size: 25px;
+  color: $dark-blue;
+  span {
+    font-size: 15px;
+  }
+}
+
+.top-in-card-text {
+  color: rgba(0,0,0,0.4);
+}
+
+.top-in-card-title {
+  color: $dark-blue;
+  font-size: 50px;
+}
+
+.vertical-separator {
+  height: 100px;
+  border-left: 1px solid rgba(0,0,0,0.2);
 }

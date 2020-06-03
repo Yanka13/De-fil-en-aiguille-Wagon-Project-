@@ -3,7 +3,7 @@
 
       <!-- add notion of stocks -->
       <% if params[:stock].to_i < params[:project][:quantity].to_i %>
-        <div class="row justify-content-center call-to-action-project text-align-center">
+        <div class="call-to-action-project">
           <p>
             <%= "Malheureusement, trop peu de personnes proposent des #{@product.product_type}s autour de vous.
             Nous allons contacter les #{User.near(current_user.address, 10).to_a.count}
