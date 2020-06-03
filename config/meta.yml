@@ -1,0 +1,5 @@
+meta_product_name: "De fil en aiguille"
+meta_title: "De fil en aiguille - Mise en relation solidaire"
+meta_description: "Mise en relation solidaire afin de faire face aux impératifs d'équipement dans le cadre de la crise du COVID-19"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
