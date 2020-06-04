@@ -1,25 +1,14 @@
 <%= simple_form_for @project  do |f| %>
   <div class="container main-project-actions">
 
-      <!-- add notion of stocks -->
-      <% if params[:stock].to_i < params[:project][:quantity].to_i %>
-        <div class="call-to-action-project">
-          <p>
-            <%= "Malheureusement, trop peu de personnes proposent des #{@product.product_type}s autour de vous.
-            Nous allons contacter les #{User.near(current_user.address, 10).to_a.count}
-            couturiers autour de vous afin de solliciter leur aide." %>
-          </p>
-        </div>
-      <% end %>
-
     <div class="row pt-3">
+      <!-- if no offer, display changes -->
       <% if @offers.present? %>
         <div class="recap_project col-6">
           <h5>Récapitulatif de mon besoin</h5>
           <div class="recap-project-form-container">
             <div class="recap-project-form">
               <fieldset class="form-group radio_buttons required project_product form-group-valid">
-                <!-- <legend class="col-form-label pt-0">J'ai besoin de :<abbr title="required">*</abbr></legend> -->
                 <input type="hidden" name="project[product_id]" value="">
                 <div class="product-choices">
                   <% @products.each do |product| %>
@@ -64,9 +53,18 @@
         </div>
 
         <div class="recap_collab col-6">
+        <% if params[:stock].to_i < params[:project][:quantity].to_i %>
+          <div class="call-to-action-project">
+            <p>
+              <%= "Malheureusement, trop peu de personnes proposent des #{@product.product_type}s autour de vous.
+              Nous allons contacter "%><strong><%= "les #{User.near(current_user.address, 10).to_a.count}
+              couturiers" %></strong><%= " proches de votre adresse afin de solliciter leur aide." %>
+            </p>
+          </div>
+        <% end %>
           <%= simple_fields_for :matches do |m| %>
             <fieldset class="form-group check_boxes required matches_offer_ids">
-              <legend class="col-form-label pt-0">Sollicitez leur aide<abbr title="required">*</abbr></legend>
+              <legend class="col-form-label pt-0">Sollicitez leur aide<abbr title="required"></abbr></legend>
               <input type="hidden" name="matches[offer_ids][]" value="">
               <div class="recap-collab-list">
                 <div class="list-group">
@@ -77,7 +75,7 @@
                         <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
                           <li class="list-group-item list-group-item-action flex-column align-items-start list-offers-product">
                             <p class="mb-1 paragraph-price" data-price="<%= offer.price %>">
-                              <%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <strong><%= "#{offer.user.nickname}" %></strong>
+                              <%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <strong><%= "#{offer.user.nickname.capitalize}" %></strong>
                               <strong><%= "propose #{offer.quantity}" %>
                               <% if offer.product.product_type == "masque" %>
                                 <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque" %>
@@ -86,17 +84,24 @@
                               <% else %>
                                 <%= image_tag "crochet.svg", width: "5%", alt: "autre" %>
                               <% end %>
-                              <%= " à #{offer.price} €/unité" %></strong>
+                              <% if offer.price > 0 %>
+                                <%= " à #{offer.price} €/unité" %></strong>
+                              <% else %>
+                                <%= " gratuitement !" %></strong>
+                              <% end %>
                             </p>
+
+                            <div class="quote-offer">
+                              <i class="fas fa-quote-left"></i><p class="mb-1"><em><%= offer.description.capitalize %></em></p><i class="fas fa-quote-right"></i>
+                            </div>
+                            <p><%= image_tag "location2.svg", width: "5%", alt: "location" %><%= offer.user.address %></p>
 
                             <!-- input match quantity -->
                             <div class="form-group integer required matches_match_quantity">
-                              <label class="integer required" for="match_quantity_offer_<%= offer.id %>_label">J'en demande : <abbr title="required">*</abbr></label>
+                              <label class="integer required" for="match_quantity_offer_<%= offer.id %>_label">J'en demande : <abbr title="required"></abbr></label>
                               <input class="form-control numeric integer required match-quantity" value="<%= offer.quantity %>" name="matches[match_quantity_offer_<%= offer.id %>]" id="match_quantity_offer_<%= offer.id %>" type="number" step="1">
                             </div>
 
-                            <p class="mb-1"><%= offer.description.capitalize %></p>
-                            <small><%= image_tag "location.png", width: "5%", alt: "location" %><%= offer.user.address %></small>
                           </li>
                         </label>
                       </div>
@@ -109,6 +114,17 @@
           <% end %>
         </div>
       <% else %>
+
+        <% if params[:stock].to_i < params[:project][:quantity].to_i %>
+          <div class="call-to-action-project">
+            <p>
+              <%= "Malheureusement, trop peu de personnes proposent des #{@product.product_type}s autour de vous.
+              Nous allons contacter "%><strong><%= "les #{User.near(current_user.address, 10).to_a.count}
+              couturiers" %></strong><%= " proches de votre adresse afin de solliciter leur aide." %>
+            </p>
+          </div>
+        <% end %>
+
         <div class="recap_project col-6 offset-3">
           <h5>Récapitulatif de mon besoin</h5>
           <div class="recap-project-form-container">
