@@ -23,7 +23,7 @@
 
             <%= select_tag "product",
             options_from_collection_for_select(@products, "id", "product_type", params[:product]),
-            prompt: "Choissisez votre produit",
+            prompt: "Votre produit",
             class: "select2",
             id: "product-search-bar"
             %>
