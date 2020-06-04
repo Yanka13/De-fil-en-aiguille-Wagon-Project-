@@ -75,7 +75,7 @@
                       <div class="form-check">
                         <input class="form-check-input check_boxes required d-none" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
                         <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
-                          <li class="list-group-item list-group-item-action flex-column align-items-start">
+                          <li class="list-group-item list-group-item-action flex-column align-items-start list-offers-product">
                             <p class="mb-1 paragraph-price" data-price="<%= offer.price %>">
                               <%= image_tag offer.user.photo, class: "avatar-small", alt: "avatar" %> <strong><%= "#{offer.user.nickname}" %></strong>
                               <strong><%= "propose #{offer.quantity}" %>

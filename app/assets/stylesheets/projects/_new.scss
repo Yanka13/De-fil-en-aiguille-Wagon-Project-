@@ -6,7 +6,6 @@
 .new_project .new-project-banner {
   height: 80px;
   background-color: white;
-  // border-top: 1px ridge rgba(25, 47, 78, .2);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 16px;
   padding: 10px;
   display: flex;
@@ -58,7 +57,6 @@
 .call-to-action-project {
   display: flex;
   background: $beau-blue;
-  // border: 1px solid rgba(133, 185, 234, 0.4);
   border-radius: 5px;
   text-align: center;
   margin-top: 10px;
@@ -79,8 +77,10 @@
   border-color: $fire-opal;
 }
 
-
-
+.list-offers-product {
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
 
 
 
