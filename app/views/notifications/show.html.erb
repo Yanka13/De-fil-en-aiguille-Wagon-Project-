@@ -1,7 +1,7 @@
 
   <h3>🧠 Make an offer reservation 🧠</h3>
 
-  <%= simple_form_for [@offer] do |f| %>
+  <%= simple_form_for @offer do |f| %>
     <%= f.input :quantity %>
     <%= f.input :price %>
     <%= f.input :description  %>
