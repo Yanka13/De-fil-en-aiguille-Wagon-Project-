@@ -1,127 +1,129 @@
-<%= render 'shared/dashboard' %>
-<!-- Page content holder -->
-<div class="page-content" id="content">
-  <!-- Toggle button -->
-<!--   <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button> -->
-  <!-- Demo content -->
-  <h2 class="display-4 text-white">Récapitulatif de votre demande</h2>
-  <div class="separator"></div>
-  <div class="row text-white">
-    <div class="container-show-project-yannis">
-      <div class="card-show-project">
-        <!-- NOM DES ONGLETS -->
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Récapitulatif</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" data-project-id="<%=@project.id%>" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Couturiers</a>
-          </li>
-        </ul>
-        <!-- RECAPITULATIF DES BESOINS -->
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="recap-container">
-              <h5>Mon besoin</h5>
-              <hr>
-              <div class="margin-top-recap-elements">
-                <p style="margin-bottom: 0px;"><strong>Quantité : </strong>
-                <div class="horizontal-item-centred-recap">
-                  <p class="mb-1">
-                    <% if @project.product.product_type == "masque" %>
-                      <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque", class: "mr-1" %>
-                    <% elsif @project.product.product_type == "blouse" %>
-                      <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse", class: "mr-1" %>
-                    <% else %>
-                      <%= image_tag "crochet.svg", width: "5%", alt: "autre", class: "mr-1" %>
-                    <% end %>
-                    <strong><%= " x #{@project.quantity}" %></strong>
-                  </p>
-                </div>
-              </div>
-              <div class="margin-top-recap-elements">
-                <p><strong>Description :</strong> <%= @project.description %></p>
-              </div>
-              <div class="margin-top-recap-elements">
-                <div class="column-content-recap">
+<div class="bg-dashboard">
+  <%= render 'shared/dashboard' %>
+  <!-- Page content holder -->
+  <div class="page-content" id="content">
+    <!-- Toggle button -->
+  <!--   <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button> -->
+    <!-- Demo content -->
+    <h2 class="display-4 text-white">Récapitulatif de votre demande</h2>
+    <div class="separator"></div>
+    <div class="row text-white">
+      <div class="container-show-project-yannis">
+        <div class="card-show-project">
+          <!-- NOM DES ONGLETS -->
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Récapitulatif</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" data-project-id="<%=@project.id%>" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Couturiers</a>
+            </li>
+          </ul>
+          <!-- RECAPITULATIF DES BESOINS -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="recap-container">
+                <h5>Mon besoin</h5>
+                <hr>
+                <div class="margin-top-recap-elements">
+                  <p style="margin-bottom: 0px;"><strong>Quantité : </strong>
                   <div class="horizontal-item-centred-recap">
-                    <p style="margin-bottom: 0px;"><strong> Mon adresse :</strong></p>
+                    <p class="mb-1">
+                      <% if @project.product.product_type == "masque" %>
+                        <%= image_tag "https://image.flaticon.com/icons/svg/2947/2947803.svg", width: "5%", alt: "masque", class: "mr-1" %>
+                      <% elsif @project.product.product_type == "blouse" %>
+                        <%= image_tag "https://image.flaticon.com/icons/png/512/2246/2246297.png", width: "5%", alt: "blouse", class: "mr-1" %>
+                      <% else %>
+                        <%= image_tag "crochet.svg", width: "5%", alt: "autre", class: "mr-1" %>
+                      <% end %>
+                      <strong><%= " x #{@project.quantity}" %></strong>
+                    </p>
                   </div>
-                  <p><%= @project.user.address %></p>
-                </div>
-              </div>
-              <div class="margin-top-recap-elements">
-                <% if @project.deadline.present? %>
-                  <p><strong>Deadline : </strong><%= @project.deadline %></p>
-                <% end %>
-              </div>
-              <div class="margin-top-recap-elements">
-                <div class="column-content-recap">
-                  <p><strong>Budget initial: </strong><%= @project.budget %><%= "€" %></p>
                 </div>
                 <div class="margin-top-recap-elements">
-                  <p><strong>Montant total : </strong> <%= @somme %> €</p>
+                  <p><strong>Description :</strong> <%= @project.description %></p>
                 </div>
-              </div>
-              <div class="btn-modif-recap">
-                <div class= "edit-project-buttons pt-3">
-                  <% if policy(@project).update? %>
-                    <%= link_to 'Editer', edit_project_path(@project), class: "btn btn-outline-primary" %>
+                <div class="margin-top-recap-elements">
+                  <div class="column-content-recap">
+                    <div class="horizontal-item-centred-recap">
+                      <p style="margin-bottom: 0px;"><strong> Mon adresse :</strong></p>
+                    </div>
+                    <p><%= @project.user.address %></p>
+                  </div>
+                </div>
+                <div class="margin-top-recap-elements">
+                  <% if @project.deadline.present? %>
+                    <p><strong>Deadline : </strong><%= @project.deadline %></p>
                   <% end %>
-                  <% if policy(@project).destroy? %>
-                    <%= link_to "Supprimer",
-                        project_path(@project),
-                        method: :delete,
-                        data: { confirm: 'Voulez-vous supprimer votre demande ?' },
-                        class: "btn btn-outline-primary", id:"btn-cancel-project" %>
-                  <% end %>
+                </div>
+                <div class="margin-top-recap-elements">
+                  <div class="column-content-recap">
+                    <p><strong>Budget initial: </strong><%= @project.budget %><%= "€" %></p>
+                  </div>
+                  <div class="margin-top-recap-elements">
+                    <p><strong>Montant total : </strong> <%= @somme %> €</p>
+                  </div>
+                </div>
+                <div class="btn-modif-recap">
+                  <div class= "edit-project-buttons pt-3">
+                    <% if policy(@project).update? %>
+                      <%= link_to 'Editer', edit_project_path(@project), class: "btn btn-outline-primary" %>
+                    <% end %>
+                    <% if policy(@project).destroy? %>
+                      <%= link_to "Supprimer",
+                          project_path(@project),
+                          method: :delete,
+                          data: { confirm: 'Voulez-vous supprimer votre demande ?' },
+                          class: "btn btn-outline-primary", id:"btn-cancel-project" %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- ONGLET COLLABORATEURS -->
-          <div class="tab-pane fade align-content-tab" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <% @matches.each do |match|%>
-              <div class="card-product">
-                <div class="left-content-project-card">
-                  <img src=<%= match.offer.user.photo %>/>
-                  <div class="card-product-infos">
-                    <div class="desc">
-                      <div class="mask-maker-name-and-level">
-                        <span class="badge badge-pill badge-info"><%= match.offer.user.level %></span>
-                        <h2><%= "#{match.offer.user.first_name.capitalize}  " %></h2>
+            <!-- ONGLET COLLABORATEURS -->
+            <div class="tab-pane fade align-content-tab" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <% @matches.each do |match|%>
+                <div class="card-product">
+                  <div class="left-content-project-card">
+                    <img src=<%= match.offer.user.photo %>/>
+                    <div class="card-product-infos">
+                      <div class="desc">
+                        <div class="mask-maker-name-and-level">
+                          <span class="badge badge-pill badge-info"><%= match.offer.user.level %></span>
+                          <h2><%= "#{match.offer.user.first_name.capitalize}  " %></h2>
+                        </div>
+                          <p><%= match.offer.quantity %> <%= match.offer.product.product_type%>s</p>
+                        <% if match.offer.quantity * match.offer.price  == 0 %>
+                          <p> Total: gratuit  </p>
+                        <% else %>
+                          <p> Prix à l'unité: <%=match.offer.price %> € - Total: <%= match.offer.quantity * match.offer.price %> € </p>
+                        <% end %>
                       </div>
-                        <p><%= match.offer.quantity %> <%= match.offer.product.product_type%>s</p>
-                      <% if match.offer.quantity * match.offer.price  == 0 %>
-                        <p> Total: gratuit  </p>
+                    </div>
+                  </div>
+                  <div class="right-content-project-card">
+                    <div class="product-status">
+                      <% if match.status == "terminé" %>
+                        <div class="green-badge"></div>
+                        <span><em>Demande Livrée</em></span>
                       <% else %>
-                        <p> Prix à l'unité: <%=match.offer.price %> € - Total: <%= match.offer.quantity * match.offer.price %> € </p>
+                        <div class="orange-badge"></div>
+                        <span><em>Demande en cours </em></span>
+                      <% end %>
+                    </div>
+                    <div class= "distance">
+                      <%  @distance = Geocoder::Calculations.distance_between([@userlocalisation[0],@userlocalisation[1]], [Geocoder.search(match.offer.user.address).first.coordinates[0],Geocoder.search(match.offer.user.address).first.coordinates[1]]) * 1.60934 %>
+                      <p> Distance: <%= @distance.round(1)  %> km </p>
+                    </div>
+                    <div class="chat-icon">
+                      <%= link_to edit_project_path do %>
+                        <%= image_tag "message.svg", style:"width:8%", alt: "chat-icon" %>
                       <% end %>
                     </div>
                   </div>
                 </div>
-                <div class="right-content-project-card">
-                  <div class="product-status">
-                    <% if match.status == "terminé" %>
-                      <div class="green-badge"></div>
-                      <span><em>Commande Livrée</em></span>
-                    <% else %>
-                      <div class="orange-badge"></div>
-                      <span><em>Commande en cours </em></span>
-                    <% end %>
-                  </div>
-                  <div class= "distance">
-                    <%  @distance = Geocoder::Calculations.distance_between([@userlocalisation[0],@userlocalisation[1]], [Geocoder.search(match.offer.user.address).first.coordinates[0],Geocoder.search(match.offer.user.address).first.coordinates[1]]) * 1.60934 %>
-                    <p> Distance: <%= @distance.round(1)  %> km </p>
-                  </div>
-                  <div class="chat-icon">
-                    <%= link_to edit_project_path do %>
-                      <%= image_tag "message.svg", style:"width:8%", alt: "chat-icon" %>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
