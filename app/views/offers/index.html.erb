@@ -12,7 +12,7 @@
         </div>
 
         <div class="field">
-          <label for="site-search">Distance(km)</label>
+          <label for="site-search">Distance (km)</label>
           <%= number_field_tag :radius,
             params[:radius],
             placeholder: "Rayon de recherche (km)",
@@ -50,14 +50,14 @@
           <%= number_field_tag :price,
             params[:price],
             placeholder: "Prix maximum par produit",
-            min: 1,
+            min: 0,
             max: 30,
             class: "form-control",
             id: "price-search-bar"
           %>
         </div>
 
-        <div class="input-group-append">
+        <div class="input-group-append input-button-rechercher">
           <%= submit_tag "Rechercher", class: " btn btn-primary" %>
         </div>
     </div>

@@ -69,10 +69,6 @@ class OffersController < ApplicationController
       authorize @offer
       @project = Project.find(params[:offer][:project_id])
       Match.create(project: @project, offer_id: @offer.id, quantity: @offer.quantity, status: "Commande en cours" )
-      ProjectChannel.broadcast_to(
-        @project,
-        render_to_string(partial: "notification", locals: { user: current_user })
-      )
       @project.user.projects.each do |project|
         ProjectChannel.broadcast_to(
           project,
