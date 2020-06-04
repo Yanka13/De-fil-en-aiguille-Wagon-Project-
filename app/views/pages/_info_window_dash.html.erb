@@ -1,0 +1,14 @@
+
+<div class="content-card-pop-up" >
+ <% if friend.photo.present? %>
+  <%= image_tag friend.photo, class: "avatar", alt: "avatar" %>
+ <% end %>
+  <div class="name-text">
+    <h2><%= friend.first_name.capitalize %> <%= friend.last_name.first.capitalize %>. </h2>
+  </div>
+  <span class="badge badge-pill badge-info"> <%= friend.level %></span>
+  <div class="description-text">
+      <p>Adresse - <%= friend.address %></p>
+  </div>
+
+</div>

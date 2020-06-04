@@ -25,6 +25,7 @@ class PagesController < ApplicationController
       {
         lat: friend.latitude,
         lng: friend.longitude,
+        infoWindow: render_to_string(partial: "info_window_dash", locals: { friend: friend }),
         image_url: helpers.asset_url('sewing-machine.png')
       }
     end

@@ -20,7 +20,7 @@
               <h2>Commande n°<%= sum += 1 %></h2>
               <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
               <% if project.deadline.present? %>
-                <p>Deadline : <%= project.deadline.strftime("%m/%d/%Y") %></p>
+                <p> Écheance : <%= project.deadline.strftime("%m/%d/%Y") %></p>
               <% end %>
             </div>
           </div>
