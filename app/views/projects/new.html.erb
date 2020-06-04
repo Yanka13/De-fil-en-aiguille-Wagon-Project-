@@ -49,12 +49,12 @@
                           label: "Je donne plus d'informations sur ma demande..." %>
               <p>
                 <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
-                Mon adresse :
-              <%= current_user.address %>
+                <%= current_user.address %>
               </p>
               <%= f.label "j'ai une deadline", class: "btn-outline-primary", id: "btn-project-datepicker" %>
               <div class="d-none" id="project-deadline">
                 <%= f.input :deadline,
+                            label: false,
                             as: :string,
                             required: false,
                             input_html: {class: "datepicker"} %>
@@ -144,12 +144,12 @@
                           label: "Je donne plus d'informations sur ma demande..." %>
               <p>
                 <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
-                Mon adresse :
-              <%= current_user.address %>
+                <%= current_user.address %>
               </p>
-              <%= f.label "j'ai une deadline", class: "btn-outline-primary", id: "btn-project-datepicker" %>
+              <%= f.label "J'ai une deadline", class: "btn-outline-primary", id: "btn-project-datepicker" %>
               <div class="d-none" id="project-deadline">
                 <%= f.input :deadline,
+                            label: false,
                             as: :string,
                             required: false,
                             input_html: {class: "datepicker"} %>
