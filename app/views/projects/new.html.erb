@@ -35,12 +35,13 @@
                             input_html: {value: f.object.budget || @project.budget } %>
               </div>
               <%= f.input :description,
-                          label: "Je donne plus d'informations sur ma demande..." %>
+                          placeholder: "Je donne plus d'informations sur ma demande..." %>
+
               <p>
                 <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
                 <%= current_user.address %>
               </p>
-              <%= f.label "j'ai une deadline", class: "btn-outline-primary", id: "btn-project-datepicker" %>
+              <%= f.label "J'ai une échéance", id: "btn-project-datepicker" %>
               <div class="d-none" id="project-deadline">
                 <%= f.input :deadline,
                             label: false,
@@ -70,7 +71,7 @@
                 <div class="list-group">
                   <% @offers.each do |offer| %>
                     <% if offer.quantity != 0 %>
-                      <div class="form-check">
+                      <div class="form-check form-check-offers">
                         <input class="form-check-input check_boxes required d-none" type="checkbox" value="<%= offer.id %>" name="matches[offer_ids][]" id="matches_offer_ids_<%= offer.id %>">
                         <label class="form-check-label collection_check_boxes" for="matches_offer_ids_<%= offer.id %>">
                           <li class="list-group-item list-group-item-action flex-column align-items-start list-offers-product">
@@ -94,7 +95,7 @@
                             <div class="quote-offer">
                               <i class="fas fa-quote-left"></i><p class="mb-1"><em><%= offer.description.capitalize %></em></p><i class="fas fa-quote-right"></i>
                             </div>
-                            <p><%= image_tag "location2.svg", width: "5%", alt: "location" %><%= offer.user.address %></p>
+                            <p><%= image_tag "location2.svg", width: "5%", alt: "location", class: "img-pin-offer" %><%= offer.user.address %></p>
 
                             <!-- input match quantity -->
                             <div class="form-group integer required matches_match_quantity">
@@ -157,12 +158,12 @@
                             input_html: {value: f.object.budget || @project.budget } %>
               </div>
               <%= f.input :description,
-                          label: "Je donne plus d'informations sur ma demande..." %>
+                          placeholder: "Je donne plus d'informations sur ma demande..." %>
               <p>
                 <%= image_tag "real-estate.svg", width: "5%", alt: "autre" %>
                 <%= current_user.address %>
               </p>
-              <%= f.label "J'ai une deadline", class: "btn-outline-primary", id: "btn-project-datepicker" %>
+              <%= f.label "J'ai une échéance", class: "btn-outline-primary", id: "btn-project-datepicker" %>
               <div class="d-none" id="project-deadline">
                 <%= f.input :deadline,
                             label: false,
