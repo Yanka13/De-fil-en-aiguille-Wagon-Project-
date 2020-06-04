@@ -1,41 +1,43 @@
 <!-- Vertical navbar -->
-<div class="vertical-nav bg-white" id="sidebar">
+<div class="vertical-nav" id="sidebar">
   <div class="py-4 px-3 mb-4 bg-light">
-    <% if current_user.photo.present? %>
-      <div class="media d-flex align-items-center"><img src="<%= current_user.photo %>" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-    <% else %>
-      <div class="media d-flex align-items-center"><img src="../assets/images/hotel.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-    <% end %>
-      <div class="media-body">
-        <h4 class="m-0"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h4>
-        <p class="font-weight-light text-muted mb-0">Responsable du salon de coiffure Cut'n'cool d'Alfortville</p>
-      </div>
+    <div class="user-detail">
+      <% if current_user.photo.present? %>
+        <div class="media d-flex align-items-center">
+          <img src="<%= current_user.photo %>" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+        </div>
+      <% else %>
+        <div class="media d-flex align-items-center">
+          <img src="../assets/images/hotel.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+        </div>
+      <% end %>
+        <div class="media-body">
+          <h4 class="m-0 color-dark-blue"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h4>
+          <p class="font-weight-light text-muted mb-0">Responsable du salon de coiffure Cut'n'cool d'Alfortville</p>
+        </div>
+    </div>
+    <div class="side-nav-button">
+      <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mt-4 mb-0 color-dark-blue">Menu</p>
+      <ul class="nav flex-column">
+        <li class="nav-item side-nav-items">
+          <%= link_to dashboard_path, class: "nav-link text-dark bg-light" do %>
+            <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+              Tableau de bord
+          <% end %>
+        </li>
+        <li class="nav-item side-nav-items">
+          <%= link_to projects_path, class: "nav-link text-dark bg-light" do %>
+            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+              Historique
+          <% end %>
+        </li>
+        <li class="nav-item side-nav-items">
+          <%= link_to offers_path, class: "nav-link btn btn-primary bg-primary text-white" do %>
+              Nouvelle demande
+          <% end %>
+        </li>
+      </ul>
     </div>
   </div>
-
-  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Menu</p>
-
-  <ul class="nav flex-column bg-white mb-0">
-    <li class="nav-item">
-      <%= link_to dashboard_path, class: "nav-link text-dark bg-light" do %>
-        <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-          Tableau de bord
-      <% end %>
-    </li>
-
-    <li class="nav-item">
-      <%= link_to projects_path, class: "nav-link text-dark bg-light" do %>
-        <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
-          Historique
-      <% end %>
-    </li>
-
-    <li class="nav-item">
-      <%= link_to offers_path, class: "btn btn-primary btn-dashboard-page" do %>
-          Nouvelle commande
-      <% end %>
-    </li>
-  </ul>
-
 </div>
 <!-- End vertical navbar -->

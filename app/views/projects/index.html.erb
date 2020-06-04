@@ -1,45 +1,47 @@
-<%= render 'shared/dashboard' %>
+<div class="bg-dashboard">
+  <%= render 'shared/dashboard' %>
 
-<!-- Page content holder -->
-<div class="page-content" id="content">
-  <!-- Toggle button -->
-  <!-- <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button> -->
+  <!-- Page content holder -->
+  <div class="page-content" id="content">
+    <!-- Toggle button -->
+    <!-- <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button> -->
 
-  <!-- Demo content -->
-  <h2 class="display-4 text-white">Vos commandes</h2>
-  <p class="lead text-white mb-0">Un récapitulatif de vos commandes sous vos yeux chatoyants</p>
+    <!-- Demo content -->
+    <h2 class="display-4 text-white">Vos Demandes</h2>
+    <p class="lead text-white mb-0">Un récapitulatif de vos demandes sous vos yeux chatoyants</p>
 
-  <div class="separator"></div>
-  <% sum = 0 %>
-   <% @user_projects.each do |project| %>
-      <%= link_to project_path(project), class: "linkable-project" do %>
-      <div class="card-product">
-        <div class="left-content-project-card">
-          <div class="card-product-infos">
-            <div class="desc">
-              <h2>Commande n°<%= sum += 1 %></h2>
-              <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
-              <% if project.deadline.present? %>
-                <p> Écheance : <%= project.deadline.strftime("%m/%d/%Y") %></p>
+    <div class="separator"></div>
+    <% sum = 0 %>
+     <% @user_projects.each do |project| %>
+        <%= link_to project_path(project), class: "linkable-project" do %>
+        <div class="card-product">
+          <div class="left-content-project-card">
+            <div class="card-product-infos">
+              <div class="desc">
+                <h2>Demande n°<%= sum += 1 %></h2>
+                <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
+                <% if project.deadline.present? %>
+                  <p> Écheance : <%= project.deadline.strftime("%m/%d/%Y") %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="right-content-project-card">
+            <div class="product-status">
+              <% if project.status == "terminé" %>
+              <div class="green-badge"></div>
+              <span><em>Commande terminée</em></span>
+              <% else %>
+              <div class="orange-badge"></div>
+              <span><em>Commande en cours</em></span>
               <% end %>
             </div>
           </div>
         </div>
-        <div class="right-content-project-card">
-          <div class="product-status">
-            <% if project.status == "terminé" %>
-            <div class="green-badge"></div>
-            <span><em>Demande terminé</em></span>
-            <% else %>
-            <div class="orange-badge"></div>
-            <span><em>Demande en cours</em></span>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <% end %>
-      <% end %>
+        <% end %>
+        <% end %>
 
+  </div>
 </div>
 
 

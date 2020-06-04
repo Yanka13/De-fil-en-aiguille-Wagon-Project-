@@ -1,66 +1,68 @@
-<%= render 'shared/dashboard' %>
-<!-- Page content holder -->
-<div class="page-content" id="content">
-  <!-- Toggle button -->
-<!--   <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button> -->
-  <!-- Demo content -->
-  <h2 class="display-4 text-white">Mon tableau de bord</h2>
-  <p class="lead text-white mb-0">Synthèse de votre activité sur notre plateforme 😇 </p>
-  <div class="separator"></div>
-  <div class="col-lg-12 dashboard-cards top-container">
-    <div class="top-in-card">
-     <!--  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
-      <div id="circle-container"></div> -->
-      <div id="circle-container">
-      <p class="percentage"><strong>0<span>%</span></strong></p>
+<div class="bg-dashboard">
+  <%= render 'shared/dashboard' %>
+  <!-- Page content holder -->
+  <div class="page-content" id="content">
+    <!-- Toggle button -->
+  <!--   <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button> -->
+    <!-- Demo content -->
+    <h2 class="display-4 text-white">Mon tableau de bord</h2>
+    <p class="lead text-white mb-0">Synthèse de votre activité sur notre plateforme 😇 </p>
+    <div class="separator"></div>
+    <div class="col-lg-12 dashboard-cards top-container">
+      <div class="top-in-card">
+       <!--  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+        <div id="circle-container"></div> -->
+        <div id="circle-container">
+        <p class="percentage"><strong>0<span>%</span></strong></p>
+        </div>
+        <p class="top-in-card-text"><em>de la demande</em></p>
+        <p class="top-in-card-text"><em>en cours</em></p>
       </div>
-      <p class="top-in-card-text"><em>du projet</em></p>
-      <p class="top-in-card-text"><em>en cours</em></p>
-    </div>
-    <div class="vertical-separator"></div>
-     <div class="top-in-card">
-      <p class="top-in-card-title"><strong><%= current_user.projects.count %></strong></p>
-      <p class="top-in-card-text"><em>Projets terminés</em></p>
-      <p class="top-in-card-text"><em>avec succes !</em></p>
-    </div>
-    <div class="vertical-separator"></div>
-     <div class="top-in-card">
-      <p class="top-in-card-title"><strong><%= @friends.count %></strong></p>
-      <p class="top-in-card-text"><em>Collaborateurs</em></p>
-    </div>
-  </div>
-  <div class="col-lg-12 dashboard-cards-map">
-    <h1 class="color-dark-blue">Les couturiers qui m'aident</h1>
-    <div class="d-flex justify-content-between dashboard-cards-map">
-      <div id="map"
-           style="width: 100%; height: 600px;"
-           data-markers="<%= @markers_dash.to_json %>"
-           data-center="<%= @marker_center_dash.to_json %>"
-           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div class="vertical-separator"></div>
+       <div class="top-in-card">
+        <p class="top-in-card-title"><strong><%= current_user.projects.count %></strong></p>
+        <p class="top-in-card-text"><em>Projets terminés</em></p>
+        <p class="top-in-card-text"><em>avec succes !</em></p>
       </div>
-      <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <% @friends.each do |friend| %>
-          <div class="card-friend">
-            <div class="left-content-friend-card">
-              <% if friend.photo.present? %>
-                <%= image_tag friend.photo, class: "avatar-friend-card" %>
-              <% end %>
-              <div class="card-product-infos">
-                <div class="desc">
-                  <div class="mask-maker-name-and-level">
-                    <h2 class="color-dark-blue"><%= "#{friend.first_name.capitalize}" %></h2>
-                    <span class="badge badge-pill badge-info"><%= friend.level %></span>
+      <div class="vertical-separator"></div>
+       <div class="top-in-card">
+        <p class="top-in-card-title"><strong><%= @friends.count %></strong></p>
+        <p class="top-in-card-text"><em>Collaborateurs</em></p>
+      </div>
+    </div>
+    <div class="col-lg-12 dashboard-cards-map">
+      <h1 class="color-dark-blue">Les couturiers qui m'aident</h1>
+      <div class="d-flex justify-content-between dashboard-cards-map">
+        <div id="map"
+             style="width: 100%; height: 600px;"
+             data-markers="<%= @markers_dash.to_json %>"
+             data-center="<%= @marker_center_dash.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <% @friends.each do |friend| %>
+            <div class="card-friend">
+              <div class="left-content-friend-card">
+                <% if friend.photo.present? %>
+                  <%= image_tag friend.photo, class: "avatar-friend-card" %>
+                <% end %>
+                <div class="card-product-infos">
+                  <div class="desc">
+                    <div class="mask-maker-name-and-level">
+                      <h2 class="color-dark-blue"><%= "#{friend.first_name.capitalize}" %></h2>
+                      <span class="badge badge-pill badge-info"><%= friend.level %></span>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="right-content-friend-card">
+                <%= link_to "#" do %>
+                  <%= image_tag "message.svg", style:"width:20%", alt: "chat-icon" %>
+                <% end %>
+              </div>
             </div>
-            <div class="right-content-friend-card">
-              <%= link_to "#" do %>
-                <%= image_tag "message.svg", style:"width:20%", alt: "chat-icon" %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
