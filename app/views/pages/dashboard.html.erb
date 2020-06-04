@@ -1,16 +1,12 @@
 <%= render 'shared/dashboard' %>
-
 <!-- Page content holder -->
 <div class="page-content" id="content">
   <!-- Toggle button -->
-  <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
-
+<!--   <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button> -->
   <!-- Demo content -->
-  <h2 class="display-4 text-white">Dashboard</h2>
+  <h2 class="display-4 text-white">Mon tableau de bord</h2>
   <p class="lead text-white mb-0">Synthèse de votre activité sur notre plateforme 😇 </p>
-
   <div class="separator"></div>
-
     <div class="col-lg-12 dashboard-cards top-container">
       <div class="top-in-card">
        <!--  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
@@ -33,7 +29,6 @@
         <p class="top-in-card-text"><em>Collaborateurs</em></p>
       </div>
     </div>
-
     <div class="col-lg-12 dashboard-cards-map">
       <h1>Mes collaborateurs</h1>
       <p style="margin-bottom: 0px;">Tout ceux qui m'aident.</p>
@@ -44,31 +39,21 @@
              data-center="<%= @marker_center.to_json %>"
              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-
-        <div class="col-lg-6 dashboard-cards text-align-center">
-        <% @friends.each do |friend| %>
-          <div class=dashboard-card-friends>
-          div.
-          <% if friend.photo.present? %>
-            <%= image_tag friend.photo, class: "avatar-friend" %>
-          <% end %>
-         <div class="friend-card-text ">
-            <div class="friend-name">
-              <h2> <strong><%=friend.first_name.capitalize %> </strong></p>
-            </div>
-             <div class="friend-title">
-              <p> Couturier de <%=friend.offers.last.product.product_type%> </p>
-            </div>
+        <div class="">
+          <% @friends.each do |friend| %>
+          <div>
+            <% if friend.photo.present? %>
+              <%= image_tag friend.photo, class: "avatar-large" %>
+            <% end %>
           </div>
-
-          <div class=friend-contact-icon>
+          <div>
+            <h2><strong><%=friend.first_name.capitalize %></strong></h2>
+            <p> Couturier de <%=friend.offers.last.product.product_type%> </p>
+          </div>
+          <div>
             <i class="far fa-edit"></i>
           </div>
-
-        </div>
-      <% end %>
+        <% end %>
       </div>
     </div>
-
-
 </div>
