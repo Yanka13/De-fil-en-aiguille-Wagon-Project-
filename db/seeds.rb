@@ -17,7 +17,7 @@ puts 'Creating 13 users (12 mask-makers, 1 professionnels de santé)...'
 elise = User.new(
   first_name: "elise",
   last_name: "ddlt",
-  nickname: "lili",
+  nickname: "elise",
   email: "elise.dindault@gmail.com",
   password: "elise.dindault@gmail.com",
   address: "259B Avenue Daumesnil, 75012 Paris",
@@ -42,12 +42,12 @@ yannis = User.new(
 yannis.save
 
 jeremy = User.new(
-  first_name: "jeremy",
+  first_name: "jéremy",
   last_name: "barbedienne",
-  nickname: "JeremyBRD",
+  nickname: "jéremy",
   email: "jbarbedienne3@gmail.com",
   password: "jbarbedienne3@gmail.com",
-  address: "10 Rue Bernard Palissy, Créteil, Île-de-France, France",
+  address: "10 Rue Bernard Palissy, Créteil",
   category: "particulier",
   mask_maker: true,
   level: "Couturier Junior",

@@ -53,7 +53,7 @@
                 </div>
                 <div class="margin-top-recap-elements">
                   <% if @project.deadline.present? %>
-                    <p><strong>Deadline : </strong><%= @project.deadline %></p>
+                    <p><strong>Écheance : </strong><%= @project.deadline.strftime("%m/%d/%Y")%></p>
                   <% end %>
                 </div>
                 <div class="margin-top-recap-elements">
