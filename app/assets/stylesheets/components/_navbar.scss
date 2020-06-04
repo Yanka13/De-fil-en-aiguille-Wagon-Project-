@@ -1,10 +1,9 @@
-Navbar
-
 .navbar-lewagon {
   height: 70px;
   justify-content: space-between;
   background-color: white;
   border-bottom: 1px solid lightgrey;
+  justify-content: space-between !important;
 
   .btn-ghost .nav-link {
     color: $primary;
