@@ -10,7 +10,7 @@
     <div class="container-show-project-yannis">
       <div class="card-show-project">
         <!-- NOM DES ONGLETS -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Récapitulatif</a>
           </li>
@@ -20,11 +20,12 @@
         </ul>
         <!-- RECAPITULATIF DES BESOINS -->
         <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active align-content-tab" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="recap-container">
               <h5>Mon besoin</h5>
               <hr>
               <div class="margin-top-recap-elements">
+                <p style="margin-bottom: 0px;"><strong>Quantité : </strong>
                 <div class="horizontal-item-centred-recap">
                   <p class="mb-1">
                     <% if @project.product.product_type == "masque" %>
@@ -44,16 +45,14 @@
               <div class="margin-top-recap-elements">
                 <div class="column-content-recap">
                   <div class="horizontal-item-centred-recap">
-                    <p style="margin-bottom: 0px;"><%= image_tag "real-estate.svg", width: "3%", alt: "home", class: "mr-1" %><strong> Mon adresse :</strong></p>
+                    <p style="margin-bottom: 0px;"><strong> Mon adresse :</strong></p>
                   </div>
-                  <p id="adress-recap"><%= @project.user.address %></p>
+                  <p><%= @project.user.address %></p>
                 </div>
               </div>
               <div class="margin-top-recap-elements">
                 <% if @project.deadline.present? %>
                   <p><strong>Deadline : </strong><%= @project.deadline %></p>
-                <% else %>
-                  <p><strong>Deadline : </strong>--</p>
                 <% end %>
               </div>
               <div class="margin-top-recap-elements">
