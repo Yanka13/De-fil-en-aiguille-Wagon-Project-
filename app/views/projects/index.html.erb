@@ -19,7 +19,9 @@
             <div class="desc">
               <h2>Projet</h2>
               <p>Quantité : <%= project.quantity %> <%= project.product.product_type.capitalize %>s</p>
-              <p>Deadline : <%= project.deadline %></p>
+              <% if project.deadline.present? %>
+                <p>Deadline : <%= project.deadline %></p>
+              <% end %>
             </div>
           </div>
         </div>
