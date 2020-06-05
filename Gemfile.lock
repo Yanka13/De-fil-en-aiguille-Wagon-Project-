@@ -278,7 +278,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   dotenv-rails
-  font-awesome-sass
+  font-awesome-sass (~> 5.12)
   geocoder
   jbuilder (~> 2.7)
   listen (~> 3.2)
