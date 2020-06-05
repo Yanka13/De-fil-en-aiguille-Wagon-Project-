@@ -92,11 +92,11 @@
                           <span class="badge badge-pill badge-info"><%= match.offer.user.level %></span>
                           <h2><%= "#{match.offer.user.first_name.capitalize}  " %></h2>
                         </div>
-                          <p><%= match.offer.quantity %> <%= match.offer.product.product_type%>s</p>
-                        <% if match.offer.quantity * match.offer.price  == 0 %>
+                          <p><%= match.quantity %> <%= match.offer.product.product_type%>s</p>
+                        <% if match.quantity * match.offer.price  == 0 %>
                           <p> Total: gratuit  </p>
                         <% else %>
-                          <p> Prix à l'unité: <%=match.offer.price %> € - Total: <%= match.offer.quantity * match.offer.price %> € </p>
+                          <p> Prix à l'unité: <%=match.offer.price %> € - Total: <%= match.quantity * match.offer.price %> € </p>
                         <% end %>
                       </div>
                     </div>

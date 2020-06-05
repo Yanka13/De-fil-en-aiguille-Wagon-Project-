@@ -1,0 +1,40 @@
+.basket {
+  display: grid;
+  grid-template-columns: 25px 1fr 25px;
+  width: 100px;
+  margin-left: 1em;
+  > div  {
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+
+.basket .increment {
+  font-size: 15px;
+  background-color: $fire-opal;
+  color: white;
+  width: 25px;
+  padding: 3px 0px;
+  text-align: center;
+  &.minus {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+  }
+  &.plus {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  &.disabled {
+    opacity: .3;
+    cursor: initial;
+  }
+}
+
+
+.basket-input input {
+  border-radius: 0px;
+  height: 30px;
+  box-shadow: none !important;
+  text-align: center;
+}

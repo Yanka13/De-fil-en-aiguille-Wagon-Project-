@@ -35,8 +35,9 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
     @project.product = Product.find(project_params[:product_id])
     if @project.save!
+      params[:matches][:offer_ids].delete_at(0)
       params[:matches][:offer_ids].each do |offer_id|
-        Match.create(project: @project, offer_id: offer_id.to_i, quantity: params[:matches]["#{:match_quantity_offer_}"+"#{offer_id}"])
+        Match.create(project: @project, offer_id: offer_id.to_i, quantity: params[:matches]["match_quantity_offer_#{offer_id.to_i}"].to_i)
       end
 
       @usertocontact = User.near(current_user.address, 10)
