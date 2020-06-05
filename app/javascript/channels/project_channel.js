@@ -1,6 +1,6 @@
 import consumer from "./consumer";
 import Swal from 'sweetalert2';
-import 'sweetalert2/src/sweetalert2.scss';
+
 
 const initProjectCable = () => {
   const principale = document.getElementById('content');
