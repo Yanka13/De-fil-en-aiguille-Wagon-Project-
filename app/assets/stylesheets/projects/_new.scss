@@ -46,13 +46,10 @@
   }
 }
 
-.match-quantity {
-  width: 30%;
-}
 
 .matches_match_quantity {
   display: flex;
-  justify-content: end;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
   font-size: 16px;
