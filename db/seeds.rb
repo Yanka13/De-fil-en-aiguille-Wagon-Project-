@@ -279,14 +279,6 @@ offer7 = Offer.new(
 )
 offer7.save
 
-offer8 = Offer.new(
-  user: elise,
-  product: blouse,
-  quantity: 0,
-  description: "je fais des blouses quand j'ai le temps",
-  price: 0
-)
-offer8.save
 
 offer9 = Offer.new(
   user: sebastien,
